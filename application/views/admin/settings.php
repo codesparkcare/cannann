@@ -220,8 +220,41 @@
             </div>
         </div>
 
-        <!-- Right Side: SMTP Tester -->
-        <div class="col-lg-4">
+        <!-- Right Side: Profile Security & SMTP Tester -->
+        <div class="col-lg-4 d-flex flex-column gap-4">
+            <!-- Admin Account Security -->
+            <div class="card border-0 shadow-sm rounded-3 p-4">
+                <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-user-shield text-primary me-2"></i> Admin Security & Login</h5>
+                <p class="text-muted small mb-3">Update your login username, email, and dashboard access credentials.</p>
+
+                <form action="<?php echo base_url('admin/update_admin_profile'); ?>" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Admin Display Name</label>
+                        <input type="text" name="admin_name" class="form-control form-control-sm" value="<?php echo htmlspecialchars($admin_user['name'] ?? $this->session->userdata('admin_name') ?? 'Admin Manager'); ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Login Username</label>
+                        <input type="text" name="admin_username" class="form-control form-control-sm" value="<?php echo htmlspecialchars($admin_user['username'] ?? $this->session->userdata('admin_username') ?? 'admin'); ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Login Email</label>
+                        <input type="email" name="admin_email" class="form-control form-control-sm" value="<?php echo htmlspecialchars($admin_user['email'] ?? $this->session->userdata('admin_email') ?? 'admin@hotelcanaann.com'); ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">New Password <small class="text-muted fw-normal">(leave blank to keep current)</small></label>
+                        <input type="password" name="new_password" class="form-control form-control-sm" placeholder="••••••••">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Confirm New Password</label>
+                        <input type="password" name="confirm_password" class="form-control form-control-sm" placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm w-100 py-2">
+                        <i class="fa-solid fa-lock me-1"></i> Update Admin Credentials
+                    </button>
+                </form>
+            </div>
+
+            <!-- SMTP Tester -->
             <div class="card border-0 shadow-sm rounded-3 p-4">
                 <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-paper-plane text-primary me-2"></i> Send Test Email</h5>
                 <p class="text-muted small mb-3">Verify that your SMTP host, port, username, and password are communicating properly with the mail server.</p>
@@ -229,9 +262,9 @@
                 <form action="<?php echo base_url('admin/send_test_email'); ?>" method="POST">
                     <div class="mb-3">
                         <label class="form-label small fw-bold">Recipient Email</label>
-                        <input type="email" name="test_email" class="form-control" placeholder="your-personal@email.com" required>
+                        <input type="email" name="test_email" class="form-control form-control-sm" placeholder="your-personal@email.com" required>
                     </div>
-                    <button type="submit" class="btn btn-outline-dark w-100">
+                    <button type="submit" class="btn btn-outline-dark btn-sm w-100 py-2">
                         <i class="fa-solid fa-paper-plane me-1"></i> Send Test Email
                     </button>
                 </form>

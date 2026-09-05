@@ -69,6 +69,8 @@ $route['submit-contact'] = 'home/submit_contact';
 
 // Admin Routes
 $route['admin'] = 'admin/index';
+$route['admin/login'] = 'admin/login';
+$route['admin/logout'] = 'admin/logout';
 $route['admin/sliders'] = 'admin/sliders';
 $route['admin/categories'] = 'admin/room_categories';
 $route['admin/rooms'] = 'admin/rooms';

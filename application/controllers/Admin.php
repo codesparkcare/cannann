@@ -5,6 +5,7 @@ class Admin extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('Admin_model');
         $this->load->model('Settings_model');
         $this->load->model('Slider_model');
         $this->load->model('Room_model');
@@ -17,6 +18,15 @@ class Admin extends CI_Controller {
         $this->load->model('Contact_model');
         $this->load->model('Testimonial_model');
         $this->load->library('upload');
+
+        $current_method = $this->router->fetch_method();
+        $exempt_methods = array('login', 'logout');
+
+        if (!in_array($current_method, $exempt_methods)) {
+            if (!$this->session->userdata('admin_logged_in')) {
+                redirect('admin/login');
+            }
+        }
     }
 
     private function handle_file_upload($field_name, $sub_folder = '') {
@@ -79,6 +89,50 @@ class Admin extends CI_Controller {
             imagedestroy($cropped);
         }
         imagedestroy($im);
+    }
+
+    // AUTHENTICATION
+    public function login() {
+        if ($this->session->userdata('admin_logged_in')) {
+            redirect('admin/index');
+        }
+
+        if ($this->input->post()) {
+            $username = trim($this->input->post('username', TRUE));
+            $password = $this->input->post('password');
+
+            if (!empty($username) && !empty($password)) {
+                $user = $this->Admin_model->authenticate($username, $password);
+                if ($user) {
+                    $session_data = array(
+                        'admin_logged_in' => TRUE,
+                        'admin_id'        => $user['id'],
+                        'admin_username'  => $user['username'],
+                        'admin_email'     => $user['email'],
+                        'admin_name'      => $user['name'] ?? 'Admin Manager',
+                        'admin_role'      => $user['role'] ?? 'superadmin'
+                    );
+                    $this->session->set_userdata($session_data);
+                    $this->session->set_flashdata('success', 'Welcome back, ' . ($user['name'] ?? 'Admin') . '!');
+                    redirect('admin/index');
+                } else {
+                    $this->session->set_flashdata('error', 'Invalid username or password. Please try again.');
+                    redirect('admin/login');
+                }
+            } else {
+                $this->session->set_flashdata('error', 'Please provide both username/email and password.');
+                redirect('admin/login');
+            }
+        }
+
+        $data['settings'] = $this->Settings_model->get_settings();
+        $this->load->view('admin/login', $data);
+    }
+
+    public function logout() {
+        $this->session->unset_userdata(array('admin_logged_in', 'admin_id', 'admin_username', 'admin_email', 'admin_name', 'admin_role'));
+        $this->session->sess_destroy();
+        redirect('admin/login');
     }
 
     // DASHBOARD
@@ -824,15 +878,52 @@ class Admin extends CI_Controller {
         redirect('admin/testimonials');
     }
 
-    // ==========================================
-    // 13. SITE SETTINGS & SMTP CONFIGURATION
-    // ==========================================
     public function settings() {
+        $admin_id = $this->session->userdata('admin_id');
+        $data['admin_user'] = $this->Admin_model->get_user_by_id($admin_id);
         $data['settings'] = $this->Settings_model->get_settings();
         $this->load->view('admin/layout/header', $data);
         $this->load->view('admin/layout/sidebar', $data);
         $this->load->view('admin/settings', $data);
         $this->load->view('admin/layout/footer', $data);
+    }
+
+    public function update_admin_profile() {
+        if ($this->input->post()) {
+            $admin_id = $this->session->userdata('admin_id');
+            $name = trim($this->input->post('admin_name', TRUE));
+            $username = trim($this->input->post('admin_username', TRUE));
+            $email = trim($this->input->post('admin_email', TRUE));
+            $new_password = $this->input->post('new_password');
+            $confirm_password = $this->input->post('confirm_password');
+
+            $update_data = array();
+            if (!empty($name)) $update_data['name'] = $name;
+            if (!empty($username)) $update_data['username'] = $username;
+            if (!empty($email)) $update_data['email'] = $email;
+
+            if (!empty($update_data)) {
+                $this->Admin_model->update_profile($admin_id, $update_data);
+                $this->session->set_userdata(array(
+                    'admin_name'     => $name ?: $this->session->userdata('admin_name'),
+                    'admin_username' => $username ?: $this->session->userdata('admin_username'),
+                    'admin_email'    => $email ?: $this->session->userdata('admin_email')
+                ));
+            }
+
+            if (!empty($new_password)) {
+                if ($new_password === $confirm_password) {
+                    $this->Admin_model->update_password($admin_id, $new_password);
+                    $this->session->set_flashdata('success', 'Admin profile and password updated successfully!');
+                } else {
+                    $this->session->set_flashdata('error', 'Profile updated, but password was not changed because passwords did not match.');
+                    redirect('admin/settings');
+                }
+            } else {
+                $this->session->set_flashdata('success', 'Admin profile updated successfully!');
+            }
+            redirect('admin/settings');
+        }
     }
 
     public function update_settings() {

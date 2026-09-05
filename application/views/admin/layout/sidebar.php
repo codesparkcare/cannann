@@ -113,6 +113,11 @@ if (empty($site_logo) && file_exists(FCPATH . 'uploads/site_logo.png')) {
                 <i class="fa-solid fa-sliders"></i> Site & SMTP Settings
             </a>
         </li>
+        <li>
+            <a href="<?php echo base_url('admin/logout'); ?>" class="text-danger">
+                <i class="fa-solid fa-right-from-bracket text-danger"></i> Sign Out
+            </a>
+        </li>
     </ul>
 </nav>
 
@@ -132,18 +137,23 @@ if (empty($site_logo) && file_exists(FCPATH . 'uploads/site_logo.png')) {
                 <i class="fa-solid fa-globe me-1"></i> View Live Site
             </a>
 
+            <?php
+            $current_admin_name = $this->session->userdata('admin_name') ?: 'Admin Manager';
+            $current_admin_role = $this->session->userdata('admin_role') ? ucfirst($this->session->userdata('admin_role')) : 'Hotel Manager';
+            $avatar_name = urlencode($current_admin_name);
+            ?>
             <div class="user-profile dropdown">
-                <div class="d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="info text-end d-none d-md-flex">
-                        <span class="name">Super Admin</span>
-                        <span class="role text-muted">Hotel Manager</span>
+                <div class="d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                    <div class="info text-end d-none d-md-flex flex-column">
+                        <span class="name fw-bold" style="font-size: 0.85rem; color: #1e293b;"><?php echo htmlspecialchars($current_admin_name); ?></span>
+                        <span class="role text-muted" style="font-size: 0.75rem;"><?php echo htmlspecialchars($current_admin_role); ?></span>
                     </div>
-                    <img src="https://ui-avatars.com/api/?name=Admin+Manager&background=c5a880&color=fff" alt="Admin">
+                    <img src="https://ui-avatars.com/api/?name=<?php echo $avatar_name; ?>&background=c5a880&color=fff" alt="Admin" style="width: 38px; height: 38px; border-radius: 50%;">
                 </div>
                 <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2">
                     <li><a class="dropdown-item py-2" href="<?php echo base_url('admin/settings'); ?>"><i class="fa-solid fa-gear me-2"></i> Settings</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item py-2 text-danger" href="<?php echo base_url(); ?>"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Return to Site</a></li>
+                    <li><a class="dropdown-item py-2 text-danger" href="<?php echo base_url('admin/logout'); ?>"><i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out</a></li>
                 </ul>
             </div>
         </div>
