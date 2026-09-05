@@ -23,7 +23,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title><?php echo htmlspecialchars($opening_title); ?> | <?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann Hotel'); ?></title>
     
     <!-- Favicon -->
@@ -65,7 +65,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             position: relative;
             overflow-x: hidden;
             background-attachment: fixed;
-            padding: 40px 16px 70px;
+            padding: 30px 16px 65px;
         }
 
         /* Ambient Dynamic Cursor Spotlight */
@@ -141,7 +141,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             justify-content: center;
         }
 
-        /* Staggered Cinematic Reveal */
+        /* Staggered Reveal */
         .reveal-item {
             opacity: 0;
             transform: translateY(18px);
@@ -163,7 +163,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
 
         /* High-Visibility Centerpiece Logo */
         .logo-wrap {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             position: relative;
             display: inline-flex;
             justify-content: center;
@@ -216,7 +216,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             box-shadow: 0 0 25px rgba(197, 168, 128, 0.25), inset 0 0 15px rgba(197, 168, 128, 0.15);
             position: relative;
             overflow: hidden;
@@ -238,36 +238,15 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             100% { left: 100%; }
         }
 
-        /* Headline with Golden Foil Shimmer */
-        .grand-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.7rem;
-            font-weight: 800;
-            line-height: 1.18;
-            color: #f5d79e;
-            background: linear-gradient(110deg, #ffeaae 0%, #ffffff 30%, #c5a880 60%, #ffffff 85%, #ffeaae 100%);
-            background-size: 250% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 14px;
-            letter-spacing: -0.3px;
-            animation: goldGleam 9s linear infinite;
-        }
-
-        @keyframes goldGleam {
-            0% { background-position: 250% 0; }
-            100% { background-position: -250% 0; }
-        }
-
         .grand-subtext {
             font-size: 1.08rem;
             color: #d1d9e2;
             max-width: 660px;
-            margin: 0 auto 28px;
+            margin: 0 auto 26px;
             line-height: 1.65;
             font-weight: 400;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            padding: 0 10px;
         }
 
         /* Countdown Box Grid */
@@ -276,7 +255,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             grid-template-columns: repeat(4, 1fr);
             gap: 16px;
             max-width: 650px;
-            margin: 0 auto 28px;
+            margin: 0 auto 26px;
             perspective: 1000px;
             width: 100%;
         }
@@ -345,7 +324,8 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             align-items: center;
             gap: 16px;
             flex-wrap: wrap;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
+            width: 100%;
         }
 
         .btn-gold-action {
@@ -433,7 +413,8 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             align-items: center;
             gap: 14px;
             flex-wrap: wrap;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            width: 100%;
         }
         .info-pill {
             background: rgba(255, 255, 255, 0.06);
@@ -472,50 +453,105 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             left: 0;
             right: 0;
             z-index: 10;
-            padding: 16px 20px;
+            padding: 14px 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.06);
             text-align: center;
             font-size: 0.8rem;
             color: #64748b;
         }
 
+        /* ==================================================== */
+        /* Enhanced Mobile & Tablet Responsiveness              */
+        /* ==================================================== */
         @media (max-width: 768px) {
             body {
-                padding: 30px 14px 70px;
-                justify-content: flex-start;
-            }
-            .grand-heading {
-                font-size: 1.95rem;
-            }
-            .grand-subtext {
-                font-size: 0.94rem;
-                margin-bottom: 20px;
-            }
-            .countdown-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                margin-bottom: 20px;
-            }
-            .timer-number {
-                font-size: 2.2rem;
+                padding: 24px 14px 60px;
+                justify-content: center;
             }
             .brand-logo-img {
                 max-width: 280px;
+                max-height: 100px;
+            }
+            .logo-wrap::after {
+                width: 220px;
+                height: 90px;
+            }
+            .badge-opening {
+                font-size: 0.74rem;
+                padding: 6px 18px;
+                letter-spacing: 1.5px;
+                margin-bottom: 12px;
+            }
+            .grand-subtext {
+                font-size: 0.94rem;
+                line-height: 1.55;
+                margin-bottom: 18px;
+                max-width: 100%;
+            }
+            .countdown-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+                margin-bottom: 18px;
+                max-width: 100%;
+            }
+            .timer-card {
+                padding: 12px 4px;
+                border-radius: 14px;
+            }
+            .timer-number {
+                font-size: 1.9rem;
+                margin-bottom: 2px;
+            }
+            .timer-label {
+                font-size: 0.65rem;
+                letter-spacing: 1px;
             }
             .action-group {
                 flex-direction: column;
-                width: 100%;
                 gap: 10px;
-                margin-bottom: 20px;
+                margin-bottom: 16px;
+                width: 100%;
+                max-width: 360px;
             }
             .btn-gold-action, .btn-whatsapp-action {
                 width: 100%;
                 justify-content: center;
                 padding: 12px 20px;
+                font-size: 0.88rem;
+            }
+            .info-pills {
+                flex-direction: column;
+                gap: 8px;
+                width: 100%;
+                max-width: 360px;
+                margin-bottom: 8px;
+            }
+            .info-pill {
+                width: 100%;
+                justify-content: center;
+                font-size: 0.82rem;
+                padding: 8px 16px;
             }
             .opening-footer {
                 position: relative;
-                margin-top: 30px;
+                margin-top: 20px;
+                padding: 10px 10px 0;
+                font-size: 0.74rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .brand-logo-img {
+                max-width: 220px;
+            }
+            .timer-number {
+                font-size: 1.6rem;
+            }
+            .timer-label {
+                font-size: 0.58rem;
+            }
+            .grand-subtext {
+                font-size: 0.88rem;
             }
         }
     </style>
@@ -663,10 +699,11 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         // ----------------------------------------------------
         (function() {
             const canvas = document.getElementById('particleCanvas');
+            if (!canvas) return;
             const ctx = canvas.getContext('2d');
             let width, height;
             let particles = [];
-            const particleCount = window.innerWidth < 768 ? 22 : 45;
+            const particleCount = window.innerWidth < 768 ? 20 : 45;
 
             function resize() {
                 width = canvas.width = window.innerWidth;
@@ -739,7 +776,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         })();
 
         // ----------------------------------------------------
-        // 2. Cursor Spotlight Follower
+        // 2. Cursor Spotlight Follower (Desktop only)
         // ----------------------------------------------------
         const spotlight = document.getElementById('cursorSpotlight');
         if (window.innerWidth > 768 && spotlight) {
@@ -750,7 +787,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         }
 
         // ----------------------------------------------------
-        // 3. Interactive 3D Tilt on Countdown Cards
+        // 3. Interactive 3D Tilt on Countdown Cards (Desktop only)
         // ----------------------------------------------------
         const cards = document.querySelectorAll('.timer-card');
         if (window.innerWidth > 768) {
