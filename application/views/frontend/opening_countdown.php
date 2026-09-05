@@ -13,7 +13,6 @@ if (empty($site_favicon) && file_exists(FCPATH . 'uploads/favicon.png')) {
 $opening_date = !empty($settings['opening_date']) ? $settings['opening_date'] : '2026-09-12 09:00:00';
 $opening_title = !empty($settings['opening_title']) ? $settings['opening_title'] : 'Grand Opening — September 12, 2026';
 $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_subtitle'] : 'A new sanctuary of coastal luxury, bespoke suites, and Michelin-inspired culinary artistry arrives soon in Chennai.';
-$is_admin = $this->session->userdata('admin_logged_in');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -364,14 +363,6 @@ $is_admin = $this->session->userdata('admin_logged_in');
 
     <div class="bg-glow-1"></div>
     <div class="bg-glow-2"></div>
-
-    <?php if($is_admin): ?>
-        <div class="admin-ribbon">
-            <span><i class="fa-solid fa-user-shield me-1"></i> <strong>Admin Mode Active:</strong> Grand Opening Teaser is live for public visitors.</span>
-            <a href="<?php echo base_url('admin/settings'); ?>"><i class="fa-solid fa-gear me-1"></i> Change Settings</a>
-            <a href="<?php echo base_url('home/preview_full_site'); ?>"><i class="fa-solid fa-eye me-1"></i> Preview Full Website</a>
-        </div>
-    <?php endif; ?>
 
     <div class="main-container">
         <!-- Logo -->

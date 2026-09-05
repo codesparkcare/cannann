@@ -4,14 +4,6 @@ $is_admin = $this->session->userdata('admin_logged_in');
 $is_opening_on = !empty($settings['is_opening_enabled']) && $settings['is_opening_enabled'] == 1;
 ?>
 
-<!-- Admin Preview Ribbon if Admin is Viewing Site with Opening Mode Active -->
-<?php if($is_admin && $is_opening_on): ?>
-    <div style="background: #c5a880; color: #0b1120; padding: 6px 16px; font-size: 0.82rem; font-weight: 700; text-align: center; display: flex; justify-content: center; align-items: center; gap: 15px; position: sticky; top: 0; z-index: 999999;">
-        <span><i class="fa-solid fa-user-shield me-1"></i> Admin Site Preview (Grand Opening Mode is Active for Public)</span>
-        <a href="<?php echo base_url('home/preview_opening_page'); ?>" style="color: #0b1120; text-decoration: underline;"><i class="fa-solid fa-eye me-1"></i> View Opening Countdown Page</a>
-        <a href="<?php echo base_url('admin/settings'); ?>" style="color: #0b1120; text-decoration: underline;"><i class="fa-solid fa-gear me-1"></i> Admin Settings</a>
-    </div>
-<?php endif; ?>
 
 <!-- Grand Opening Announcement Ribbon (if Banner Mode Enabled) -->
 <?php if($is_opening_on && ($settings['opening_mode'] ?? '') === 'banner_widget'): ?>
