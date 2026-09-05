@@ -28,7 +28,7 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
     <?php endif; ?>
 
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
@@ -38,7 +38,7 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             --primary-dark: #a8895e;
             --primary-light: #f5d79e;
             --dark-emerald: #061810;
-            --bg-gradient: radial-gradient(circle at center, #0a2e1f 0%, #061810 60%, #020906 100%);
+            --bg-gradient: radial-gradient(circle at 50% 30%, #0c3322 0%, #061810 55%, #020906 100%);
         }
 
         * {
@@ -57,117 +57,186 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             justify-content: space-between;
             position: relative;
             overflow-x: hidden;
+            background-attachment: fixed;
         }
 
-        /* Ambient Glow & Background Elements */
-        .bg-glow-1 {
-            position: absolute;
-            top: -150px;
-            right: -100px;
-            width: 600px;
-            height: 600px;
+        /* Ambient Dynamic Cursor Spotlight */
+        #cursorSpotlight {
+            position: fixed;
+            width: 700px;
+            height: 700px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(197, 168, 128, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(197, 168, 128, 0.08) 0%, rgba(16, 185, 129, 0.04) 40%, transparent 70%);
             pointer-events: none;
             z-index: 1;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            mix-blend-mode: screen;
+        }
+
+        /* Floating Golden Particle Canvas */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Background Glow Orbs */
+        .bg-glow-1 {
+            position: absolute;
+            top: -120px;
+            right: -100px;
+            width: 650px;
+            height: 650px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(197, 168, 128, 0.16) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+            animation: orbFloat1 12s ease-in-out infinite alternate;
         }
         .bg-glow-2 {
             position: absolute;
             bottom: -150px;
-            left: -100px;
-            width: 600px;
-            height: 600px;
+            left: -120px;
+            width: 650px;
+            height: 650px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
             pointer-events: none;
             z-index: 1;
+            animation: orbFloat2 14s ease-in-out infinite alternate;
         }
 
-        /* Admin Preview Ribbon */
-        .admin-ribbon {
-            background: rgba(197, 168, 128, 0.95);
-            color: #0b1120;
-            padding: 8px 16px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 16px;
-            position: relative;
-            z-index: 100;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        @keyframes orbFloat1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-40px, 50px) scale(1.1); }
         }
-        .admin-ribbon a {
-            color: #0b1120;
-            text-decoration: underline;
-            font-weight: 700;
+        @keyframes orbFloat2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, -40px) scale(1.15); }
         }
 
         .main-container {
             position: relative;
             z-index: 10;
-            padding: 50px 20px 40px;
-            max-width: 960px;
+            padding: 55px 20px 45px;
+            max-width: 980px;
             margin: 0 auto;
             text-align: center;
             width: 100%;
         }
 
-        /* Header Logo */
+        /* Staggered Cinematic Reveal */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(28px);
+            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .reveal-delay-1 { animation-delay: 0.15s; }
+        .reveal-delay-2 { animation-delay: 0.35s; }
+        .reveal-delay-3 { animation-delay: 0.55s; }
+        .reveal-delay-4 { animation-delay: 0.75s; }
+        .reveal-delay-5 { animation-delay: 0.95s; }
+        .reveal-delay-6 { animation-delay: 1.15s; }
+
+        @keyframes revealUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Logo with Luxury Float & Shimmer */
         .logo-wrap {
-            margin-bottom: 28px;
+            margin-bottom: 26px;
+            position: relative;
+            display: inline-block;
         }
         .brand-logo-img {
             max-width: 320px;
-            max-height: 120px;
+            max-height: 125px;
             object-fit: contain;
-            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px rgba(197, 168, 128, 0.4));
-            animation: floatLogo 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 25px rgba(197, 168, 128, 0.45));
+            animation: floatLogo 4s ease-in-out infinite alternate;
+            transition: transform 0.4s ease;
+        }
+        .brand-logo-img:hover {
+            transform: scale(1.03);
         }
 
         @keyframes floatLogo {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-8px); }
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-7px) rotate(0.3deg); }
         }
 
+        /* Official Badge with Pulsing Border */
         .badge-opening {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(197, 168, 128, 0.15);
-            border: 1px solid rgba(197, 168, 128, 0.4);
+            gap: 10px;
+            background: rgba(197, 168, 128, 0.12);
+            border: 1px solid rgba(197, 168, 128, 0.45);
             color: var(--primary-light);
-            padding: 8px 24px;
+            padding: 9px 26px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
             letter-spacing: 2.5px;
             text-transform: uppercase;
-            margin-bottom: 22px;
-            box-shadow: 0 0 25px rgba(197, 168, 128, 0.2);
+            margin-bottom: 24px;
+            box-shadow: 0 0 25px rgba(197, 168, 128, 0.2), inset 0 0 15px rgba(197, 168, 128, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .badge-opening::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(245, 215, 158, 0.4), transparent);
+            animation: badgeShine 4s infinite;
         }
 
+        @keyframes badgeShine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        /* Headline with Golden Foil Shimmer */
         .grand-heading {
             font-family: 'Playfair Display', serif;
-            font-size: 3.4rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            line-height: 1.15;
-            background: linear-gradient(135deg, #ffffff 30%, #f5d79e 70%, #c5a880 100%);
+            line-height: 1.16;
+            background: linear-gradient(110deg, #f5d79e 0%, #ffffff 25%, #c5a880 50%, #ffffff 75%, #f5d79e 100%);
+            background-size: 250% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 18px;
             letter-spacing: -0.5px;
+            animation: goldGleam 9s linear infinite;
+        }
+
+        @keyframes goldGleam {
+            0% { background-position: 250% 0; }
+            100% { background-position: -250% 0; }
         }
 
         .grand-subtext {
             font-size: 1.15rem;
-            color: #cbd5e1;
+            color: #d1d9e2;
             max-width: 680px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
+            margin: 0 auto 42px;
+            line-height: 1.75;
             font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         /* Countdown Box Grid */
@@ -175,25 +244,28 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            max-width: 680px;
+            max-width: 700px;
             margin: 0 auto 45px;
+            perspective: 1000px;
         }
 
         .timer-card {
-            background: rgba(10, 38, 26, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(197, 168, 128, 0.35);
-            border-radius: 18px;
+            background: rgba(10, 38, 26, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(197, 168, 128, 0.38);
+            border-radius: 20px;
             padding: 24px 12px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(197, 168, 128, 0.08);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), inset 0 0 25px rgba(197, 168, 128, 0.1);
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
         }
         .timer-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.02);
             border-color: var(--primary-light);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(197, 168, 128, 0.35);
         }
         .timer-card::before {
             content: '';
@@ -207,28 +279,39 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
 
         .timer-number {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 800;
             color: #ffffff;
             line-height: 1;
             margin-bottom: 6px;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(197, 168, 128, 0.4);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 25px rgba(197, 168, 128, 0.45);
+            display: inline-block;
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .timer-number.tick-flash {
+            animation: numberTick 0.5s ease-out;
+        }
+
+        @keyframes numberTick {
+            0% { transform: scale(1.15); color: #f5d79e; text-shadow: 0 0 35px rgba(245, 215, 158, 0.9); }
+            100% { transform: scale(1); color: #ffffff; }
         }
 
         .timer-label {
             font-size: 0.75rem;
             color: var(--primary-light);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.2px;
             font-weight: 700;
         }
 
-        /* Action Buttons */
+        /* Action Buttons with Breathing Aura & Light Sweep */
         .action-group {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 16px;
+            gap: 18px;
             flex-wrap: wrap;
             margin-bottom: 45px;
         }
@@ -236,7 +319,7 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         .btn-gold-action {
             background: linear-gradient(135deg, #c5a880 0%, #a8895e 100%);
             color: #061810 !important;
-            padding: 15px 36px;
+            padding: 16px 38px;
             border-radius: 50px;
             font-size: 0.95rem;
             font-weight: 800;
@@ -245,39 +328,70 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             text-decoration: none;
             border: none;
             box-shadow: 0 10px 30px rgba(197, 168, 128, 0.35);
-            transition: all 0.3s ease;
+            transition: all 0.35s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+            animation: goldPulse 3.5s infinite ease-in-out;
+        }
+        .btn-gold-action::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 80%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            transform: skewX(-25deg);
+            animation: btnSweep 4.5s infinite;
         }
         .btn-gold-action:hover {
             background: linear-gradient(135deg, #f5d79e 0%, #c5a880 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(197, 168, 128, 0.5);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 18px 45px rgba(197, 168, 128, 0.6);
             color: #061810 !important;
         }
 
+        @keyframes goldPulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(197, 168, 128, 0.35); }
+            50% { box-shadow: 0 12px 40px rgba(245, 215, 158, 0.65), 0 0 25px rgba(197, 168, 128, 0.4); }
+        }
+        @keyframes btnSweep {
+            0%, 70% { left: -120%; }
+            100% { left: 160%; }
+        }
+
         .btn-whatsapp-action {
-            background: #25d366;
+            background: linear-gradient(135deg, #25d366 0%, #1ea952 100%);
             color: #ffffff !important;
-            padding: 15px 32px;
+            padding: 16px 34px;
             border-radius: 50px;
             font-size: 0.95rem;
             font-weight: 700;
             letter-spacing: 0.5px;
             text-decoration: none;
             border: none;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
+            transition: all 0.35s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+            animation: waPulse 3.5s infinite ease-in-out 1.5s;
         }
         .btn-whatsapp-action:hover {
-            background: #20ba59;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+            background: linear-gradient(135deg, #2bf075 0%, #20ba59 100%);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 18px 40px rgba(37, 211, 102, 0.55);
             color: #ffffff !important;
+        }
+
+        @keyframes waPulse {
+            0%, 100% { box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35); }
+            50% { box-shadow: 0 12px 38px rgba(37, 211, 102, 0.6), 0 0 20px rgba(37, 211, 102, 0.35); }
         }
 
         /* Contact Info Cards */
@@ -285,14 +399,16 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 24px;
+            gap: 20px;
             flex-wrap: wrap;
             margin-bottom: 20px;
         }
         .info-pill {
             background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 10px 22px;
+            padding: 11px 24px;
             border-radius: 30px;
             font-size: 0.88rem;
             color: #e2e8f0;
@@ -300,16 +416,21 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.25s;
+            transition: all 0.3s ease;
         }
         .info-pill:hover {
-            background: rgba(197, 168, 128, 0.18);
+            background: rgba(197, 168, 128, 0.2);
             border-color: var(--primary);
             color: #ffffff;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
         .info-pill i {
             color: var(--primary-light);
+            transition: transform 0.3s ease;
+        }
+        .info-pill:hover i {
+            transform: scale(1.2);
         }
 
         /* Footer */
@@ -319,34 +440,27 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             padding: 24px 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             text-align: center;
-            font-size: 0.82rem;
+            font-size: 0.84rem;
             color: #94a3b8;
-        }
-        .opening-footer a {
-            color: var(--primary-light);
-            text-decoration: none;
-        }
-        .opening-footer a:hover {
-            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
             .grand-heading {
-                font-size: 2.2rem;
+                font-size: 2.25rem;
             }
             .grand-subtext {
-                font-size: 0.95rem;
-                margin-bottom: 30px;
+                font-size: 0.98rem;
+                margin-bottom: 32px;
             }
             .countdown-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                gap: 14px;
             }
             .timer-number {
-                font-size: 2.3rem;
+                font-size: 2.4rem;
             }
             .brand-logo-img {
-                max-width: 220px;
+                max-width: 230px;
             }
             .action-group {
                 flex-direction: column;
@@ -361,53 +475,61 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
 </head>
 <body>
 
+    <!-- Ambient Floating Particles Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Cursor Spotlight Tracker -->
+    <div id="cursorSpotlight"></div>
+
     <div class="bg-glow-1"></div>
     <div class="bg-glow-2"></div>
 
     <div class="main-container">
         <!-- Logo -->
-        <div class="logo-wrap">
+        <div class="logo-wrap reveal-item reveal-delay-1">
             <?php if(!empty($site_logo)): ?>
                 <img src="<?php echo htmlspecialchars($site_logo); ?>" alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?>" class="brand-logo-img">
             <?php else: ?>
-                <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 8px;">
+                <div style="font-size: 2.8rem; color: var(--primary); margin-bottom: 8px;">
                     <i class="fa-solid fa-crown"></i>
                 </div>
-                <h2 class="fw-bold mb-0 text-white"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?></h2>
+                <h2 class="fw-bold mb-0 text-white font-serif"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?></h2>
             <?php endif; ?>
         </div>
 
         <!-- Opening Badge -->
-        <div class="badge-opening">
-            <i class="fa-solid fa-champagne-glasses"></i> Official Grand Opening
+        <div class="reveal-item reveal-delay-2">
+            <div class="badge-opening">
+                <i class="fa-solid fa-champagne-glasses"></i> Official Grand Opening
+            </div>
         </div>
 
         <!-- Headline -->
-        <h1 class="grand-heading"><?php echo htmlspecialchars($opening_title); ?></h1>
-        <p class="grand-subtext"><?php echo nl2br(htmlspecialchars($opening_subtitle)); ?></p>
+        <h1 class="grand-heading reveal-item reveal-delay-3"><?php echo htmlspecialchars($opening_title); ?></h1>
+        <p class="grand-subtext reveal-item reveal-delay-4"><?php echo nl2br(htmlspecialchars($opening_subtitle)); ?></p>
 
         <!-- Live Countdown Timer -->
-        <div class="countdown-grid">
-            <div class="timer-card">
+        <div class="countdown-grid reveal-item reveal-delay-5" id="countdownGrid">
+            <div class="timer-card" data-tilt>
                 <div class="timer-number" id="daysCount">00</div>
                 <div class="timer-label">Days</div>
             </div>
-            <div class="timer-card">
+            <div class="timer-card" data-tilt>
                 <div class="timer-number" id="hoursCount">00</div>
                 <div class="timer-label">Hours</div>
             </div>
-            <div class="timer-card">
+            <div class="timer-card" data-tilt>
                 <div class="timer-number" id="minutesCount">00</div>
                 <div class="timer-label">Minutes</div>
             </div>
-            <div class="timer-card">
+            <div class="timer-card" data-tilt>
                 <div class="timer-number" id="secondsCount">00</div>
                 <div class="timer-label">Seconds</div>
             </div>
         </div>
 
         <!-- Call to Action Buttons -->
-        <div class="action-group">
+        <div class="action-group reveal-item reveal-delay-6">
             <button class="btn-gold-action" data-bs-toggle="modal" data-bs-target="#vipInquiryModal">
                 <i class="fa-solid fa-calendar-check"></i> VIP Pre-Booking Request
             </button>
@@ -417,7 +539,7 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         </div>
 
         <!-- Direct Contact Pills -->
-        <div class="info-pills">
+        <div class="info-pills reveal-item reveal-delay-6">
             <?php if(!empty($settings['hotel_phone'])): ?>
                 <a href="tel:<?php echo htmlspecialchars($settings['hotel_phone']); ?>" class="info-pill">
                     <i class="fa-solid fa-phone"></i> <?php echo htmlspecialchars($settings['hotel_phone']); ?>
@@ -439,7 +561,7 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
     <!-- VIP Pre-Booking Inquiry Modal -->
     <div class="modal fade" id="vipInquiryModal" tabindex="-1" aria-labelledby="vipInquiryModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="background: #0d2218; border: 1px solid rgba(197,168,128,0.4); border-radius: 20px; color: #fff;">
+            <div class="modal-content" style="background: #0d2218; border: 1px solid rgba(197,168,128,0.4); border-radius: 20px; color: #fff; box-shadow: 0 25px 60px rgba(0,0,0,0.8);">
                 <div class="modal-header border-bottom border-secondary border-opacity-25 p-4">
                     <div>
                         <h5 class="modal-title fw-bold text-white mb-1" id="vipInquiryModalLabel">
@@ -490,9 +612,135 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Real-Time Countdown Engine
+        // ----------------------------------------------------
+        // 1. High Performance Golden Particles Background
+        // ----------------------------------------------------
+        (function() {
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+            const particleCount = window.innerWidth < 768 ? 25 : 55;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Particle {
+                constructor() {
+                    this.reset(true);
+                }
+
+                reset(initial = false) {
+                    this.x = Math.random() * width;
+                    this.y = initial ? Math.random() * height : height + 10;
+                    this.size = Math.random() * 2.8 + 0.8;
+                    this.speedY = Math.random() * 0.45 + 0.15;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.opacity = Math.random() * 0.65 + 0.2;
+                    this.fadeSpeed = Math.random() * 0.008 + 0.003;
+                    this.fadeDir = Math.random() > 0.5 ? 1 : -1;
+                    // Golden & Champagne colors
+                    const colors = [
+                        'rgba(245, 215, 158, ',
+                        'rgba(197, 168, 128, ',
+                        'rgba(255, 255, 255, ',
+                        'rgba(168, 137, 94, '
+                    ];
+                    this.colorBase = colors[Math.floor(Math.random() * colors.length)];
+                }
+
+                update() {
+                    this.y -= this.speedY;
+                    this.x += this.speedX;
+
+                    this.opacity += this.fadeSpeed * this.fadeDir;
+                    if (this.opacity > 0.85) this.fadeDir = -1;
+                    if (this.opacity < 0.1) this.fadeDir = 1;
+
+                    if (this.y < -10 || this.x < -10 || this.x > width + 10) {
+                        this.reset();
+                    }
+                }
+
+                draw() {
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = this.colorBase + this.opacity + ')';
+                    ctx.shadowColor = 'rgba(245, 215, 158, 0.8)';
+                    ctx.shadowBlur = this.size * 3;
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, width, height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+        })();
+
+        // ----------------------------------------------------
+        // 2. Cursor Spotlight Follower
+        // ----------------------------------------------------
+        const spotlight = document.getElementById('cursorSpotlight');
+        if (window.innerWidth > 768 && spotlight) {
+            window.addEventListener('mousemove', (e) => {
+                spotlight.style.left = e.clientX + 'px';
+                spotlight.style.top = e.clientY + 'px';
+            });
+        }
+
+        // ----------------------------------------------------
+        // 3. Interactive 3D Tilt on Countdown Cards
+        // ----------------------------------------------------
+        const cards = document.querySelectorAll('.timer-card');
+        if (window.innerWidth > 768) {
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    const rotateX = -(y / rect.height) * 12;
+                    const rotateY = (x / rect.width) * 12;
+                    card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
+                });
+            });
+        }
+
+        // ----------------------------------------------------
+        // 4. Real-Time Countdown Engine with Number Tick Animations
+        // ----------------------------------------------------
         const targetDateStr = "<?php echo $opening_date; ?>".replace(/-/g, "/");
         const targetTime = new Date(targetDateStr).getTime();
+        let lastSeconds = null;
+
+        function setAnimatedValue(elemId, newVal) {
+            const elem = document.getElementById(elemId);
+            if (!elem) return;
+            if (elem.innerText !== newVal) {
+                elem.innerText = newVal;
+                elem.classList.remove('tick-flash');
+                void elem.offsetWidth; // trigger reflow
+                elem.classList.add('tick-flash');
+            }
+        }
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -511,16 +759,23 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            document.getElementById('daysCount').innerText = days < 10 ? "0" + days : days;
-            document.getElementById('hoursCount').innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById('minutesCount').innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById('secondsCount').innerText = seconds < 10 ? "0" + seconds : seconds;
+            const strDays = days < 10 ? "0" + days : "" + days;
+            const strHours = hours < 10 ? "0" + hours : "" + hours;
+            const strMinutes = minutes < 10 ? "0" + minutes : "" + minutes;
+            const strSeconds = seconds < 10 ? "0" + seconds : "" + seconds;
+
+            setAnimatedValue('daysCount', strDays);
+            setAnimatedValue('hoursCount', strHours);
+            setAnimatedValue('minutesCount', strMinutes);
+            setAnimatedValue('secondsCount', strSeconds);
         }
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // AJAX VIP Inquiry Form
+        // ----------------------------------------------------
+        // 5. AJAX VIP Inquiry Form
+        // ----------------------------------------------------
         document.getElementById('vipInquiryForm')?.addEventListener('submit', function(e) {
             e.preventDefault();
             const form = this;
