@@ -837,7 +837,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             touch-action: none;
             user-select: none;
             -webkit-user-select: none;
-            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s ease;
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.7s ease;
         }
         #sitePreloader.loaded {
             opacity: 0 !important;
@@ -847,7 +847,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
         .preloader-content {
             text-align: center;
             position: relative;
-            padding: 20px;
+            padding: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -855,85 +855,112 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
         }
         .preloader-glow-ring {
             position: absolute;
-            width: 260px;
-            height: 260px;
+            width: 500px;
+            height: 500px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(197, 168, 128, 0.28) 0%, rgba(11, 43, 29, 0) 70%);
-            animation: luxuryAura 2.2s ease-in-out infinite alternate;
+            background: radial-gradient(circle, rgba(197, 168, 128, 0.32) 0%, rgba(11, 43, 29, 0) 70%);
+            animation: luxuryAura 2.5s ease-in-out infinite alternate;
             pointer-events: none;
         }
         .preloader-logo {
-            max-width: 220px;
-            max-height: 100px;
-            width: 70vw;
+            max-width: 440px;
+            max-height: 175px;
+            width: auto;
             height: auto;
             object-fit: contain;
             position: relative;
             z-index: 2;
-            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 16px rgba(197, 168, 128, 0.35));
-            animation: luxuryLogoBreath 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 25px rgba(197, 168, 128, 0.5));
+            animation: luxuryLogoBreath 2.5s ease-in-out infinite alternate;
         }
         .preloader-bar-wrap {
-            width: 140px;
-            height: 3px;
+            width: 240px;
+            height: 4px;
             background: rgba(255, 255, 255, 0.12);
-            border-radius: 6px;
-            margin-top: 20px;
+            border-radius: 8px;
+            margin-top: 32px;
             overflow: hidden;
             position: relative;
             z-index: 2;
+            box-shadow: 0 0 15px rgba(197, 168, 128, 0.2);
         }
         .preloader-bar {
-            width: 50%;
+            width: 0%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, #c5a880, #f5d79e, #c5a880, transparent);
-            border-radius: 6px;
-            animation: luxuryBarSlide 1.3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            background: linear-gradient(90deg, #a8895e, #f5d79e, #c5a880);
+            border-radius: 8px;
+            box-shadow: 0 0 10px #f5d79e;
+            animation: luxuryProgressFill 5s cubic-bezier(0.1, 0.7, 0.3, 1) forwards;
         }
 
-        @media (max-width: 768px) {
-            .preloader-logo {
-                max-width: 175px;
-                max-height: 80px;
+        @keyframes luxuryProgressFill {
+            0% {
+                width: 0%;
             }
-            .preloader-glow-ring {
-                width: 190px;
-                height: 190px;
+            30% {
+                width: 45%;
             }
-            .preloader-bar-wrap {
-                width: 110px;
+            70% {
+                width: 82%;
+            }
+            100% {
+                width: 100%;
             }
         }
 
         @keyframes luxuryLogoBreath {
             0% {
                 transform: scale(0.96);
-                filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 10px rgba(197, 168, 128, 0.25));
+                filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 15px rgba(197, 168, 128, 0.35));
             }
             100% {
-                transform: scale(1.03);
-                filter: drop-shadow(0 14px 35px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 28px rgba(197, 168, 128, 0.6));
+                transform: scale(1.04);
+                filter: drop-shadow(0 18px 45px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 32px rgba(197, 168, 128, 0.65));
             }
         }
         @keyframes luxuryAura {
             0% {
                 transform: translate(-50%, -50%) scale(0.85);
-                opacity: 0.4;
+                opacity: 0.45;
             }
             100% {
-                transform: translate(-50%, -50%) scale(1.2);
+                transform: translate(-50%, -50%) scale(1.25);
                 opacity: 0.95;
             }
         }
-        @keyframes luxuryBarSlide {
-            0% {
-                transform: translateX(-100%);
+
+        @media (max-width: 991px) {
+            .preloader-logo {
+                max-width: 320px;
+                max-height: 130px;
             }
-            100% {
-                transform: translateX(250%);
+            .preloader-glow-ring {
+                width: 360px;
+                height: 360px;
+            }
+            .preloader-bar-wrap {
+                width: 180px;
+                margin-top: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .preloader-logo {
+                max-width: 230px;
+                max-height: 100px;
+                width: 75vw;
+            }
+            .preloader-glow-ring {
+                width: 250px;
+                height: 250px;
+            }
+            .preloader-bar-wrap {
+                width: 140px;
+                height: 3px;
+                margin-top: 20px;
             }
         }
     </style>
@@ -955,32 +982,23 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
 </div>
 
 <script>
-// High-performance, mobile-optimized preloader dismiss
+// Luxury 5-Second Animated Site Preloader
 (function() {
+    var preloaderDuration = 5000; // 5 seconds display
+    var preloader = document.getElementById('sitePreloader');
+
     function dismissSitePreloader() {
-        var preloader = document.getElementById('sitePreloader');
         if (preloader && !preloader.classList.contains('loaded')) {
             preloader.classList.add('loaded');
             setTimeout(function() {
                 if (preloader.parentNode) {
                     preloader.parentNode.removeChild(preloader);
                 }
-            }, 550);
+            }, 750);
         }
     }
 
-    if (document.readyState === 'complete') {
-        dismissSitePreloader();
-    } else {
-        window.addEventListener('load', function() {
-            setTimeout(dismissSitePreloader, 200);
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(dismissSitePreloader, 350);
-        });
-    }
-
-    // Fast mobile fallback: dismiss within 1.2s max so mobile users are never stuck
-    setTimeout(dismissSitePreloader, 1200);
+    // Dismiss cleanly after 5 seconds
+    setTimeout(dismissSitePreloader, preloaderDuration);
 })();
 </script>
