@@ -231,26 +231,103 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             transform: scale(1.02);
         }
         .offcanvas {
-            background: linear-gradient(180deg, #061a11 0%, #03120c 100%) !important;
+            background: linear-gradient(180deg, #071911 0%, #030f0a 100%) !important;
             color: #ffffff !important;
-            border-right: 1px solid rgba(197, 168, 128, 0.25);
+            border-right: 1px solid rgba(197, 168, 128, 0.3);
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
         }
         .offcanvas .btn-close {
-            filter: invert(1) brightness(1.5);
+            filter: invert(1) brightness(2);
+            opacity: 0.85;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .offcanvas .btn-close:hover {
+            opacity: 1;
+            transform: rotate(90deg);
         }
         .offcanvas-header {
-            border-bottom-color: rgba(197, 168, 128, 0.2) !important;
+            border-bottom: 1px solid rgba(197, 168, 128, 0.2) !important;
+            padding: 18px 20px;
         }
         .offcanvas-header .brand-logo-img {
-            max-height: 54px;
-            max-width: 200px;
+            max-height: 52px;
+            max-width: 190px;
         }
         .offcanvas-body .nav-link {
-            color: #e2e8f0 !important;
+            color: #ffffff !important;
+            font-size: 1.02rem;
+            font-weight: 600;
+            padding: 9px 12px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         .offcanvas-body .nav-link:hover,
         .offcanvas-body .nav-link.active {
             color: #f5d79e !important;
+            background: rgba(197, 168, 128, 0.12);
+            padding-left: 16px;
+        }
+        .btn-drawer-admin {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(197, 168, 128, 0.45);
+            color: #f5d79e !important;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s;
+        }
+        .btn-drawer-admin:hover {
+            background: rgba(197, 168, 128, 0.2);
+            border-color: #c5a880;
+            color: #ffffff !important;
+        }
+        .contact-drawer-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(197, 168, 128, 0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .text-hover-gold:hover {
+            color: #f5d79e !important;
+        }
+        .text-hover-gold:hover .text-white {
+            color: #f5d79e !important;
+        }
+        .drawer-social-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .drawer-social-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            transform: translateY(-2px);
         }
         .luxury-footer .brand-logo-img {
             max-height: 65px;
@@ -747,22 +824,25 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
         /* Luxury Animated Site Preloader */
         #sitePreloader {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
             background: radial-gradient(circle at center, #0a2e1f 0%, #061b12 55%, #020b07 100%);
-            z-index: 999999;
+            z-index: 99999999;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s ease;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s ease;
         }
         #sitePreloader.loaded {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
         }
         .preloader-content {
             text-align: center;
@@ -771,35 +851,37 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             display: flex;
             flex-direction: column;
             align-items: center;
+            max-width: 90vw;
         }
         .preloader-glow-ring {
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 260px;
+            height: 260px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(197, 168, 128, 0.25) 0%, rgba(11, 43, 29, 0) 70%);
-            animation: luxuryAura 2.4s ease-in-out infinite alternate;
+            background: radial-gradient(circle, rgba(197, 168, 128, 0.28) 0%, rgba(11, 43, 29, 0) 70%);
+            animation: luxuryAura 2.2s ease-in-out infinite alternate;
             pointer-events: none;
         }
         .preloader-logo {
-            max-width: 250px;
-            width: 80vw;
+            max-width: 220px;
+            max-height: 100px;
+            width: 70vw;
             height: auto;
             object-fit: contain;
             position: relative;
             z-index: 2;
-            filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 20px rgba(197, 168, 128, 0.4));
-            animation: luxuryLogoBreath 2.2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 16px rgba(197, 168, 128, 0.35));
+            animation: luxuryLogoBreath 2s ease-in-out infinite alternate;
         }
         .preloader-bar-wrap {
-            width: 150px;
+            width: 140px;
             height: 3px;
             background: rgba(255, 255, 255, 0.12);
             border-radius: 6px;
-            margin-top: 24px;
+            margin-top: 20px;
             overflow: hidden;
             position: relative;
             z-index: 2;
@@ -809,7 +891,21 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             height: 100%;
             background: linear-gradient(90deg, transparent, #c5a880, #f5d79e, #c5a880, transparent);
             border-radius: 6px;
-            animation: luxuryBarSlide 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation: luxuryBarSlide 1.3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        @media (max-width: 768px) {
+            .preloader-logo {
+                max-width: 175px;
+                max-height: 80px;
+            }
+            .preloader-glow-ring {
+                width: 190px;
+                height: 190px;
+            }
+            .preloader-bar-wrap {
+                width: 110px;
+            }
         }
 
         @keyframes luxuryLogoBreath {
@@ -859,22 +955,32 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
 </div>
 
 <script>
-// Smooth Preloader Dismiss
-window.addEventListener('load', function() {
-    setTimeout(function() {
+// High-performance, mobile-optimized preloader dismiss
+(function() {
+    function dismissSitePreloader() {
         var preloader = document.getElementById('sitePreloader');
-        if (preloader) {
+        if (preloader && !preloader.classList.contains('loaded')) {
             preloader.classList.add('loaded');
-            setTimeout(function() { preloader.remove(); }, 600);
+            setTimeout(function() {
+                if (preloader.parentNode) {
+                    preloader.parentNode.removeChild(preloader);
+                }
+            }, 550);
         }
-    }, 450);
-});
-// Fallback dismiss after 2.5s if loading slow
-setTimeout(function() {
-    var preloader = document.getElementById('sitePreloader');
-    if (preloader && !preloader.classList.contains('loaded')) {
-        preloader.classList.add('loaded');
-        setTimeout(function() { preloader.remove(); }, 600);
     }
-}, 2500);
+
+    if (document.readyState === 'complete') {
+        dismissSitePreloader();
+    } else {
+        window.addEventListener('load', function() {
+            setTimeout(dismissSitePreloader, 200);
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(dismissSitePreloader, 350);
+        });
+    }
+
+    // Fast mobile fallback: dismiss within 1.2s max so mobile users are never stuck
+    setTimeout(dismissSitePreloader, 1200);
+})();
 </script>
