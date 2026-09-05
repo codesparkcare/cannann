@@ -37,8 +37,16 @@ class Settings_model extends CI_Model {
             if (empty($settings['opening_title'])) {
                 $settings['opening_title'] = 'Grand Opening — September 12, 2026';
             }
+            if (empty($settings['opening_subtitle'])) {
+                $settings['opening_subtitle'] = 'A new sanctuary of coastal luxury, bespoke suites, and Michelin-inspired culinary artistry arrives soon in Nagercoil.';
+            } else {
+                $settings['opening_subtitle'] = str_ireplace('Chennai', 'Nagercoil', $settings['opening_subtitle']);
+            }
             if (empty($settings['opening_banner_text'])) {
                 $settings['opening_banner_text'] = 'Grand Opening on September 12, 2026 — Pre-Bookings Now Open!';
+            }
+            if (!empty($settings['hotel_address'])) {
+                $settings['hotel_address'] = str_ireplace('Chennai', 'Nagercoil', $settings['hotel_address']);
             }
         }
         return $settings;

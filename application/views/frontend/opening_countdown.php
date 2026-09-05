@@ -12,7 +12,12 @@ if (empty($site_favicon) && file_exists(FCPATH . 'uploads/favicon.png')) {
 
 $opening_date = !empty($settings['opening_date']) ? $settings['opening_date'] : '2026-09-12 09:00:00';
 $opening_title = !empty($settings['opening_title']) ? $settings['opening_title'] : 'Grand Opening — September 12, 2026';
-$opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_subtitle'] : 'A new sanctuary of coastal luxury, bespoke suites, and Michelin-inspired culinary artistry arrives soon in Chennai.';
+
+$raw_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_subtitle'] : 'A new sanctuary of coastal luxury, bespoke suites, and Michelin-inspired culinary artistry arrives soon in Nagercoil.';
+$opening_subtitle = str_ireplace('Chennai', 'Nagercoil', $raw_subtitle);
+
+$raw_address = !empty($settings['hotel_address']) ? $settings['hotel_address'] : '124 Luxury Coastal Boulevard, Nagercoil, Tamil Nadu';
+$hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +43,7 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             --primary-dark: #a8895e;
             --primary-light: #f5d79e;
             --dark-emerald: #061810;
-            --bg-gradient: radial-gradient(circle at 50% 30%, #0c3322 0%, #061810 55%, #020906 100%);
+            --bg-gradient: radial-gradient(circle at 50% 25%, #0c3322 0%, #061810 55%, #020906 100%);
         }
 
         * {
@@ -63,8 +68,8 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         /* Ambient Dynamic Cursor Spotlight */
         #cursorSpotlight {
             position: fixed;
-            width: 700px;
-            height: 700px;
+            width: 650px;
+            height: 650px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(197, 168, 128, 0.08) 0%, rgba(16, 185, 129, 0.04) 40%, transparent 70%);
             pointer-events: none;
@@ -88,24 +93,24 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         /* Background Glow Orbs */
         .bg-glow-1 {
             position: absolute;
-            top: -120px;
-            right: -100px;
-            width: 650px;
-            height: 650px;
+            top: -100px;
+            right: -80px;
+            width: 550px;
+            height: 550px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(197, 168, 128, 0.16) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(197, 168, 128, 0.15) 0%, transparent 70%);
             pointer-events: none;
             z-index: 1;
             animation: orbFloat1 12s ease-in-out infinite alternate;
         }
         .bg-glow-2 {
             position: absolute;
-            bottom: -150px;
-            left: -120px;
-            width: 650px;
-            height: 650px;
+            bottom: -120px;
+            left: -80px;
+            width: 550px;
+            height: 550px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.14) 0%, transparent 70%);
             pointer-events: none;
             z-index: 1;
             animation: orbFloat2 14s ease-in-out infinite alternate;
@@ -113,18 +118,18 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
 
         @keyframes orbFloat1 {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-40px, 50px) scale(1.1); }
+            100% { transform: translate(-30px, 40px) scale(1.08); }
         }
         @keyframes orbFloat2 {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, -40px) scale(1.15); }
+            100% { transform: translate(40px, -30px) scale(1.1); }
         }
 
         .main-container {
             position: relative;
             z-index: 10;
-            padding: 55px 20px 45px;
-            max-width: 980px;
+            padding: 24px 20px 20px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
             width: 100%;
@@ -133,15 +138,15 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         /* Staggered Cinematic Reveal */
         .reveal-item {
             opacity: 0;
-            transform: translateY(28px);
-            animation: revealUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transform: translateY(20px);
+            animation: revealUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        .reveal-delay-1 { animation-delay: 0.15s; }
-        .reveal-delay-2 { animation-delay: 0.35s; }
-        .reveal-delay-3 { animation-delay: 0.55s; }
-        .reveal-delay-4 { animation-delay: 0.75s; }
-        .reveal-delay-5 { animation-delay: 0.95s; }
-        .reveal-delay-6 { animation-delay: 1.15s; }
+        .reveal-delay-1 { animation-delay: 0.1s; }
+        .reveal-delay-2 { animation-delay: 0.25s; }
+        .reveal-delay-3 { animation-delay: 0.4s; }
+        .reveal-delay-4 { animation-delay: 0.55s; }
+        .reveal-delay-5 { animation-delay: 0.7s; }
+        .reveal-delay-6 { animation-delay: 0.85s; }
 
         @keyframes revealUp {
             to {
@@ -152,15 +157,15 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
 
         /* Header Logo with Luxury Float & Shimmer */
         .logo-wrap {
-            margin-bottom: 26px;
+            margin-bottom: 14px;
             position: relative;
             display: inline-block;
         }
         .brand-logo-img {
-            max-width: 320px;
-            max-height: 125px;
+            max-width: 260px;
+            max-height: 95px;
             object-fit: contain;
-            filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 25px rgba(197, 168, 128, 0.45));
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 20px rgba(197, 168, 128, 0.4));
             animation: floatLogo 4s ease-in-out infinite alternate;
             transition: transform 0.4s ease;
         }
@@ -169,26 +174,26 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         }
 
         @keyframes floatLogo {
-            0% { transform: translateY(0px) rotate(0deg); }
-            100% { transform: translateY(-7px) rotate(0.3deg); }
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-5px); }
         }
 
-        /* Official Badge with Pulsing Border */
+        /* Official Badge */
         .badge-opening {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: rgba(197, 168, 128, 0.12);
-            border: 1px solid rgba(197, 168, 128, 0.45);
+            border: 1px solid rgba(197, 168, 128, 0.4);
             color: var(--primary-light);
-            padding: 9px 26px;
+            padding: 6px 20px;
             border-radius: 50px;
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 24px;
-            box-shadow: 0 0 25px rgba(197, 168, 128, 0.2), inset 0 0 15px rgba(197, 168, 128, 0.1);
+            margin-bottom: 12px;
+            box-shadow: 0 0 20px rgba(197, 168, 128, 0.2), inset 0 0 12px rgba(197, 168, 128, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -205,22 +210,24 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
 
         @keyframes badgeShine {
             0% { left: -100%; }
-            20% { left: 100%; }
+            25% { left: 100%; }
             100% { left: 100%; }
         }
 
-        /* Headline with Golden Foil Shimmer */
+        /* Headline with Guaranteed Visibility & Golden Foil Shimmer */
         .grand-heading {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 2.6rem;
             font-weight: 800;
-            line-height: 1.16;
-            background: linear-gradient(110deg, #f5d79e 0%, #ffffff 25%, #c5a880 50%, #ffffff 75%, #f5d79e 100%);
+            line-height: 1.15;
+            color: #f5d79e;
+            background: linear-gradient(110deg, #f5d79e 0%, #ffffff 30%, #c5a880 60%, #ffffff 85%, #f5d79e 100%);
             background-size: 250% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 18px;
-            letter-spacing: -0.5px;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
             animation: goldGleam 9s linear infinite;
         }
 
@@ -230,11 +237,11 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         }
 
         .grand-subtext {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             color: #d1d9e2;
-            max-width: 680px;
-            margin: 0 auto 42px;
-            line-height: 1.75;
+            max-width: 650px;
+            margin: 0 auto 24px;
+            line-height: 1.6;
             font-weight: 400;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
@@ -243,9 +250,9 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         .countdown-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 700px;
-            margin: 0 auto 45px;
+            gap: 14px;
+            max-width: 620px;
+            margin: 0 auto 24px;
             perspective: 1000px;
         }
 
@@ -254,18 +261,18 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             border: 1px solid rgba(197, 168, 128, 0.38);
-            border-radius: 20px;
-            padding: 24px 12px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), inset 0 0 25px rgba(197, 168, 128, 0.1);
+            border-radius: 16px;
+            padding: 16px 8px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45), inset 0 0 20px rgba(197, 168, 128, 0.08);
             position: relative;
             overflow: hidden;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             transform-style: preserve-3d;
         }
         .timer-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-5px) scale(1.02);
             border-color: var(--primary-light);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(197, 168, 128, 0.35);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(197, 168, 128, 0.3);
         }
         .timer-card::before {
             content: '';
@@ -279,12 +286,12 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
 
         .timer-number {
             font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
+            font-size: 2.6rem;
             font-weight: 800;
             color: #ffffff;
             line-height: 1;
-            margin-bottom: 6px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 25px rgba(197, 168, 128, 0.45);
+            margin-bottom: 4px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 20px rgba(197, 168, 128, 0.4);
             display: inline-block;
             transition: transform 0.25s ease, color 0.25s ease;
         }
@@ -294,44 +301,44 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         }
 
         @keyframes numberTick {
-            0% { transform: scale(1.15); color: #f5d79e; text-shadow: 0 0 35px rgba(245, 215, 158, 0.9); }
+            0% { transform: scale(1.12); color: #f5d79e; text-shadow: 0 0 30px rgba(245, 215, 158, 0.9); }
             100% { transform: scale(1); color: #ffffff; }
         }
 
         .timer-label {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--primary-light);
             text-transform: uppercase;
-            letter-spacing: 2.2px;
+            letter-spacing: 2px;
             font-weight: 700;
         }
 
-        /* Action Buttons with Breathing Aura & Light Sweep */
+        /* Action Buttons */
         .action-group {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 18px;
+            gap: 14px;
             flex-wrap: wrap;
-            margin-bottom: 45px;
+            margin-bottom: 22px;
         }
 
         .btn-gold-action {
             background: linear-gradient(135deg, #c5a880 0%, #a8895e 100%);
             color: #061810 !important;
-            padding: 16px 38px;
+            padding: 13px 32px;
             border-radius: 50px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
             text-decoration: none;
             border: none;
-            box-shadow: 0 10px 30px rgba(197, 168, 128, 0.35);
+            box-shadow: 0 8px 25px rgba(197, 168, 128, 0.35);
             transition: all 0.35s ease;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             position: relative;
             overflow: hidden;
             animation: goldPulse 3.5s infinite ease-in-out;
@@ -349,14 +356,14 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         }
         .btn-gold-action:hover {
             background: linear-gradient(135deg, #f5d79e 0%, #c5a880 100%);
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 18px 45px rgba(197, 168, 128, 0.6);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(197, 168, 128, 0.55);
             color: #061810 !important;
         }
 
         @keyframes goldPulse {
-            0%, 100% { box-shadow: 0 10px 30px rgba(197, 168, 128, 0.35); }
-            50% { box-shadow: 0 12px 40px rgba(245, 215, 158, 0.65), 0 0 25px rgba(197, 168, 128, 0.4); }
+            0%, 100% { box-shadow: 0 8px 25px rgba(197, 168, 128, 0.35); }
+            50% { box-shadow: 0 10px 35px rgba(245, 215, 158, 0.6), 0 0 20px rgba(197, 168, 128, 0.35); }
         }
         @keyframes btnSweep {
             0%, 70% { left: -120%; }
@@ -366,32 +373,32 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         .btn-whatsapp-action {
             background: linear-gradient(135deg, #25d366 0%, #1ea952 100%);
             color: #ffffff !important;
-            padding: 16px 34px;
+            padding: 13px 28px;
             border-radius: 50px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             letter-spacing: 0.5px;
             text-decoration: none;
             border: none;
-            box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
             transition: all 0.35s ease;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             position: relative;
             overflow: hidden;
             animation: waPulse 3.5s infinite ease-in-out 1.5s;
         }
         .btn-whatsapp-action:hover {
             background: linear-gradient(135deg, #2bf075 0%, #20ba59 100%);
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 18px 40px rgba(37, 211, 102, 0.55);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 32px rgba(37, 211, 102, 0.5);
             color: #ffffff !important;
         }
 
         @keyframes waPulse {
-            0%, 100% { box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35); }
-            50% { box-shadow: 0 12px 38px rgba(37, 211, 102, 0.6), 0 0 20px rgba(37, 211, 102, 0.35); }
+            0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35); }
+            50% { box-shadow: 0 10px 32px rgba(37, 211, 102, 0.55), 0 0 18px rgba(37, 211, 102, 0.3); }
         }
 
         /* Contact Info Cards */
@@ -399,76 +406,83 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 14px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
         .info-pill {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 11px 24px;
+            padding: 8px 20px;
             border-radius: 30px;
-            font-size: 0.88rem;
+            font-size: 0.84rem;
             color: #e2e8f0;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             transition: all 0.3s ease;
         }
         .info-pill:hover {
             background: rgba(197, 168, 128, 0.2);
             border-color: var(--primary);
             color: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         .info-pill i {
             color: var(--primary-light);
             transition: transform 0.3s ease;
         }
         .info-pill:hover i {
-            transform: scale(1.2);
+            transform: scale(1.15);
         }
 
         /* Footer */
         .opening-footer {
             position: relative;
             z-index: 10;
-            padding: 24px 20px;
+            padding: 18px 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             text-align: center;
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             color: #94a3b8;
         }
 
         @media (max-width: 768px) {
+            .main-container {
+                padding: 16px 14px 16px;
+            }
             .grand-heading {
-                font-size: 2.25rem;
+                font-size: 1.85rem;
             }
             .grand-subtext {
-                font-size: 0.98rem;
-                margin-bottom: 32px;
+                font-size: 0.92rem;
+                margin-bottom: 18px;
             }
             .countdown-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
+                gap: 10px;
+                margin-bottom: 18px;
             }
             .timer-number {
-                font-size: 2.4rem;
+                font-size: 2.1rem;
             }
             .brand-logo-img {
-                max-width: 230px;
+                max-width: 200px;
             }
             .action-group {
                 flex-direction: column;
                 width: 100%;
+                gap: 10px;
+                margin-bottom: 18px;
             }
             .btn-gold-action, .btn-whatsapp-action {
                 width: 100%;
                 justify-content: center;
+                padding: 12px 20px;
             }
         }
     </style>
@@ -490,7 +504,7 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             <?php if(!empty($site_logo)): ?>
                 <img src="<?php echo htmlspecialchars($site_logo); ?>" alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?>" class="brand-logo-img">
             <?php else: ?>
-                <div style="font-size: 2.8rem; color: var(--primary); margin-bottom: 8px;">
+                <div style="font-size: 2.4rem; color: var(--primary); margin-bottom: 4px;">
                     <i class="fa-solid fa-crown"></i>
                 </div>
                 <h2 class="fw-bold mb-0 text-white font-serif"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?></h2>
@@ -510,19 +524,19 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
 
         <!-- Live Countdown Timer -->
         <div class="countdown-grid reveal-item reveal-delay-5" id="countdownGrid">
-            <div class="timer-card" data-tilt>
+            <div class="timer-card">
                 <div class="timer-number" id="daysCount">00</div>
                 <div class="timer-label">Days</div>
             </div>
-            <div class="timer-card" data-tilt>
+            <div class="timer-card">
                 <div class="timer-number" id="hoursCount">00</div>
                 <div class="timer-label">Hours</div>
             </div>
-            <div class="timer-card" data-tilt>
+            <div class="timer-card">
                 <div class="timer-number" id="minutesCount">00</div>
                 <div class="timer-label">Minutes</div>
             </div>
-            <div class="timer-card" data-tilt>
+            <div class="timer-card">
                 <div class="timer-number" id="secondsCount">00</div>
                 <div class="timer-label">Seconds</div>
             </div>
@@ -550,9 +564,9 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
                     <i class="fa-solid fa-envelope"></i> <?php echo htmlspecialchars($settings['hotel_email']); ?>
                 </a>
             <?php endif; ?>
-            <?php if(!empty($settings['hotel_address'])): ?>
+            <?php if(!empty($hotel_address)): ?>
                 <div class="info-pill">
-                    <i class="fa-solid fa-location-dot"></i> <?php echo htmlspecialchars($settings['hotel_address']); ?>
+                    <i class="fa-solid fa-location-dot"></i> <?php echo htmlspecialchars($hotel_address); ?>
                 </div>
             <?php endif; ?>
         </div>
@@ -620,7 +634,7 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             const ctx = canvas.getContext('2d');
             let width, height;
             let particles = [];
-            const particleCount = window.innerWidth < 768 ? 25 : 55;
+            const particleCount = window.innerWidth < 768 ? 22 : 45;
 
             function resize() {
                 width = canvas.width = window.innerWidth;
@@ -637,13 +651,12 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
                 reset(initial = false) {
                     this.x = Math.random() * width;
                     this.y = initial ? Math.random() * height : height + 10;
-                    this.size = Math.random() * 2.8 + 0.8;
-                    this.speedY = Math.random() * 0.45 + 0.15;
+                    this.size = Math.random() * 2.5 + 0.8;
+                    this.speedY = Math.random() * 0.4 + 0.15;
                     this.speedX = (Math.random() - 0.5) * 0.3;
-                    this.opacity = Math.random() * 0.65 + 0.2;
+                    this.opacity = Math.random() * 0.6 + 0.2;
                     this.fadeSpeed = Math.random() * 0.008 + 0.003;
                     this.fadeDir = Math.random() > 0.5 ? 1 : -1;
-                    // Golden & Champagne colors
                     const colors = [
                         'rgba(245, 215, 158, ',
                         'rgba(197, 168, 128, ',
@@ -658,7 +671,7 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
                     this.x += this.speedX;
 
                     this.opacity += this.fadeSpeed * this.fadeDir;
-                    if (this.opacity > 0.85) this.fadeDir = -1;
+                    if (this.opacity > 0.8) this.fadeDir = -1;
                     if (this.opacity < 0.1) this.fadeDir = 1;
 
                     if (this.y < -10 || this.x < -10 || this.x > width + 10) {
@@ -714,9 +727,9 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left - rect.width / 2;
                     const y = e.clientY - rect.top - rect.height / 2;
-                    const rotateX = -(y / rect.height) * 12;
-                    const rotateY = (x / rect.width) * 12;
-                    card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+                    const rotateX = -(y / rect.height) * 10;
+                    const rotateY = (x / rect.width) * 10;
+                    card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) scale(1.02)`;
                 });
                 card.addEventListener('mouseleave', () => {
                     card.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
@@ -729,7 +742,6 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
         // ----------------------------------------------------
         const targetDateStr = "<?php echo $opening_date; ?>".replace(/-/g, "/");
         const targetTime = new Date(targetDateStr).getTime();
-        let lastSeconds = null;
 
         function setAnimatedValue(elemId, newVal) {
             const elem = document.getElementById(elemId);
@@ -737,7 +749,7 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
             if (elem.innerText !== newVal) {
                 elem.innerText = newVal;
                 elem.classList.remove('tick-flash');
-                void elem.offsetWidth; // trigger reflow
+                void elem.offsetWidth;
                 elem.classList.add('tick-flash');
             }
         }

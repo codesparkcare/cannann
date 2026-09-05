@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label small fw-bold text-white">Opening Subtitle / Teaser Message</label>
-                                <textarea name="opening_subtitle" class="form-control form-control-sm" rows="2" placeholder="Experience coastal luxury, bespoke suites, and fine dining..."><?php echo htmlspecialchars($settings['opening_subtitle'] ?? 'A new sanctuary of coastal luxury, bespoke suites, and Michelin-inspired culinary artistry arrives soon in Chennai.'); ?></textarea>
+                                <textarea name="opening_subtitle" class="form-control form-control-sm" rows="2" placeholder="Experience coastal luxury, bespoke suites, and fine dining..."><?php echo htmlspecialchars($settings['opening_subtitle'] ?? 'A new sanctuary of coastal luxury, bespoke suites, and Michelin-inspired culinary artistry arrives soon in Nagercoil.'); ?></textarea>
                             </div>
                             <div class="col-12">
                                 <label class="form-label small fw-bold text-white">Banner Mode Text (Used in Banner Mode)</label>
