@@ -16,7 +16,6 @@ $current_segment = $this->uri->segment(1);
                 <?php if(!empty($settings['instagram_url'])): ?><a href="<?php echo $settings['instagram_url']; ?>" target="_blank"><i class="fa-brands fa-instagram"></i></a><?php endif; ?>
                 <?php if(!empty($settings['twitter_url'])): ?><a href="<?php echo $settings['twitter_url']; ?>" target="_blank"><i class="fa-brands fa-twitter"></i></a><?php endif; ?>
                 <?php if(!empty($settings['tripadvisor_url'])): ?><a href="<?php echo $settings['tripadvisor_url']; ?>" target="_blank"><i class="fa-solid fa-shield-cat"></i></a><?php endif; ?>
-                <a href="<?php echo base_url('admin'); ?>" class="btn btn-sm btn-outline-light ms-2 px-2 py-1" style="font-size: 0.72rem; border-radius: 4px;"><i class="fa-solid fa-lock me-1"></i> Admin Panel</a>
             </div>
         </div>
     </div>
@@ -148,9 +147,6 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
             <button class="btn btn-luxury w-100 py-3 text-uppercase fw-bold shadow-sm" data-bs-toggle="modal" data-bs-target="#quickBookingModal" data-bs-dismiss="offcanvas">
                 <i class="fa-solid fa-calendar-check me-2"></i> Book A Room
             </button>
-            <a href="<?php echo base_url('admin'); ?>" class="btn-drawer-admin mt-1">
-                <i class="fa-solid fa-lock me-2"></i> Staff / Admin Portal
-            </a>
         </div>
 
         <!-- High-Contrast Contact Information Footer -->
