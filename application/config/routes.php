@@ -84,3 +84,5 @@ $route['admin/reservations'] = 'admin/reservations';
 $route['admin/contacts'] = 'admin/contacts';
 $route['admin/testimonials'] = 'admin/testimonials';
 $route['admin/settings'] = 'admin/settings';
+$route['admin/db-sync'] = 'admin/db_sync';
+$route['admin/db_sync'] = 'admin/db_sync';

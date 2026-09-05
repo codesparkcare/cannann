@@ -109,6 +109,11 @@ if (empty($site_logo) && file_exists(FCPATH . 'uploads/site_logo.png')) {
 
         <li class="menu-title">System & Settings</li>
         <li>
+            <a href="<?php echo base_url('admin/db_sync'); ?>" class="<?php echo $seg == 'db_sync' ? 'active' : ''; ?>">
+                <i class="fa-solid fa-database text-warning"></i> Database Sync Tool
+            </a>
+        </li>
+        <li>
             <a href="<?php echo base_url('admin/settings'); ?>" class="<?php echo $seg == 'settings' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-sliders"></i> Site & SMTP Settings
             </a>

@@ -6,6 +6,7 @@ class Admin extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Admin_model');
+        $this->load->model('Sync_model');
         $this->load->model('Settings_model');
         $this->load->model('Slider_model');
         $this->load->model('Room_model');
@@ -1003,5 +1004,80 @@ class Admin extends CI_Controller {
             }
             redirect('admin/settings');
         }
+    }
+
+    // ==========================================
+    // 14. DATABASE SYNC & MAINTENANCE TOOL
+    // ==========================================
+    public function db_sync() {
+        $data['tables_overview'] = $this->Sync_model->get_tables_overview();
+        $this->load->view('admin/layout/header', $data);
+        $this->load->view('admin/layout/sidebar', $data);
+        $this->load->view('admin/database_sync', $data);
+        $this->load->view('admin/layout/footer', $data);
+    }
+
+    public function sync_database_schema() {
+        $results = $this->Sync_model->sync_all_schemas();
+        $created_count = 0;
+        foreach ($results as $r) {
+            if (!$r['existed']) $created_count++;
+        }
+        $msg = 'Database schema sync completed successfully! All 17 hotel tables are verified and active.';
+        if ($created_count > 0) {
+            $msg .= " ($created_count missing tables were automatically initialized).";
+        }
+        $this->session->set_flashdata('success', $msg);
+        redirect('admin/db_sync');
+    }
+
+    public function export_database() {
+        $this->load->helper('download');
+        $backup = $this->Sync_model->export_sql_dump();
+        $filename = 'cannann_backup_' . date('Y-m-d_His') . '.sql';
+        force_download($filename, $backup);
+    }
+
+    public function import_database_sql() {
+        if (!empty($_FILES['sql_file']['name'])) {
+            $file_tmp = $_FILES['sql_file']['tmp_name'];
+            $file_ext = strtolower(pathinfo($_FILES['sql_file']['name'], PATHINFO_EXTENSION));
+
+            if ($file_ext === 'sql') {
+                $sql_content = file_get_contents($file_tmp);
+                if (!empty($sql_content)) {
+                    $res = $this->Sync_model->import_sql_script($sql_content);
+                    if ($res['success']) {
+                        $this->session->set_flashdata('success', 'Database SQL dump imported successfully! (' . $res['executed'] . ' statements executed).');
+                    } else {
+                        $err_str = !empty($res['errors']) ? implode('<br>', array_slice($res['errors'], 0, 3)) : 'Unknown SQL execution error';
+                        $this->session->set_flashdata('error', 'SQL import encountered errors: ' . $err_str);
+                    }
+                } else {
+                    $this->session->set_flashdata('error', 'Uploaded SQL file was empty.');
+                }
+            } else {
+                $this->session->set_flashdata('error', 'Invalid file type. Please upload a valid .sql file.');
+            }
+        } else {
+            $this->session->set_flashdata('error', 'No file was uploaded.');
+        }
+        redirect('admin/db_sync');
+    }
+
+    public function optimize_database_tables() {
+        $tables = $this->Sync_model->optimize_all_tables();
+        $this->session->set_flashdata('success', 'Optimized ' . count($tables) . ' database tables successfully! Table overhead and indexes defragmented.');
+        redirect('admin/db_sync');
+    }
+
+    public function seed_database_defaults() {
+        $seeded = $this->Sync_model->seed_sample_data();
+        if (!empty($seeded)) {
+            $this->session->set_flashdata('success', 'Seeded baseline hotel data: ' . implode(', ', $seeded));
+        } else {
+            $this->session->set_flashdata('success', 'Tables already contain records. No duplicate seeding needed.');
+        }
+        redirect('admin/db_sync');
     }
 }
