@@ -29,8 +29,39 @@ class Home extends CI_Controller {
         return $data;
     }
 
+    private function should_show_opening_page($settings) {
+        if (!empty($settings['is_opening_enabled']) && $settings['is_opening_enabled'] == 1 && ($settings['opening_mode'] ?? 'countdown_page') === 'countdown_page') {
+            $is_admin = $this->session->userdata('admin_logged_in');
+            $admin_preview_full = $this->session->userdata('admin_preview_full_site');
+            if ($is_admin && $admin_preview_full) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public function preview_full_site() {
+        if ($this->session->userdata('admin_logged_in')) {
+            $this->session->set_userdata('admin_preview_full_site', TRUE);
+        }
+        redirect('');
+    }
+
+    public function preview_opening_page() {
+        if ($this->session->userdata('admin_logged_in')) {
+            $this->session->unset_userdata('admin_preview_full_site');
+        }
+        redirect('');
+    }
+
     public function index() {
         $data = $this->get_common_data('Luxury Boutique Hotel & Resort');
+        if ($this->should_show_opening_page($data['settings'])) {
+            $this->load->view('frontend/opening_countdown', $data);
+            return;
+        }
+
         $data['sliders'] = $this->Slider_model->get_active_sliders();
         $data['featured_rooms'] = $this->Room_model->get_featured_rooms(6);
         $data['facilities'] = $this->Facility_model->get_active_facilities();
@@ -49,6 +80,11 @@ class Home extends CI_Controller {
 
     public function about() {
         $data = $this->get_common_data('About Our Heritage & Hospitality');
+        if ($this->should_show_opening_page($data['settings'])) {
+            $this->load->view('frontend/opening_countdown', $data);
+            return;
+        }
+
         $data['facilities'] = $this->Facility_model->get_active_facilities();
         $data['testimonials'] = $this->Testimonial_model->get_active_testimonials();
 
@@ -59,8 +95,13 @@ class Home extends CI_Controller {
     }
 
     public function rooms() {
-        $category_id = $this->input->get('category');
         $data = $this->get_common_data('Rooms & Luxury Suites');
+        if ($this->should_show_opening_page($data['settings'])) {
+            $this->load->view('frontend/opening_countdown', $data);
+            return;
+        }
+
+        $category_id = $this->input->get('category');
         $data['rooms'] = $this->Room_model->get_all_rooms($category_id);
         $data['selected_category'] = $category_id;
         $data['categories'] = $this->Room_model->get_active_categories();
@@ -86,6 +127,11 @@ class Home extends CI_Controller {
         $meta_keywords = 'room booking, ' . strtolower($room['title']) . ', ' . strtolower($room['category_name'] ?? '') . ', luxury suites';
 
         $data = $this->get_common_data($page_title, $meta_title, $meta_desc, $meta_keywords);
+        if ($this->should_show_opening_page($data['settings'])) {
+            $this->load->view('frontend/opening_countdown', $data);
+            return;
+        }
+
         $data['room'] = $room;
         $data['related_rooms'] = $this->Room_model->get_related_rooms($room['category_id'], $room['id'], 3);
 
@@ -97,6 +143,11 @@ class Home extends CI_Controller {
 
     public function restaurant() {
         $data = $this->get_common_data('The Sapphire Fine Dining & Bar');
+        if ($this->should_show_opening_page($data['settings'])) {
+            $this->load->view('frontend/opening_countdown', $data);
+            return;
+        }
+
         $data['categories'] = $this->Restaurant_model->get_active_categories();
         $data['all_items'] = $this->Restaurant_model->get_all_items();
         $data['special_items'] = $this->Restaurant_model->get_special_items(8);
@@ -109,6 +160,11 @@ class Home extends CI_Controller {
 
     public function facilities() {
         $data = $this->get_common_data('Hotel Facilities & Wellness');
+        if ($this->should_show_opening_page($data['settings'])) {
+            $this->load->view('frontend/opening_countdown', $data);
+            return;
+        }
+
         $data['facilities'] = $this->Facility_model->get_active_facilities();
 
         $this->load->view('frontend/layout/header', $data);
@@ -118,8 +174,13 @@ class Home extends CI_Controller {
     }
 
     public function gallery() {
-        $category = $this->input->get('category');
         $data = $this->get_common_data('Photo Gallery & Resort Moments');
+        if ($this->should_show_opening_page($data['settings'])) {
+            $this->load->view('frontend/opening_countdown', $data);
+            return;
+        }
+
+        $category = $this->input->get('category');
         $data['gallery'] = $this->Gallery_model->get_active_gallery($category);
         $data['current_category'] = $category ?: 'all';
 
@@ -131,6 +192,11 @@ class Home extends CI_Controller {
 
     public function blogs() {
         $data = $this->get_common_data('Tourist Guides, Travel Stories & News');
+        if ($this->should_show_opening_page($data['settings'])) {
+            $this->load->view('frontend/opening_countdown', $data);
+            return;
+        }
+
         $data['blogs'] = $this->Blog_model->get_published_blogs();
         $data['recent_blogs'] = $this->Blog_model->get_recent_blogs(null, 4);
 
@@ -156,6 +222,11 @@ class Home extends CI_Controller {
         $meta_keywords = $blog['meta_keywords'] ?: 'tourist guide, hotel blog, luxury travel, chennai resort attractions';
 
         $data = $this->get_common_data($page_title, $meta_title, $meta_desc, $meta_keywords);
+        if ($this->should_show_opening_page($data['settings'])) {
+            $this->load->view('frontend/opening_countdown', $data);
+            return;
+        }
+
         $data['blog'] = $blog;
         $data['recent_blogs'] = $this->Blog_model->get_recent_blogs($blog['id'], 3);
         $data['og_image'] = $blog['featured_image'];
@@ -168,6 +239,11 @@ class Home extends CI_Controller {
 
     public function contact() {
         $data = $this->get_common_data('Contact Us & Location');
+        if ($this->should_show_opening_page($data['settings'])) {
+            $this->load->view('frontend/opening_countdown', $data);
+            return;
+        }
+
         $this->load->view('frontend/layout/header', $data);
         $this->load->view('frontend/layout/navbar', $data);
         $this->load->view('frontend/contact', $data);

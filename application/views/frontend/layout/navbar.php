@@ -1,6 +1,30 @@
 <?php
 $current_segment = $this->uri->segment(1);
+$is_admin = $this->session->userdata('admin_logged_in');
+$is_opening_on = !empty($settings['is_opening_enabled']) && $settings['is_opening_enabled'] == 1;
 ?>
+
+<!-- Admin Preview Ribbon if Admin is Viewing Site with Opening Mode Active -->
+<?php if($is_admin && $is_opening_on): ?>
+    <div style="background: #c5a880; color: #0b1120; padding: 6px 16px; font-size: 0.82rem; font-weight: 700; text-align: center; display: flex; justify-content: center; align-items: center; gap: 15px; position: sticky; top: 0; z-index: 999999;">
+        <span><i class="fa-solid fa-user-shield me-1"></i> Admin Site Preview (Grand Opening Mode is Active for Public)</span>
+        <a href="<?php echo base_url('home/preview_opening_page'); ?>" style="color: #0b1120; text-decoration: underline;"><i class="fa-solid fa-eye me-1"></i> View Opening Countdown Page</a>
+        <a href="<?php echo base_url('admin/settings'); ?>" style="color: #0b1120; text-decoration: underline;"><i class="fa-solid fa-gear me-1"></i> Admin Settings</a>
+    </div>
+<?php endif; ?>
+
+<!-- Grand Opening Announcement Ribbon (if Banner Mode Enabled) -->
+<?php if($is_opening_on && ($settings['opening_mode'] ?? '') === 'banner_widget'): ?>
+    <div style="background: linear-gradient(90deg, #071911, #0f3d2a, #071911); border-bottom: 1px solid rgba(197,168,128,0.4); color: #f5d79e; padding: 10px 16px; font-size: 0.88rem; font-weight: 600; text-align: center;">
+        <div class="container d-flex justify-content-center align-items-center gap-3 flex-wrap">
+            <span><i class="fa-solid fa-champagne-glasses text-warning me-1"></i> <?php echo htmlspecialchars($settings['opening_banner_text'] ?? '🎉 Grand Opening on September 12, 2026 — Pre-Bookings Now Open!'); ?></span>
+            <button class="btn btn-sm btn-luxury py-1 px-3" data-bs-toggle="modal" data-bs-target="#quickBookingModal" style="font-size: 0.75rem; border-radius: 20px;">
+                Pre-Book Now
+            </button>
+        </div>
+    </div>
+<?php endif; ?>
+
 <!-- Topbar with Contact Information -->
 <div class="topbar d-none d-lg-block">
     <div class="container">

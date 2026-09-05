@@ -24,6 +24,49 @@
         <div class="col-lg-8">
             <div class="card border-0 shadow-sm rounded-3 p-4">
                 <form action="<?php echo base_url('admin/update_settings'); ?>" method="POST" enctype="multipart/form-data">
+                    <!-- Grand Opening & Launch Countdown Section -->
+                    <div class="p-3 mb-4 rounded-3 border" style="background: #0f1e16; border-color: rgba(197,168,128,0.3) !important;">
+                        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                            <h5 class="fw-bold text-warning mb-0"><i class="fa-solid fa-champagne-glasses me-2"></i> Grand Opening & Countdown Control</h5>
+                            <div class="form-check form-switch fs-5">
+                                <input class="form-check-input" type="checkbox" name="is_opening_enabled" value="1" id="switchOpening" <?php echo !empty($settings['is_opening_enabled']) ? 'checked' : ''; ?> style="cursor: pointer;">
+                                <label class="form-check-label fs-6 fw-bold text-white ms-1" for="switchOpening">
+                                    <?php echo !empty($settings['is_opening_enabled']) ? '<span class="text-success">ACTIVE (ON)</span>' : '<span class="text-white-50">DISABLED (OFF)</span>'; ?>
+                                </label>
+                            </div>
+                        </div>
+                        <p class="text-white-50 small mb-3">When enabled, visitors will see the official Grand Opening teaser & real-time countdown for September 12. (Admins can preview both the full site and opening screen anytime).</p>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-white">Target Opening Date & Time</label>
+                                <?php
+                                    $raw_op_date = !empty($settings['opening_date']) ? date('Y-m-d\TH:i', strtotime($settings['opening_date'])) : '2026-09-12T09:00';
+                                ?>
+                                <input type="datetime-local" name="opening_date" class="form-control form-control-sm" value="<?php echo htmlspecialchars($raw_op_date); ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-white">Display Experience Mode</label>
+                                <select name="opening_mode" class="form-select form-select-sm">
+                                    <option value="countdown_page" <?php echo ($settings['opening_mode'] ?? '') === 'countdown_page' ? 'selected' : ''; ?>>Full-Screen Luxury Countdown Page (Coming Soon)</option>
+                                    <option value="banner_widget" <?php echo ($settings['opening_mode'] ?? '') === 'banner_widget' ? 'selected' : ''; ?>>Top Sticky Announcement Banner (Keep Site Browseable)</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold text-white">Main Opening Headline / Title</label>
+                                <input type="text" name="opening_title" class="form-control form-control-sm" value="<?php echo htmlspecialchars($settings['opening_title'] ?? 'Grand Opening — September 12, 2026'); ?>" placeholder="Grand Opening — September 12, 2026">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold text-white">Opening Subtitle / Teaser Message</label>
+                                <textarea name="opening_subtitle" class="form-control form-control-sm" rows="2" placeholder="Experience coastal luxury, bespoke suites, and fine dining..."><?php echo htmlspecialchars($settings['opening_subtitle'] ?? 'A new sanctuary of coastal luxury, bespoke suites, and Michelin-inspired culinary artistry arrives soon in Chennai.'); ?></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold text-white">Banner Mode Text (Used in Banner Mode)</label>
+                                <input type="text" name="opening_banner_text" class="form-control form-control-sm" value="<?php echo htmlspecialchars($settings['opening_banner_text'] ?? '🎉 Grand Opening on September 12, 2026 — Pre-Bookings Now Open!'); ?>">
+                            </div>
+                        </div>
+                    </div>
+
                     <h5 class="fw-bold text-primary mb-3 pb-2 border-bottom"><i class="fa-solid fa-paintbrush me-2"></i> Site Branding & Logo / Favicon</h5>
                     <div class="row g-4 mb-4">
                         <!-- Site Logo -->

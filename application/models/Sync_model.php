@@ -63,6 +63,12 @@ class Sync_model extends CI_Model {
                 `smtp_from_email` varchar(150) DEFAULT 'reservations@hotelcanaann.com',
                 `smtp_from_name` varchar(150) DEFAULT 'Grand Cannann Hotel',
                 `currency_symbol` varchar(10) DEFAULT '₹',
+                `is_opening_enabled` tinyint(1) NOT NULL DEFAULT 0,
+                `opening_date` datetime NULL DEFAULT '2026-09-12 09:00:00',
+                `opening_mode` varchar(50) NOT NULL DEFAULT 'countdown_page',
+                `opening_title` varchar(255) NOT NULL DEFAULT 'Grand Opening — September 12, 2026',
+                `opening_subtitle` text DEFAULT NULL,
+                `opening_banner_text` varchar(255) NOT NULL DEFAULT '🎉 Grand Opening on September 12, 2026 — Pre-Bookings Now Open!',
                 `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
                 `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 PRIMARY KEY (`id`)

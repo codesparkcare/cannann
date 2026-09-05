@@ -947,6 +947,13 @@ class Admin extends CI_Controller {
                 'meta_title'        => $this->input->post('meta_title'),
                 'meta_description'  => $this->input->post('meta_description'),
                 'meta_keywords'     => $this->input->post('meta_keywords'),
+                // Grand Opening & Countdown Controls
+                'is_opening_enabled'  => $this->input->post('is_opening_enabled') ? 1 : 0,
+                'opening_date'        => $this->input->post('opening_date') ?: '2026-09-12 09:00:00',
+                'opening_mode'        => $this->input->post('opening_mode') ?: 'countdown_page',
+                'opening_title'       => $this->input->post('opening_title') ?: 'Grand Opening — September 12, 2026',
+                'opening_subtitle'    => $this->input->post('opening_subtitle'),
+                'opening_banner_text' => $this->input->post('opening_banner_text') ?: '🎉 Grand Opening on September 12, 2026 — Pre-Bookings Now Open!',
                 // SMTP Settings
                 'smtp_host'         => $this->input->post('smtp_host'),
                 'smtp_port'         => (int)$this->input->post('smtp_port') ?: 587,
