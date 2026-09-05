@@ -23,7 +23,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/cannann/';
+if (isset($_SERVER['HTTP_HOST'])) {
+	$protocol = (
+		(isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] === 'on' || $_SERVER['HTTPS'] === 1)) ||
+		(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
+		(isset($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on') ||
+		(isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)
+	) ? 'https://' : 'http://';
+
+	$host = $_SERVER['HTTP_HOST'];
+	$script_dir = trim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+	$sub_dir = $script_dir ? '/' . $script_dir . '/' : '/';
+
+	$config['base_url'] = $protocol . $host . $sub_dir;
+} else {
+	$config['base_url'] = 'https://hotelcanaann.com/';
+}
 
 /*
 |--------------------------------------------------------------------------
