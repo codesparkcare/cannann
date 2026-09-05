@@ -68,7 +68,7 @@ class Sync_model extends CI_Model {
                 `opening_mode` varchar(50) NOT NULL DEFAULT 'countdown_page',
                 `opening_title` varchar(255) NOT NULL DEFAULT 'Grand Opening — September 12, 2026',
                 `opening_subtitle` text DEFAULT NULL,
-                `opening_banner_text` varchar(255) NOT NULL DEFAULT '🎉 Grand Opening on September 12, 2026 — Pre-Bookings Now Open!',
+                `opening_banner_text` varchar(255) NOT NULL DEFAULT 'Grand Opening on September 12, 2026 — Pre-Bookings Now Open!',
                 `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
                 `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 PRIMARY KEY (`id`)
