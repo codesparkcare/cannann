@@ -486,9 +486,6 @@ $opening_subtitle = !empty($settings['opening_subtitle']) ? $settings['opening_s
     <!-- Footer -->
     <footer class="opening-footer">
         <div>&copy; <?php echo date('Y'); ?> <strong><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann Hotel'); ?></strong>. All Rights Reserved.</div>
-        <div class="mt-1 small">
-            <a href="<?php echo base_url('admin/login'); ?>"><i class="fa-solid fa-lock me-1"></i> Staff / Admin Portal</a>
-        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
