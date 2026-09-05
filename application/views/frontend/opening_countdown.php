@@ -42,8 +42,9 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             --primary: #c5a880;
             --primary-dark: #a8895e;
             --primary-light: #f5d79e;
+            --gold-bright: #ffeaae;
             --dark-emerald: #061810;
-            --bg-gradient: radial-gradient(circle at 50% 25%, #0c3322 0%, #061810 55%, #020906 100%);
+            --bg-gradient: radial-gradient(circle at 50% 45%, #0c3322 0%, #061810 50%, #020906 100%);
         }
 
         * {
@@ -59,19 +60,21 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             position: relative;
             overflow-x: hidden;
             background-attachment: fixed;
+            padding: 40px 16px 70px;
         }
 
         /* Ambient Dynamic Cursor Spotlight */
         #cursorSpotlight {
             position: fixed;
-            width: 650px;
-            height: 650px;
+            width: 700px;
+            height: 700px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(197, 168, 128, 0.08) 0%, rgba(16, 185, 129, 0.04) 40%, transparent 70%);
+            background: radial-gradient(circle, rgba(197, 168, 128, 0.09) 0%, rgba(16, 185, 129, 0.04) 45%, transparent 70%);
             pointer-events: none;
             z-index: 1;
             transform: translate(-50%, -50%);
@@ -93,24 +96,24 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         /* Background Glow Orbs */
         .bg-glow-1 {
             position: absolute;
-            top: -100px;
-            right: -80px;
+            top: 5%;
+            right: 8%;
             width: 550px;
             height: 550px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(197, 168, 128, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(197, 168, 128, 0.18) 0%, transparent 70%);
             pointer-events: none;
             z-index: 1;
             animation: orbFloat1 12s ease-in-out infinite alternate;
         }
         .bg-glow-2 {
             position: absolute;
-            bottom: -120px;
-            left: -80px;
+            bottom: 5%;
+            left: 8%;
             width: 550px;
             height: 550px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.14) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.16) 0%, transparent 70%);
             pointer-events: none;
             z-index: 1;
             animation: orbFloat2 14s ease-in-out infinite alternate;
@@ -118,27 +121,30 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
 
         @keyframes orbFloat1 {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(-30px, 40px) scale(1.08); }
+            100% { transform: translate(-30px, 35px) scale(1.08); }
         }
         @keyframes orbFloat2 {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, -30px) scale(1.1); }
+            100% { transform: translate(35px, -30px) scale(1.1); }
         }
 
         .main-container {
             position: relative;
             z-index: 10;
-            padding: 24px 20px 20px;
             max-width: 900px;
-            margin: 0 auto;
+            margin: auto 0;
             text-align: center;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Staggered Cinematic Reveal */
         .reveal-item {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(18px);
             animation: revealUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .reveal-delay-1 { animation-delay: 0.1s; }
@@ -155,27 +161,45 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             }
         }
 
-        /* Header Logo with Luxury Float & Shimmer */
+        /* High-Visibility Centerpiece Logo */
         .logo-wrap {
-            margin-bottom: 14px;
+            margin-bottom: 20px;
             position: relative;
-            display: inline-block;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-wrap::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 140px;
+            background: radial-gradient(ellipse, rgba(245, 215, 158, 0.4) 0%, rgba(197, 168, 128, 0.15) 50%, transparent 75%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(25px);
         }
         .brand-logo-img {
-            max-width: 260px;
-            max-height: 95px;
+            max-width: 420px;
+            max-height: 140px;
+            width: auto;
+            height: auto;
             object-fit: contain;
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 20px rgba(197, 168, 128, 0.4));
+            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 35px rgba(245, 215, 158, 0.65)) brightness(1.2) contrast(1.1);
             animation: floatLogo 4s ease-in-out infinite alternate;
             transition: transform 0.4s ease;
         }
         .brand-logo-img:hover {
-            transform: scale(1.03);
+            transform: scale(1.04);
         }
 
         @keyframes floatLogo {
             0% { transform: translateY(0px); }
-            100% { transform: translateY(-5px); }
+            100% { transform: translateY(-6px); }
         }
 
         /* Official Badge */
@@ -183,17 +207,17 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(197, 168, 128, 0.12);
-            border: 1px solid rgba(197, 168, 128, 0.4);
-            color: var(--primary-light);
-            padding: 6px 20px;
+            background: rgba(197, 168, 128, 0.15);
+            border: 1px solid rgba(245, 215, 158, 0.5);
+            color: var(--gold-bright);
+            padding: 7px 24px;
             border-radius: 50px;
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 12px;
-            box-shadow: 0 0 20px rgba(197, 168, 128, 0.2), inset 0 0 12px rgba(197, 168, 128, 0.1);
+            margin-bottom: 18px;
+            box-shadow: 0 0 25px rgba(197, 168, 128, 0.25), inset 0 0 15px rgba(197, 168, 128, 0.15);
             position: relative;
             overflow: hidden;
         }
@@ -204,7 +228,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(245, 215, 158, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
             animation: badgeShine 4s infinite;
         }
 
@@ -214,19 +238,19 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             100% { left: 100%; }
         }
 
-        /* Headline with Guaranteed Visibility & Golden Foil Shimmer */
+        /* Headline with Golden Foil Shimmer */
         .grand-heading {
             font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
+            font-size: 2.7rem;
             font-weight: 800;
-            line-height: 1.15;
+            line-height: 1.18;
             color: #f5d79e;
-            background: linear-gradient(110deg, #f5d79e 0%, #ffffff 30%, #c5a880 60%, #ffffff 85%, #f5d79e 100%);
+            background: linear-gradient(110deg, #ffeaae 0%, #ffffff 30%, #c5a880 60%, #ffffff 85%, #ffeaae 100%);
             background-size: 250% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             letter-spacing: -0.3px;
             animation: goldGleam 9s linear infinite;
         }
@@ -237,11 +261,11 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         }
 
         .grand-subtext {
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             color: #d1d9e2;
-            max-width: 650px;
-            margin: 0 auto 24px;
-            line-height: 1.6;
+            max-width: 660px;
+            margin: 0 auto 28px;
+            line-height: 1.65;
             font-weight: 400;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
@@ -250,20 +274,21 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         .countdown-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
-            max-width: 620px;
-            margin: 0 auto 24px;
+            gap: 16px;
+            max-width: 650px;
+            margin: 0 auto 28px;
             perspective: 1000px;
+            width: 100%;
         }
 
         .timer-card {
-            background: rgba(10, 38, 26, 0.72);
+            background: rgba(10, 38, 26, 0.75);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(197, 168, 128, 0.38);
-            border-radius: 16px;
-            padding: 16px 8px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45), inset 0 0 20px rgba(197, 168, 128, 0.08);
+            border: 1px solid rgba(197, 168, 128, 0.4);
+            border-radius: 18px;
+            padding: 18px 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(197, 168, 128, 0.1);
             position: relative;
             overflow: hidden;
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -271,8 +296,8 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         }
         .timer-card:hover {
             transform: translateY(-5px) scale(1.02);
-            border-color: var(--primary-light);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(197, 168, 128, 0.3);
+            border-color: var(--gold-bright);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(197, 168, 128, 0.35);
         }
         .timer-card::before {
             content: '';
@@ -281,17 +306,17 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            background: linear-gradient(90deg, transparent, var(--primary-light), transparent);
         }
 
         .timer-number {
             font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             font-weight: 800;
             color: #ffffff;
             line-height: 1;
             margin-bottom: 4px;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 20px rgba(197, 168, 128, 0.4);
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 25px rgba(197, 168, 128, 0.5);
             display: inline-block;
             transition: transform 0.25s ease, color 0.25s ease;
         }
@@ -301,7 +326,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         }
 
         @keyframes numberTick {
-            0% { transform: scale(1.12); color: #f5d79e; text-shadow: 0 0 30px rgba(245, 215, 158, 0.9); }
+            0% { transform: scale(1.12); color: #ffeaae; text-shadow: 0 0 30px rgba(255, 234, 174, 0.95); }
             100% { transform: scale(1); color: #ffffff; }
         }
 
@@ -318,23 +343,23 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             flex-wrap: wrap;
-            margin-bottom: 22px;
+            margin-bottom: 24px;
         }
 
         .btn-gold-action {
             background: linear-gradient(135deg, #c5a880 0%, #a8895e 100%);
             color: #061810 !important;
-            padding: 13px 32px;
+            padding: 14px 34px;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 800;
             letter-spacing: 0.8px;
             text-transform: uppercase;
             text-decoration: none;
             border: none;
-            box-shadow: 0 8px 25px rgba(197, 168, 128, 0.35);
+            box-shadow: 0 8px 25px rgba(197, 168, 128, 0.4);
             transition: all 0.35s ease;
             display: inline-flex;
             align-items: center;
@@ -355,15 +380,15 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             animation: btnSweep 4.5s infinite;
         }
         .btn-gold-action:hover {
-            background: linear-gradient(135deg, #f5d79e 0%, #c5a880 100%);
+            background: linear-gradient(135deg, #ffeaae 0%, #c5a880 100%);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(197, 168, 128, 0.55);
+            box-shadow: 0 15px 35px rgba(197, 168, 128, 0.6);
             color: #061810 !important;
         }
 
         @keyframes goldPulse {
-            0%, 100% { box-shadow: 0 8px 25px rgba(197, 168, 128, 0.35); }
-            50% { box-shadow: 0 10px 35px rgba(245, 215, 158, 0.6), 0 0 20px rgba(197, 168, 128, 0.35); }
+            0%, 100% { box-shadow: 0 8px 25px rgba(197, 168, 128, 0.4); }
+            50% { box-shadow: 0 10px 35px rgba(255, 234, 174, 0.65), 0 0 25px rgba(197, 168, 128, 0.4); }
         }
         @keyframes btnSweep {
             0%, 70% { left: -120%; }
@@ -373,9 +398,9 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         .btn-whatsapp-action {
             background: linear-gradient(135deg, #25d366 0%, #1ea952 100%);
             color: #ffffff !important;
-            padding: 13px 28px;
+            padding: 14px 30px;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 700;
             letter-spacing: 0.5px;
             text-decoration: none;
@@ -392,13 +417,13 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         .btn-whatsapp-action:hover {
             background: linear-gradient(135deg, #2bf075 0%, #20ba59 100%);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 32px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 15px 32px rgba(37, 211, 102, 0.55);
             color: #ffffff !important;
         }
 
         @keyframes waPulse {
             0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35); }
-            50% { box-shadow: 0 10px 32px rgba(37, 211, 102, 0.55), 0 0 18px rgba(37, 211, 102, 0.3); }
+            50% { box-shadow: 0 10px 32px rgba(37, 211, 102, 0.6), 0 0 20px rgba(37, 211, 102, 0.35); }
         }
 
         /* Contact Info Cards */
@@ -411,11 +436,11 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             margin-bottom: 12px;
         }
         .info-pill {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 8px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 8px 22px;
             border-radius: 30px;
             font-size: 0.84rem;
             color: #e2e8f0;
@@ -426,63 +451,71 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             transition: all 0.3s ease;
         }
         .info-pill:hover {
-            background: rgba(197, 168, 128, 0.2);
+            background: rgba(197, 168, 128, 0.22);
             border-color: var(--primary);
             color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
         }
         .info-pill i {
-            color: var(--primary-light);
+            color: var(--gold-bright);
             transition: transform 0.3s ease;
         }
         .info-pill:hover i {
             transform: scale(1.15);
         }
 
-        /* Footer */
+        /* Footer Fixed Bottom */
         .opening-footer {
-            position: relative;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
             z-index: 10;
-            padding: 18px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
             text-align: center;
-            font-size: 0.82rem;
-            color: #94a3b8;
+            font-size: 0.8rem;
+            color: #64748b;
         }
 
         @media (max-width: 768px) {
-            .main-container {
-                padding: 16px 14px 16px;
+            body {
+                padding: 30px 14px 70px;
+                justify-content: flex-start;
             }
             .grand-heading {
-                font-size: 1.85rem;
+                font-size: 1.95rem;
             }
             .grand-subtext {
-                font-size: 0.92rem;
-                margin-bottom: 18px;
+                font-size: 0.94rem;
+                margin-bottom: 20px;
             }
             .countdown-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-                margin-bottom: 18px;
+                gap: 12px;
+                margin-bottom: 20px;
             }
             .timer-number {
-                font-size: 2.1rem;
+                font-size: 2.2rem;
             }
             .brand-logo-img {
-                max-width: 200px;
+                max-width: 280px;
             }
             .action-group {
                 flex-direction: column;
                 width: 100%;
                 gap: 10px;
-                margin-bottom: 18px;
+                margin-bottom: 20px;
             }
             .btn-gold-action, .btn-whatsapp-action {
                 width: 100%;
                 justify-content: center;
                 padding: 12px 20px;
+            }
+            .opening-footer {
+                position: relative;
+                margin-top: 30px;
             }
         }
     </style>
@@ -504,7 +537,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             <?php if(!empty($site_logo)): ?>
                 <img src="<?php echo htmlspecialchars($site_logo); ?>" alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?>" class="brand-logo-img">
             <?php else: ?>
-                <div style="font-size: 2.4rem; color: var(--primary); margin-bottom: 4px;">
+                <div style="font-size: 3rem; color: var(--primary); margin-bottom: 4px;">
                     <i class="fa-solid fa-crown"></i>
                 </div>
                 <h2 class="fw-bold mb-0 text-white font-serif"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?></h2>
@@ -518,12 +551,11 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             </div>
         </div>
 
-        <!-- Headline -->
-        <h1 class="grand-heading reveal-item reveal-delay-3"><?php echo htmlspecialchars($opening_title); ?></h1>
-        <p class="grand-subtext reveal-item reveal-delay-4"><?php echo nl2br(htmlspecialchars($opening_subtitle)); ?></p>
+        <!-- Subtitle -->
+        <p class="grand-subtext reveal-item reveal-delay-3"><?php echo nl2br(htmlspecialchars($opening_subtitle)); ?></p>
 
         <!-- Live Countdown Timer -->
-        <div class="countdown-grid reveal-item reveal-delay-5" id="countdownGrid">
+        <div class="countdown-grid reveal-item reveal-delay-4" id="countdownGrid">
             <div class="timer-card">
                 <div class="timer-number" id="daysCount">00</div>
                 <div class="timer-label">Days</div>
@@ -543,7 +575,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         </div>
 
         <!-- Call to Action Buttons -->
-        <div class="action-group reveal-item reveal-delay-6">
+        <div class="action-group reveal-item reveal-delay-5">
             <button class="btn-gold-action" data-bs-toggle="modal" data-bs-target="#vipInquiryModal">
                 <i class="fa-solid fa-calendar-check"></i> VIP Pre-Booking Request
             </button>
