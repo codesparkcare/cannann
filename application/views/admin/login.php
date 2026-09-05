@@ -301,7 +301,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
                 <label class="form-label" for="username">Username or Email</label>
                 <div style="position: relative;">
                     <i class="fa-solid fa-user icon"></i>
-                    <input type="text" name="username" id="username" class="form-control-custom" placeholder="e.g. admin or admin@hotelcanaann.com" required autofocus value="<?php echo htmlspecialchars($this->input->post('username') ?? ''); ?>">
+                    <input type="text" name="username" id="username" class="form-control-custom" placeholder="" required autofocus value="<?php echo htmlspecialchars($this->input->post('username') ?? ''); ?>">
                 </div>
             </div>
 
@@ -311,7 +311,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
                 </div>
                 <div style="position: relative;">
                     <i class="fa-solid fa-lock icon"></i>
-                    <input type="password" name="password" id="password" class="form-control-custom" placeholder="••••••••" required>
+                    <input type="password" name="password" id="password" class="form-control-custom" placeholder="" required>
                     <button type="button" class="toggle-password" id="togglePasswordBtn" title="Toggle password visibility">
                         <i class="fa-regular fa-eye" id="toggleEye"></i>
                     </button>
@@ -320,8 +320,8 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
 
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="remember_me" id="remember_me" style="background-color: rgba(15,23,42,0.8); border-color: rgba(255,255,255,0.2);">
-                    <label class="form-check-label small text-muted" for="remember_me" style="font-size: 0.82rem;">
+                    <input class="form-check-input" type="checkbox" name="remember_me" id="remember_me" style="background-color: rgba(15,23,42,0.8); border-color: rgba(255,255,255,0.25);">
+                    <label class="form-check-label small" for="remember_me" style="font-size: 0.85rem; color: #cbd5e1; cursor: pointer;">
                         Remember session
                     </label>
                 </div>
