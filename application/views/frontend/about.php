@@ -47,7 +47,7 @@
 
             <div class="col-lg-6" data-aos="fade-left">
                 <div class="position-relative">
-                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Resort Villa" class="img-fluid rounded-4 shadow-lg w-100" style="height: 480px; object-fit: cover;">
+                    <img src="<?php echo base_url('uploads/about_hotel.jpg'); ?>" alt="Canaan Hotel Architecture" class="img-fluid rounded-4 shadow-lg w-100" style="height: 480px; object-fit: cover; object-position: center 30%;">
                 </div>
             </div>
         </div>

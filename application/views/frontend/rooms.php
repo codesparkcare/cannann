@@ -27,25 +27,35 @@
 
         <!-- Rooms Grid -->
         <div class="row g-4">
-            <?php if(!empty($rooms)): foreach($rooms as $idx => $room): ?>
+            <?php if(!empty($rooms)): foreach($rooms as $idx => $room): 
+                $room_img = $room['featured_image'];
+                if (!empty($room_img) && strpos($room_img, 'http') !== 0) {
+                    $room_img = base_url(ltrim($room_img, '/'));
+                }
+            ?>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?php echo ($idx % 3 + 1) * 100; ?>">
                     <div class="luxury-card">
                         <div class="luxury-card-img-wrap">
-                            <img src="<?php echo htmlspecialchars($room['featured_image']); ?>" alt="<?php echo htmlspecialchars($room['title']); ?>">
-                            <span class="card-category-badge"><?php echo htmlspecialchars($room['category_name'] ?? 'Luxury Suite'); ?></span>
+                            <img src="<?php echo htmlspecialchars($room_img); ?>" alt="<?php echo htmlspecialchars($room['title']); ?>">
+                            <span class="card-category-badge"><?php echo htmlspecialchars($room['category_name'] ?? 'Deluxe Room'); ?></span>
                             <div class="card-price-badge">
-                                ₹<?php echo number_format($room['discounted_price'] ?: $room['price']); ?> <span class="fw-normal small">/ night</span>
+                                ₹<?php echo number_format($room['price'], ($room['price'] == floor($room['price']) ? 0 : 2)); ?> <span class="fw-normal small">/ night</span>
                             </div>
                         </div>
                         <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
                             <div>
+                                <div class="mb-2">
+                                    <span class="badge" style="background: rgba(16, 185, 129, 0.12); color: #047857; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.72rem; font-weight: 700; padding: 5px 9px;">
+                                        <i class="fa-solid fa-mug-hot me-1"></i> Complimentary Breakfast
+                                    </span>
+                                </div>
                                 <h4 class="font-serif mb-2 fs-5">
                                     <a href="<?php echo base_url('room/' . $room['slug']); ?>" class="text-dark hover-primary"><?php echo htmlspecialchars($room['title']); ?></a>
                                 </h4>
                                 <p class="text-muted small mb-3"><?php echo htmlspecialchars(substr($room['short_description'], 0, 110)); ?>...</p>
 
                                 <div class="d-flex flex-wrap gap-2 mb-3 pb-3 border-bottom small text-muted">
-                                    <span><i class="fa-solid fa-user-group text-primary me-1"></i> <?php echo $room['max_adults']; ?> Adults</span>
+                                    <span><i class="fa-solid fa-user-group text-primary me-1"></i> <?php echo $room['max_adults']; ?> <?php echo $room['max_adults'] == 1 ? 'Person' : 'Persons'; ?></span>
                                     <span>•</span>
                                     <span><i class="fa-solid fa-bed text-primary me-1"></i> <?php echo htmlspecialchars($room['bed_type']); ?></span>
                                     <span>•</span>

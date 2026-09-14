@@ -34,7 +34,13 @@
                     <?php if(!empty($rooms)): foreach($rooms as $rm): ?>
                         <tr>
                             <td>
-                                <img src="<?php echo htmlspecialchars($rm['featured_image']); ?>" alt="Room" style="width: 70px; height: 50px; object-fit: cover; border-radius: 6px;">
+                                <?php 
+                                $feat_img = $rm['featured_image'];
+                                if (!empty($feat_img) && strpos($feat_img, 'http') !== 0) {
+                                    $feat_img = base_url(ltrim($feat_img, '/'));
+                                }
+                                ?>
+                                <img src="<?php echo htmlspecialchars($feat_img); ?>" alt="Room" style="width: 70px; height: 50px; object-fit: cover; border-radius: 6px;">
                             </td>
                             <td>
                                 <div class="fw-bold"><?php echo htmlspecialchars($rm['title']); ?></div>
@@ -42,12 +48,10 @@
                             </td>
                             <td><span class="badge bg-light text-dark border"><?php echo htmlspecialchars($rm['category_name'] ?? 'General'); ?></span></td>
                             <td>
-                                <div class="fw-bold text-primary">₹<?php echo number_format($rm['discounted_price'] ?: $rm['price']); ?></div>
-                                <?php if($rm['discounted_price'] > 0 && $rm['discounted_price'] < $rm['price']): ?>
-                                    <small class="text-decoration-line-through text-muted">₹<?php echo number_format($rm['price']); ?></small>
-                                <?php endif; ?>
+                                <div class="fw-bold text-primary">₹<?php echo number_format($rm['price'], ($rm['price'] == floor($rm['price']) ? 0 : 2)); ?></div>
+                                <small class="text-muted">Grand (incl. 5% tax)</small>
                             </td>
-                            <td><?php echo $rm['max_adults']; ?> Adults, <?php echo $rm['max_children']; ?> Kids</td>
+                            <td><?php echo $rm['max_adults']; ?> Person<?php echo $rm['max_adults'] > 1 ? 's' : ''; ?></td>
                             <td>
                                 <?php if($rm['status'] == 'available'): ?>
                                     <span class="badge bg-success">Available</span>

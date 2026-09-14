@@ -1,5 +1,5 @@
 <!-- Inner Page Banner -->
-<section class="inner-page-banner" style="background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=85');">
+<section class="inner-page-banner" style="background-image: linear-gradient(rgba(15, 23, 42, 0.38), rgba(15, 23, 42, 0.50)), url('<?php echo base_url('uploads/canaan_restaurant_counter.jpg'); ?>'); background-position: center 35%;">
     <div class="container">
         <span class="badge bg-primary text-white mb-2 px-3 py-2 text-uppercase">MICHELIN-INSPIRED GASTRONOMY</span>
         <h1 class="font-serif">The Sapphire Restaurant & Bar</h1>

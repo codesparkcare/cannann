@@ -22,10 +22,16 @@
                 <div class="card border-0 shadow-sm rounded-3 p-4 h-100 d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex align-items-center gap-3 mb-3">
-                            <img src="<?php echo htmlspecialchars($t['avatar'] ?: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'); ?>" alt="Avatar" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                            <?php if(!empty($t['avatar'])): ?>
+                                <img src="<?php echo htmlspecialchars(strpos($t['avatar'], 'http') === 0 ? $t['avatar'] : base_url(ltrim($t['avatar'], '/'))); ?>" alt="Avatar" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                            <?php else: ?>
+                                <div class="rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm" style="width: 48px; height: 48px; background: #0f172a; color: #dfc295; font-size: 1.1rem; border: 1px solid rgba(197, 168, 128, 0.4);">
+                                    <?php echo strtoupper(substr($t['guest_name'], 0, 1)); ?>
+                                </div>
+                            <?php endif; ?>
                             <div>
-                                <h6 class="fw-bold mb-0"><?php echo htmlspecialchars($t['guest_name']); ?></h6>
-                                <small class="text-muted"><?php echo htmlspecialchars($t['designation']); ?> (<?php echo htmlspecialchars($t['location']); ?>)</small>
+                                <h6 class="fw-bold mb-0 text-dark"><?php echo htmlspecialchars($t['guest_name']); ?></h6>
+                                <small class="text-muted"><?php echo !empty($t['designation']) ? htmlspecialchars($t['designation']) : 'Verified Guest'; ?></small>
                             </div>
                         </div>
                         <div class="text-warning small mb-2">

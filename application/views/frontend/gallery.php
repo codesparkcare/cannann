@@ -37,11 +37,16 @@
 
         <!-- Gallery Grid -->
         <div class="row g-4">
-            <?php if(!empty($gallery)): foreach($gallery as $idx => $item): ?>
+            <?php if(!empty($gallery)): foreach($gallery as $idx => $item): 
+                $gallery_img = $item['image'];
+                if (!empty($gallery_img) && strpos($gallery_img, 'http') !== 0) {
+                    $gallery_img = base_url(ltrim($gallery_img, '/'));
+                }
+            ?>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?php echo ($idx % 3 + 1) * 100; ?>">
                     <div class="gallery-item shadow-sm rounded-3">
-                        <img src="<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
-                        <a href="<?php echo htmlspecialchars($item['image']); ?>" class="gallery-overlay glightbox" data-gallery="page-gallery" data-title="<?php echo htmlspecialchars($item['title']); ?>" data-description="<?php echo htmlspecialchars($item['caption']); ?>">
+                        <img src="<?php echo htmlspecialchars($gallery_img); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>">
+                        <a href="<?php echo htmlspecialchars($gallery_img); ?>" class="gallery-overlay glightbox" data-gallery="page-gallery" data-title="<?php echo htmlspecialchars($item['title']); ?>" data-description="<?php echo htmlspecialchars($item['caption']); ?>">
                             <i class="fa-solid fa-magnifying-glass-plus fs-2 mb-2 text-warning"></i>
                             <h5 class="text-white mb-1 font-serif"><?php echo htmlspecialchars($item['title']); ?></h5>
                             <span class="small text-white-50"><?php echo htmlspecialchars($item['caption']); ?></span>

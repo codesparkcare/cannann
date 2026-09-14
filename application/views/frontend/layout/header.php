@@ -454,9 +454,11 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
         /* Hero Slider */
         .hero-slider-container {
             position: relative;
-            height: 82vh;
-            min-height: 560px;
-            max-height: 800px;
+            height: 86vh;
+            min-height: 600px;
+            max-height: 840px;
+            background: #080c18;
+            overflow: hidden;
         }
         .hero-swiper {
             width: 100%;
@@ -467,58 +469,149 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             width: 100%;
             height: 100%;
             background-size: cover;
-            background-position: center;
+            background-position: center 25%;
             display: flex;
             align-items: center;
+            padding-bottom: 75px; /* Leaves clear breathing space above overlapping booking search bar */
         }
         .hero-slide-item::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.78) 100%);
+            background: linear-gradient(90deg, rgba(8, 12, 24, 0.85) 0%, rgba(8, 12, 24, 0.58) 50%, rgba(8, 12, 24, 0.2) 100%),
+                        linear-gradient(180deg, rgba(8, 12, 24, 0.3) 0%, transparent 35%, rgba(8, 12, 24, 0.8) 100%);
+            z-index: 1;
         }
         .hero-content {
             position: relative;
             z-index: 10;
             color: #ffffff;
-            max-width: 820px;
+            max-width: 780px;
         }
         .hero-tag {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
             color: var(--primary);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
-            margin-bottom: 15px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 5px 14px;
-            border-radius: 20px;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(197, 168, 128, 0.3);
+            margin-bottom: 16px;
+            background: rgba(11, 17, 32, 0.65);
+            padding: 6px 16px;
+            border-radius: 30px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 168, 128, 0.35);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
         }
         .hero-title {
             color: #ffffff;
-            font-size: 3.4rem;
+            font-size: clamp(2.3rem, 4.2vw, 3.5rem);
             font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 20px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        }
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            .hero-slider-container {
-                height: 75vh;
-            }
+            line-height: 1.16;
+            margin-bottom: 18px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            letter-spacing: -0.01em;
         }
         .hero-desc {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 30px;
-            max-width: 650px;
-            line-height: 1.6;
+            font-size: clamp(1rem, 1.3vw, 1.15rem);
+            color: rgba(255, 255, 255, 0.92);
+            margin-bottom: 28px;
+            max-width: 680px;
+            line-height: 1.65;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Swiper Controls on Hero Slider */
+        .hero-swiper .swiper-pagination {
+            bottom: 85px !important;
+            z-index: 25;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-swiper .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.45);
+            opacity: 1;
+            border-radius: 6px;
+            transition: all 0.35s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+        .hero-swiper .swiper-pagination-bullet-active {
+            width: 32px;
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 14px rgba(197, 168, 128, 0.8);
+        }
+        .hero-swiper .swiper-button-next,
+        .hero-swiper .swiper-button-prev {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(11, 17, 32, 0.55);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197, 168, 128, 0.35);
+            color: #ffffff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            top: 48%;
+            z-index: 20;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+        }
+        .hero-swiper .swiper-button-next:after,
+        .hero-swiper .swiper-button-prev:after {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .hero-swiper .swiper-button-next {
+            right: 32px;
+        }
+        .hero-swiper .swiper-button-prev {
+            left: 32px;
+        }
+        .hero-swiper .swiper-button-next:hover,
+        .hero-swiper .swiper-button-prev:hover {
+            background: var(--primary);
+            color: #0b1120;
+            border-color: var(--primary);
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(197, 168, 128, 0.45);
+        }
+        @media (max-width: 991px) {
+            .hero-swiper .swiper-button-next,
+            .hero-swiper .swiper-button-prev {
+                display: none !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-slider-container {
+                height: 82vh;
+                min-height: 520px;
+            }
+            .hero-slide-item {
+                background-position: center 20%;
+                padding-bottom: 95px;
+            }
+            .hero-title {
+                font-size: 2rem;
+                margin-bottom: 14px;
+            }
+            .hero-desc {
+                font-size: 0.95rem;
+                margin-bottom: 22px;
+                -webkit-line-clamp: 2;
+            }
+            .hero-swiper .swiper-pagination {
+                bottom: 95px !important;
+            }
         }
 
         /* Overlapping Booking Search Bar */
@@ -620,36 +713,57 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
         /* Facilities Icon Boxes */
         .facility-box {
             background: #ffffff;
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-md);
-            padding: 32px 24px;
+            border: 1px solid rgba(197, 168, 128, 0.32);
+            border-radius: 16px;
+            padding: 36px 26px;
             text-align: center;
-            transition: var(--transition);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
+            box-shadow: 0 10px 28px -5px rgba(15, 23, 42, 0.07);
+            position: relative;
         }
         .facility-box:hover {
             transform: translateY(-6px);
             border-color: var(--primary);
-            box-shadow: var(--shadow-luxury);
-            background: linear-gradient(180deg, #ffffff 0%, var(--bg-cream) 100%);
+            box-shadow: 0 20px 38px -8px rgba(197, 168, 128, 0.25), 0 10px 20px -5px rgba(15, 23, 42, 0.1);
+            background: #ffffff;
         }
         .facility-icon-wrap {
-            width: 65px;
-            height: 65px;
-            margin: 0 auto 20px;
-            background: var(--primary-light);
-            color: var(--primary-dark);
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 22px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #d4b886;
+            border: 2px solid rgba(197, 168, 128, 0.45);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6rem;
-            transition: var(--transition);
+            font-size: 1.75rem;
+            transition: all 0.35s ease;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
         }
         .facility-box:hover .facility-icon-wrap {
-            background: var(--primary);
+            background: linear-gradient(135deg, #c5a880 0%, #9e7f53 100%);
             color: #ffffff;
-            transform: rotateY(180deg);
+            border-color: #c5a880;
+            transform: scale(1.08);
+            box-shadow: 0 8px 22px rgba(197, 168, 128, 0.4);
+        }
+        .facility-card-title {
+            color: #0f172a;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+        .facility-card-desc {
+            color: #475569;
+            font-size: 0.94rem;
+            line-height: 1.68;
+            font-weight: 500;
+            margin-bottom: 0;
         }
 
         /* Restaurant Menu Items */

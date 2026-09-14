@@ -26,6 +26,7 @@ class Home extends CI_Controller {
         $data['meta_desc'] = $meta_desc ?: ($settings['meta_description'] ?? 'Experience luxury stays, fine dining, and coastal serenity.');
         $data['meta_keywords'] = $meta_keywords ?: ($settings['meta_keywords'] ?? 'hotel, resort, luxury stay, suites, restaurant');
         $data['room_categories'] = $this->Room_model->get_active_categories();
+        $data['featured_rooms'] = $this->Room_model->get_featured_rooms(6);
         return $data;
     }
 

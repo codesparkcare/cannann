@@ -131,7 +131,7 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                             <select name="selected_room_title" id="modal_room_select" class="search-field-input">
                                 <option value="">Any Available Luxury Suite</option>
                                 <?php if(!empty($featured_rooms)): foreach($featured_rooms as $rm): ?>
-                                    <option value="<?php echo $rm['id']; ?>"><?php echo htmlspecialchars($rm['title']); ?> (₹<?php echo number_format($rm['price']); ?>/night)</option>
+                                    <option value="<?php echo $rm['id']; ?>"><?php echo htmlspecialchars($rm['title']); ?> (₹<?php echo number_format($rm['price'], ($rm['price'] == floor($rm['price']) ? 0 : 2)); ?>/night)</option>
                                 <?php endforeach; endif; ?>
                             </select>
                         </div>

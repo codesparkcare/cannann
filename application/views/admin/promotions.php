@@ -17,12 +17,17 @@
     <?php endif; ?>
 
     <div class="row g-4">
-        <?php if(!empty($promotions)): foreach($promotions as $promo): ?>
+        <?php if(!empty($promotions)): foreach($promotions as $promo): 
+            $promo_img = $promo['banner_image'];
+            if (!empty($promo_img) && strpos($promo_img, 'http') !== 0) {
+                $promo_img = base_url(ltrim($promo_img, '/'));
+            }
+        ?>
             <div class="col-lg-6">
                 <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100">
                     <div class="row g-0 h-100">
                         <div class="col-md-5">
-                            <img src="<?php echo htmlspecialchars($promo['banner_image']); ?>" alt="Promo" class="img-fluid h-100 w-100" style="min-height: 200px; object-fit: cover;">
+                            <img src="<?php echo htmlspecialchars($promo_img); ?>" alt="Promo" class="img-fluid h-100 w-100" style="min-height: 200px; object-fit: cover;">
                         </div>
                         <div class="col-md-7 p-4 d-flex flex-column justify-content-between">
                             <div>

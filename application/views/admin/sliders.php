@@ -17,18 +17,35 @@
     <?php endif; ?>
 
     <div class="row g-4">
-        <?php if(!empty($sliders)): foreach($sliders as $s): ?>
+        <?php if(!empty($sliders)): foreach($sliders as $s): 
+            $s_img = $s['image'];
+            if (!empty($s_img) && strpos($s_img, 'http') !== 0) {
+                $s_img = base_url(ltrim($s_img, '/'));
+            }
+        ?>
             <div class="col-lg-4 col-md-6">
                 <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100">
-                    <img src="<?php echo htmlspecialchars($s['image']); ?>" alt="Slide" class="card-img-top" style="height: 180px; object-fit: cover;">
+                    <div style="position: relative; height: 210px; background: #0b1120; overflow: hidden;">
+                        <img src="<?php echo htmlspecialchars($s_img); ?>" alt="Slide" style="width: 100%; height: 100%; object-fit: cover; object-position: center 25%;">
+                        <span class="badge bg-dark bg-opacity-75 text-white" style="position: absolute; top: 12px; left: 12px; backdrop-filter: blur(4px);">
+                            #<?php echo $s['sort_order']; ?> Slide
+                        </span>
+                        <span class="badge bg-<?php echo $s['status'] == 'active' ? 'success' : 'secondary'; ?>" style="position: absolute; top: 12px; right: 12px;">
+                            <?php echo ucfirst($s['status']); ?>
+                        </span>
+                    </div>
                     <div class="card-body p-4 d-flex flex-column justify-content-between">
                         <div>
-                            <span class="badge bg-primary text-white mb-2"><?php echo htmlspecialchars($s['tag']); ?></span>
-                            <h5 class="fw-bold mb-2"><?php echo htmlspecialchars($s['title']); ?></h5>
-                            <p class="text-muted small mb-3"><?php echo htmlspecialchars($s['subtitle']); ?></p>
-                            <div class="small text-muted mb-2">
-                                <div><strong>Primary CTA:</strong> <?php echo htmlspecialchars($s['button_text']); ?> (<code><?php echo htmlspecialchars($s['button_link']); ?></code>)</div>
-                                <div><strong>Order:</strong> <?php echo $s['sort_order']; ?> | <strong>Status:</strong> <span class="badge bg-<?php echo $s['status'] == 'active' ? 'success' : 'secondary'; ?>"><?php echo ucfirst($s['status']); ?></span></div>
+                            <?php if(!empty($s['tag'])): ?>
+                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle mb-2"><?php echo htmlspecialchars($s['tag']); ?></span>
+                            <?php endif; ?>
+                            <h5 class="fw-bold mb-2" style="font-size: 1.1rem; line-height: 1.35;"><?php echo htmlspecialchars($s['title']); ?></h5>
+                            <p class="text-muted small mb-3" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.5; min-height: 48px;"><?php echo htmlspecialchars($s['subtitle']); ?></p>
+                            <div class="small text-muted p-2 rounded-2 bg-light mb-2">
+                                <div class="text-truncate"><strong>Primary CTA:</strong> <?php echo htmlspecialchars($s['button_text']); ?> &rarr; <code><?php echo htmlspecialchars($s['button_link']); ?></code></div>
+                                <?php if(!empty($s['secondary_btn_text'])): ?>
+                                    <div class="text-truncate mt-1"><strong>Secondary CTA:</strong> <?php echo htmlspecialchars($s['secondary_btn_text']); ?> &rarr; <code><?php echo htmlspecialchars($s['secondary_btn_link']); ?></code></div>
+                                <?php endif; ?>
                             </div>
                         </div>
 

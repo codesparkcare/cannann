@@ -17,10 +17,15 @@
     <?php endif; ?>
 
     <div class="row g-4">
-        <?php if(!empty($gallery)): foreach($gallery as $img): ?>
+        <?php if(!empty($gallery)): foreach($gallery as $img): 
+            $img_url = $img['image'];
+            if (!empty($img_url) && strpos($img_url, 'http') !== 0) {
+                $img_url = base_url(ltrim($img_url, '/'));
+            }
+        ?>
             <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="card border-0 shadow-sm rounded-3 overflow-hidden h-100">
-                    <img src="<?php echo htmlspecialchars($img['image']); ?>" alt="<?php echo htmlspecialchars($img['title']); ?>" style="height: 180px; object-fit: cover;">
+                    <img src="<?php echo htmlspecialchars($img_url); ?>" alt="<?php echo htmlspecialchars($img['title']); ?>" style="height: 180px; object-fit: cover;">
                     <div class="card-body p-3 d-flex flex-column justify-content-between">
                         <div>
                             <span class="badge bg-primary-subtle text-primary border border-primary-subtle mb-1 text-uppercase" style="font-size: 0.7rem;"><?php echo htmlspecialchars($img['category']); ?></span>
