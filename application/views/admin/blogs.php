@@ -31,10 +31,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(!empty($blogs)): foreach($blogs as $b): ?>
+                    <?php if(!empty($blogs)): foreach($blogs as $b): 
+                        $b_img = $b['featured_image'];
+                        if (!empty($b_img) && strpos($b_img, 'http') !== 0) {
+                            $b_img = base_url(ltrim($b_img, '/'));
+                        }
+                    ?>
                         <tr>
                             <td>
-                                <img src="<?php echo htmlspecialchars($b['featured_image']); ?>" alt="Cover" style="width: 70px; height: 50px; object-fit: cover; border-radius: 6px;">
+                                <img src="<?php echo htmlspecialchars($b_img); ?>" alt="Cover" style="width: 70px; height: 50px; object-fit: cover; border-radius: 6px;">
                             </td>
                             <td>
                                 <div class="fw-bold"><?php echo htmlspecialchars($b['title']); ?></div>

@@ -17,25 +17,6 @@ $is_opening_on = !empty($settings['is_opening_enabled']) && $settings['is_openin
     </div>
 <?php endif; ?>
 
-<!-- Topbar with Contact Information -->
-<div class="topbar d-none d-lg-block">
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center gap-4">
-                <span><i class="fa-solid fa-location-dot text-primary me-2"></i><?php echo htmlspecialchars($settings['hotel_address'] ?? 'Marina Bay District, Chennai'); ?></span>
-                <span><i class="fa-solid fa-phone text-primary me-2"></i><a href="tel:<?php echo htmlspecialchars($settings['hotel_phone'] ?? '+919876543210'); ?>"><?php echo htmlspecialchars($settings['hotel_phone'] ?? '+91 98765 43210'); ?></a></span>
-                <span><i class="fa-solid fa-envelope text-primary me-2"></i><a href="mailto:<?php echo htmlspecialchars($settings['hotel_email'] ?? 'contact@grandcannann.com'); ?>"><?php echo htmlspecialchars($settings['hotel_email'] ?? 'contact@grandcannann.com'); ?></a></span>
-            </div>
-            <div class="d-flex align-items-center gap-3">
-                <span class="text-white-50 me-1">Follow Us:</span>
-                <?php if(!empty($settings['facebook_url'])): ?><a href="<?php echo $settings['facebook_url']; ?>" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><?php endif; ?>
-                <?php if(!empty($settings['instagram_url'])): ?><a href="<?php echo $settings['instagram_url']; ?>" target="_blank"><i class="fa-brands fa-instagram"></i></a><?php endif; ?>
-                <?php if(!empty($settings['twitter_url'])): ?><a href="<?php echo $settings['twitter_url']; ?>" target="_blank"><i class="fa-brands fa-twitter"></i></a><?php endif; ?>
-                <?php if(!empty($settings['tripadvisor_url'])): ?><a href="<?php echo $settings['tripadvisor_url']; ?>" target="_blank"><i class="fa-solid fa-shield-cat"></i></a><?php endif; ?>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Main Sticky Luxury Navigation -->
 <?php
@@ -76,9 +57,6 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $current_segment == 'restaurant' ? 'active' : ''; ?>" href="<?php echo base_url('restaurant'); ?>">Restaurant & Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php echo $current_segment == 'facilities' ? 'active' : ''; ?>" href="<?php echo base_url('facilities'); ?>">Facilities</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $current_segment == 'gallery' ? 'active' : ''; ?>" href="<?php echo base_url('gallery'); ?>">Gallery</a>
@@ -134,11 +112,6 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
             <li class="nav-item">
                 <a class="nav-link <?php echo $current_segment == 'restaurant' ? 'active' : ''; ?>" href="<?php echo base_url('restaurant'); ?>">
                     <span>Restaurant & Menu</span><i class="fa-solid fa-chevron-right small text-white-50" style="font-size: 0.7rem;"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link <?php echo $current_segment == 'facilities' ? 'active' : ''; ?>" href="<?php echo base_url('facilities'); ?>">
-                    <span>Hotel Facilities</span><i class="fa-solid fa-chevron-right small text-white-50" style="font-size: 0.7rem;"></i>
                 </a>
             </li>
             <li class="nav-item">

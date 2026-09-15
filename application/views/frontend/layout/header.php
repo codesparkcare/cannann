@@ -120,6 +120,10 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             line-height: 1.7;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         h1, h2, h3, h4, h5, .font-serif {
             font-family: var(--font-heading);
             color: var(--dark);
@@ -599,6 +603,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             .hero-slide-item {
                 background-position: center 20%;
                 padding-bottom: 95px;
+                overflow: hidden;
             }
             .hero-title {
                 font-size: 2rem;
@@ -612,6 +617,24 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             .hero-swiper .swiper-pagination {
                 bottom: 95px !important;
             }
+            .hero-content {
+                max-width: 100%;
+            }
+        }
+
+        /* Hero content entrance animation (replaces AOS inside Swiper) */
+        .swiper-slide-active .hero-content {
+            animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes heroFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Overlapping Booking Search Bar */
@@ -624,6 +647,18 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             padding: 24px 30px;
             box-shadow: var(--shadow-luxury);
             border: 1px solid rgba(197, 168, 128, 0.2);
+        }
+        @media (max-width: 575.98px) {
+            .booking-search-bar {
+                margin-top: 0;
+                border-radius: 0;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                padding: 20px 16px;
+            }
+            #booking-search {
+                padding-left: 0;
+                padding-right: 0;
+            }
         }
         .search-field-label {
             font-size: 0.74rem;

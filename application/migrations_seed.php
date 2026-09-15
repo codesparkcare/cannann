@@ -243,23 +243,24 @@ foreach ($queries as $sql) {
 $chk = $mysqli->query("SELECT COUNT(*) as cnt FROM site_settings");
 $row = $chk->fetch_assoc();
 if ($row['cnt'] == 0) {
-    $hotel_addr = "124 Luxury Coastal Boulevard, Marina Bay District, Chennai, Tamil Nadu 600028";
-    $map = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.985621453228!2d80.27847321532454!3d13.036577816965038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267b2a6081ab5%3A0x6b10705f42c4b8e5!2sMarina%20Beach!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin";
-    $m_desc = "Experience world-class luxury at Grand Cannann Hotel & Resort. Premium ocean view suites, Michelin-inspired dining, infinity pool, luxury spa, and bespoke coastal experiences.";
-    $m_keys = "luxury hotel, resort, ocean suite, fine dining restaurant, infinity pool, hotel booking, boutique hotel chennai, tourist stay";
+    $hotel_addr = "105A, Court Road, Advocate Gnaniah Complex, Veppamoodu Junction, Nagercoil, Tamil Nadu 629001, India";
+    $map = "https://maps.google.com/maps?q=Advocate+Gnaniah+Complex,+Court+Road,+Veppamoodu+Junction,+Nagercoil,+Tamil+Nadu+629001&t=&z=16&ie=UTF8&iwloc=&output=embed";
+    $m_desc = "Experience world-class luxury at Grand Cannann Hotel & Resort. Premium rooms, delicious dining, and warm hospitality in Nagercoil.";
+    $m_keys = "luxury hotel, hotel nagercoil, kanyakumari stay, fine dining restaurant, hotel booking, boutique hotel nagercoil, tourist stay";
     
-    $stmt = $mysqli->prepare("INSERT INTO site_settings (hotel_name, hotel_tagline, hotel_email, hotel_phone, hotel_address, map_iframe, meta_title, meta_description, meta_keywords, smtp_host, smtp_port, smtp_crypto, smtp_from_email, smtp_from_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $mysqli->prepare("INSERT INTO site_settings (hotel_name, hotel_tagline, hotel_email, hotel_phone, hotel_address, map_iframe, meta_title, meta_description, meta_keywords, facebook_url, instagram_url, smtp_host, smtp_port, smtp_crypto, smtp_from_email, smtp_from_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $h_name = "Grand Cannann Resort & Luxury Suites";
     $h_tag = "Where Timeless Heritage Meets Contemporary Luxury";
     $h_email = "reservations@grandcannann.com";
-    $h_phone = "+91 44 4890 1200";
+    $h_phone = "+91 99949 99695";
+    $soc_url = "https://www.facebook.com/share/1MoP3i1NQu/";
     $m_title = "Grand Cannann Resort & Spa | Luxury Boutique Hotel & Suites";
     $smtp_host = "smtp.gmail.com";
     $smtp_port = 587;
     $smtp_crypto = "tls";
     $smtp_from_email = "reservations@grandcannann.com";
     $smtp_from_name = "Grand Cannann Hotel";
-    $stmt->bind_param("sssssssssissss", $h_name, $h_tag, $h_email, $h_phone, $hotel_addr, $map, $m_title, $m_desc, $m_keys, $smtp_host, $smtp_port, $smtp_crypto, $smtp_from_email, $smtp_from_name);
+    $stmt->bind_param("ssssssssssssisss", $h_name, $h_tag, $h_email, $h_phone, $hotel_addr, $map, $m_title, $m_desc, $m_keys, $soc_url, $soc_url, $smtp_host, $smtp_port, $smtp_crypto, $smtp_from_email, $smtp_from_name);
     $stmt->execute();
 }
 
@@ -472,43 +473,43 @@ $row = $chk->fetch_assoc();
 if ($row['cnt'] == 0) {
     $blogs = [
         [
-            'title' => 'Top 7 Hidden Coastal Treasures & Beaches Around Grand Cannann',
-            'slug' => 'top-7-hidden-coastal-treasures-and-beaches',
+            'title' => 'Padmanabhapuram Palace – A Journey Through Royal Heritage',
+            'slug' => 'padmanabhapuram-palace-a-journey-through-royal-heritage',
             'category' => 'Tourist Guide',
-            'featured_image' => 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85',
-            'author_name' => 'Aditya Sharma, Travel Concierge',
-            'read_time' => '6 min read',
-            'summary' => 'Uncover secluded turquoise lagoons, pristine golden sand shores, and vibrant sea turtle nesting points just minutes from the resort.',
-            'content' => '<p>The coastline surrounding Grand Cannann is one of the world’s best-kept secrets. While popular tourist hubs often draw large crowds, our boutique resort sits quietly adjacent to untouched sands and serene tidal coves where you can experience untouched natural beauty.</p><h3>1. Secret Cove of Kovalam Lighthouse</h3><p>Rising majestically above the coastline, the historic lighthouse offers 360-degree panoramic views across the turquoise bay. Take an early morning walking trail from our resort before the sun peaks to experience dolphins breaching the morning waves.</p><h3>2. Ancient Heritage Temple Trails</h3><p>Only a 20-minute drive from our private gates lies centuries-old UNESCO world heritage stone monuments, carved directly into seaside granite cliffs.</p><h3>3. Sunset Catamaran Cruises</h3><p>Grand Cannann concierge arranges private sunset catamaran voyages complete with sparkling wine, artisanal cheese platters, and experienced local skippers.</p>',
-            'meta_title' => '7 Secret Coastal Spots & Beaches Near Grand Cannann | Luxury Travel Guide',
-            'meta_keywords' => 'coastal beaches, tourist guide chennai, grand cannann travel, secret beach covelong, catamaran cruise, boutique resort attractions',
-            'meta_description' => 'Explore the top 7 hidden beaches, historic lighthouses, and coastal nature trails near Grand Cannann Resort. Read our curated luxury travel guide.'
-        ],
-        [
-            'title' => 'The Ultimate Guide to Coastal Seafood & Fine Dining Etiquette',
-            'slug' => 'ultimate-guide-to-coastal-seafood-and-fine-dining',
-            'category' => 'Culinary Experiences',
-            'featured_image' => 'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=85',
-            'author_name' => 'Executive Chef Laurent Petit',
+            'featured_image' => 'uploads/blogs/padmanabhapuram-palace.jpg',
+            'author_name' => 'Chief Concierge',
             'read_time' => '5 min read',
-            'summary' => 'Discover how our award-winning culinary masters source fresh seafood at daybreak to craft world-class gastronomic magic.',
-            'content' => '<p>True luxury dining starts with impeccable ingredients. At Grand Cannann’s signature restaurant, our chefs work directly with generational local fishermen at 5:00 AM every morning to select only the finest tiger prawns, reef lobsters, and wild seabass.</p><h3>The Art of Seafood Pairing</h3><p>Pairing delicate fish with bold vintage wines requires deep mastery. Our in-house sommelier explains how crisp Sauvignon Blancs and vintage mineral Chardonnays bring out the sweet, briny notes of charcoal-grilled shellfish.</p>',
-            'meta_title' => 'Coastal Fine Dining & Seafood Mastery at Grand Cannann Hotel',
-            'meta_keywords' => 'fine dining seafood, michelin cuisine, wine pairing, grand cannann restaurant, fresh coastal food, luxury dining guide',
-            'meta_description' => 'Discover the culinary secrets and wine pairings behind Grand Cannann’s award-winning coastal seafood restaurant. Curated by Executive Chef Laurent.'
+            'summary' => 'Discover the magnificent Padmanabhapuram Palace, an impressive heritage destination near Nagercoil known for its traditional architecture, intricate wood carvings, murals, historic halls, and connection to the Travancore royal family.',
+            'content' => '<p>Padmanabhapuram Palace is one of the most remarkable heritage attractions near Nagercoil and is an excellent destination for travellers interested in history, architecture, and South Indian culture. Located near Thuckalay, the palace was an important royal residence of the Travancore Kingdom and remains surrounded by the historic Padmanabhapuram Fort.</p><p>Visitors can explore beautifully designed halls, traditional wooden structures, carved ceilings, murals, and historic interiors that showcase the craftsmanship of an earlier era. The Mantrasala, dining hall, clock tower, and other sections of the palace provide an interesting glimpse into royal life and traditional architecture.</p><p>The palace is particularly appealing to guests looking for a peaceful cultural experience away from the busy city. Its historic atmosphere and beautiful surroundings make it a wonderful addition to a Nagercoil sightseeing itinerary.</p><p>For hotel guests planning a day trip, Padmanabhapuram Palace can be combined with other nearby attractions such as Udayagiri Fort and Thirparappu Waterfalls. The official district tourism information places the palace about 15 km from Nagercoil, while local tourism sources provide nearby-distance estimates.</p>',
+            'meta_title' => 'Padmanabhapuram Palace Near Nagercoil | Tourist Guide',
+            'meta_keywords' => 'Padmanabhapuram Palace, places near Nagercoil, Nagercoil tourist places, Nagercoil sightseeing',
+            'meta_description' => 'Explore Padmanabhapuram Palace near Nagercoil, a historic royal residence featuring traditional architecture, wood carvings, murals, and Travancore heritage.'
         ],
         [
-            'title' => 'Holistic Wellness: Ancient Ayurvedic Secrets for Modern Rejuvenation',
-            'slug' => 'holistic-wellness-ancient-ayurvedic-secrets',
-            'category' => 'Spa & Wellness',
-            'featured_image' => 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=85',
-            'author_name' => 'Dr. Maya Varma, Lead Ayurveda Specialist',
-            'read_time' => '4 min read',
-            'summary' => 'Realign your mind, body, and soul through customized herbal oil therapies, sound bath healing, and sunrise ocean meditation.',
-            'content' => '<p>In an age of constant digital notifications and urban hustle, genuine relaxation is the ultimate luxury. The Sanctuary Spa at Grand Cannann is dedicated to ancient Ayurvedic healing philosophies refined over 5,000 years.</p><h3>Signature Shirodhara Rituals</h3><p>Warm herbal oils infused with 24 rare botanical herbs gently cascade over the forehead, balancing energy points and releasing accumulated stress.</p>',
-            'meta_title' => 'Ayurvedic Wellness & Spa Rejuvenation | Grand Cannann Spa',
-            'meta_keywords' => 'ayurvedic spa, luxury wellness resort, shirodhara therapy, sunrise ocean yoga, sound bath meditation, detox retreat',
-            'meta_description' => 'Experience transformative Ayurvedic spa treatments and sunrise ocean meditation at Grand Cannann Resort. Rejuvenate mind, body, and soul.'
+            'title' => 'Thirparappu Waterfalls – A Refreshing Escape Near Nagercoil',
+            'slug' => 'thirparappu-waterfalls-a-refreshing-escape-near-nagercoil',
+            'category' => 'Tourist Guide',
+            'featured_image' => 'uploads/blogs/thirparappu-waterfalls.jpg',
+            'author_name' => 'Chief Concierge',
+            'read_time' => '5 min read',
+            'summary' => 'Experience the natural beauty of Thirparappu Waterfalls, a popular getaway near Nagercoil where flowing water, green landscapes, rocky surroundings, and peaceful scenery create a refreshing day-trip experience.',
+            'content' => '<p>Thirparappu Waterfalls is a popular natural attraction in Kanniyakumari District and an enjoyable destination for travellers staying in and around Nagercoil. Surrounded by greenery and rocky landscapes, the waterfall offers visitors an opportunity to enjoy nature away from the busy city environment.</p><p>The Kodayar River creates the waterfall, with water flowing over a rocky stretch and creating a scenic view. The area around the falls is especially attractive during periods when the water flow is good. Visitors can enjoy the surrounding landscape, spend time with family, and take photographs of the natural scenery.</p><p>A temple dedicated to Lord Shiva is located near the waterfall, adding a cultural element to the visit. A children\'s swimming pool is also available at the tourist area, making the destination suitable for families.</p><p>Thirparappu is a good choice for travellers looking for a combination of nature, relaxation, and sightseeing. Guests staying at your hotel can plan it as a half-day or full-day outing and explore other attractions in the surrounding region.</p><p>With its green surroundings and refreshing atmosphere, Thirparappu Waterfalls can be one of the memorable experiences during a Nagercoil holiday.</p>',
+            'meta_title' => 'Thirparappu Waterfalls Near Nagercoil | Travel Guide',
+            'meta_keywords' => 'Thirparappu Waterfalls, tourist places near Nagercoil, Nagercoil tourist guide, places to visit near Nagercoil',
+            'meta_description' => 'Visit Thirparappu Waterfalls near Nagercoil and enjoy beautiful natural scenery, flowing water, greenery, family-friendly surroundings, and nearby attractions.'
+        ],
+        [
+            'title' => 'Muttom Beach – A Beautiful Coastal Escape Near Nagercoil',
+            'slug' => 'muttom-beach-a-beautiful-coastal-escape-near-nagercoil',
+            'category' => 'Tourist Guide',
+            'featured_image' => 'uploads/blogs/muttom-beach.jpg',
+            'author_name' => 'Chief Concierge',
+            'read_time' => '5 min read',
+            'summary' => 'Enjoy the beauty of Muttom Beach near Nagercoil, known for its rocky coastline, sea views, lighthouse heritage, and spectacular sunset scenery.',
+            'content' => '<p>Muttom Beach is a scenic coastal destination near Nagercoil and a wonderful choice for travellers who enjoy beaches, photography, sea views, and peaceful sunset experiences. Unlike beaches with long stretches of flat sand, Muttom is known for its distinctive rocky shoreline, which gives the destination a dramatic and beautiful appearance.</p><p>The beach is also associated with an historic lighthouse, adding a touch of heritage to the coastal landscape. According to the Nagercoil municipal tourism information, the lighthouse was originally built by the British in 1875. The area is also recognised for its panoramic sunset views.</p><p>Visitors can spend a relaxed evening walking along the coastline, enjoying the sound of the waves, photographing the rocks and sea, or simply watching the sunset. The combination of ocean views and rocky surroundings makes Muttom particularly attractive for couples, families, photographers, and travellers looking for a peaceful escape.</p><p>For guests staying in Nagercoil, Muttom Beach can be included in an itinerary covering other nearby attractions. It is an excellent option for an evening outing, especially for visitors who want to experience the coastal beauty of Kanniyakumari District.</p><p>A visit to Muttom Beach offers a simple but memorable travel experience—fresh sea air, beautiful coastal scenery, and a relaxing sunset away from the city\'s busy atmosphere.</p>',
+            'meta_title' => 'Muttom Beach Near Nagercoil | Tourist Guide',
+            'meta_keywords' => 'Muttom Beach, Nagercoil tourist places, beaches near Nagercoil, Nagercoil sightseeing',
+            'meta_description' => 'Discover Muttom Beach near Nagercoil, known for its rocky coastline, historic lighthouse, beautiful sea views, and spectacular sunset scenery.'
         ]
     ];
     $stmt = $mysqli->prepare("INSERT INTO blogs (title, slug, category, featured_image, author_name, read_time, summary, content, meta_title, meta_keywords, meta_description) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");

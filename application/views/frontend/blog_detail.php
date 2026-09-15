@@ -1,5 +1,11 @@
 <!-- Inner Page Banner -->
-<section class="inner-page-banner" style="background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('<?php echo htmlspecialchars($blog['featured_image']); ?>');">
+<?php
+    $blog_banner = $blog['featured_image'];
+    if (!empty($blog_banner) && strpos($blog_banner, 'http') !== 0) {
+        $blog_banner = base_url(ltrim($blog_banner, '/'));
+    }
+?>
+<section class="inner-page-banner" style="background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('<?php echo htmlspecialchars($blog_banner); ?>');">
     <div class="container">
         <span class="badge bg-primary text-white mb-2 px-3 py-2 text-uppercase"><?php echo htmlspecialchars($blog['category']); ?></span>
         <h1 class="font-serif"><?php echo htmlspecialchars($blog['title']); ?></h1>
@@ -29,7 +35,7 @@
 
                 <!-- Featured Image -->
                 <div class="rounded-4 overflow-hidden mb-4 shadow-sm">
-                    <img src="<?php echo htmlspecialchars($blog['featured_image']); ?>" alt="<?php echo htmlspecialchars($blog['title']); ?>" class="w-100" style="max-height: 480px; object-fit: cover;">
+                    <img src="<?php echo htmlspecialchars($blog_banner); ?>" alt="<?php echo htmlspecialchars($blog['title']); ?>" class="w-100" style="max-height: 480px; object-fit: cover;">
                 </div>
 
                 <!-- Article Content -->
@@ -79,9 +85,14 @@
                 <!-- Recent Stories -->
                 <div class="p-4 rounded-4 bg-white shadow-sm border border-light">
                     <h5 class="font-serif mb-3 pb-2 border-bottom">Related Travel Guides</h5>
-                    <?php if(!empty($recent_blogs)): foreach($recent_blogs as $rblog): ?>
+                    <?php if(!empty($recent_blogs)): foreach($recent_blogs as $rblog): 
+                        $rblog_img = $rblog['featured_image'];
+                        if (!empty($rblog_img) && strpos($rblog_img, 'http') !== 0) {
+                            $rblog_img = base_url(ltrim($rblog_img, '/'));
+                        }
+                    ?>
                         <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
-                            <img src="<?php echo htmlspecialchars($rblog['featured_image']); ?>" alt="<?php echo htmlspecialchars($rblog['title']); ?>" style="width: 70px; height: 70px; border-radius: 8px; object-fit: cover;">
+                            <img src="<?php echo htmlspecialchars($rblog_img); ?>" alt="<?php echo htmlspecialchars($rblog['title']); ?>" style="width: 70px; height: 70px; border-radius: 8px; object-fit: cover;">
                             <div>
                                 <a href="<?php echo base_url('blog/' . $rblog['slug']); ?>" class="text-dark fw-semibold small d-block mb-1 font-serif hover-primary" style="line-height: 1.4;">
                                     <?php echo htmlspecialchars(substr($rblog['title'], 0, 60)); ?>...

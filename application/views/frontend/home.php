@@ -12,7 +12,7 @@
                     <div class="swiper-slide hero-slide-item"
                         style="background-image: url('<?php echo htmlspecialchars($slide_img); ?>');">
                         <div class="container">
-                            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="hero-content">
                                 <?php if (!empty($slide['tag'])): ?>
                                     <span class="hero-tag"><i class="fa-solid fa-star me-1 text-warning"></i>
                                         <?php echo htmlspecialchars($slide['tag']); ?></span>
@@ -27,7 +27,7 @@
                                         </a>
                                     <?php endif; ?>
                                     <?php if (!empty($slide['secondary_btn_text'])): ?>
-                                        <a href="<?php echo base_url($slide['secondary_btn_link'] ?: 'facilities'); ?>"
+                                        <a href="<?php echo base_url($slide['secondary_btn_link'] ?: 'restaurant'); ?>"
                                             class="btn btn-luxury-outline">
                                             <?php echo htmlspecialchars($slide['secondary_btn_text']); ?>
                                         </a>
@@ -107,7 +107,7 @@
 </div>
 
 <!-- 3. Welcome & Heritage Section with Counter Stats -->
-<section class="py-5 my-4 position-relative" style="background: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.95)), url('<?php echo base_url('uploads/about_hotel.jpg'); ?>') center/cover no-repeat; border-top: 1px solid rgba(197, 168, 128, 0.15); border-bottom: 1px solid rgba(197, 168, 128, 0.15);">
+<section class="py-5 my-4 position-relative" style="background: #ffffff; border-top: 1px solid rgba(197, 168, 128, 0.15); border-bottom: 1px solid rgba(197, 168, 128, 0.15);">
     <div class="container py-lg-4">
         <div class="row align-items-center g-5">
             <div class="col-lg-6" data-aos="fade-right">
@@ -310,117 +310,221 @@
 </section>
 
 <!-- 6. Restaurant & Dining Showcase Section -->
-<section class="py-5 text-white position-relative" id="restaurant"
-    style="background: linear-gradient(90deg, rgba(11, 17, 32, 0.42) 0%, rgba(11, 17, 32, 0.18) 50%, rgba(11, 17, 32, 0.08) 100%), linear-gradient(180deg, rgba(11, 17, 32, 0.15) 0%, transparent 50%, rgba(11, 17, 32, 0.20) 100%), url('<?php echo base_url('uploads/canaan_restaurant_counter.jpg'); ?>') center 30%/cover no-repeat;">
-    <div class="container py-lg-4">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-5" data-aos="fade-right">
+<section class="py-5 position-relative overflow-hidden" id="restaurant"
+    style="background: radial-gradient(circle at 85% 15%, rgba(197, 168, 128, 0.14) 0%, transparent 45%), radial-gradient(circle at 10% 85%, rgba(30, 41, 59, 0.6) 0%, transparent 50%), #0b1120;">
+    
+    <!-- Subtle luxury decorative ambient pattern -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 pointer-events-none" style="background: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 28px 28px; opacity: 0.6;"></div>
+
+    <div class="container py-lg-4 position-relative" style="z-index: 2;">
+        <!-- Top Row: Editorial Story & Featured Architectural Image Frame -->
+        <div class="row align-items-center g-4 g-lg-5 mb-5">
+            <!-- Left: Restaurant Narrative & Details -->
+            <div class="col-lg-6" data-aos="fade-right">
                 <span class="section-badge shadow-sm"
-                    style="background: #0f172a; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">RESTAURANT
-                    & DINING</span>
-                <h2 class="text-white section-title mt-2"
-                    style="text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9); font-weight: 700;">A Delicious Taste for Every
-                    Occasion</h2>
-                <p class="mb-4"
-                    style="color: #f8fafc; line-height: 1.8; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9); font-size: 1.02rem;">
-                    Discover a delightful selection of dishes at Canaan Hotel, Nagercoil. From flavorful South Indian
-                    favorites and aromatic Chinese specialties to delicious vegetarian and non-vegetarian dishes, our
-                    restaurant brings together comforting flavors and satisfying meals for every guest.
+                    style="background: rgba(197, 168, 128, 0.12); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.4); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.18em; padding: 7px 18px; border-radius: 50px; display: inline-flex; align-items: center; gap: 7px;">
+                    <i class="fa-solid fa-utensils text-primary" style="font-size: 0.75rem;"></i> RESTAURANT & DINING
+                </span>
+                
+                <h2 class="font-serif text-white display-6 fw-bold mt-3 mb-3" style="line-height: 1.25;">
+                    A Delicious Taste for <span style="background: linear-gradient(135deg, #dfc295 0%, #c5a880 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Every Occasion</span>
+                </h2>
+                
+                <p class="mb-4" style="color: #cbd5e1; font-size: 1.03rem; line-height: 1.85; font-weight: 400;">
+                    Discover a delightful selection of dishes at Canaan Hotel, Nagercoil. From flavorful South Indian favorites and aromatic Chinese specialties to delicious vegetarian and non-vegetarian dishes, our restaurant brings together comforting flavors and satisfying meals for every guest.
                 </p>
-                <div class="d-flex flex-column gap-3 mb-4">
-                    <div class="d-flex align-items-center gap-3 p-3 rounded-3"
-                        style="background: rgba(11, 17, 32, 0.42); backdrop-filter: blur(8px); border: 1px solid rgba(197, 168, 128, 0.35); max-width: 380px; box-shadow: 0 4px 20px rgba(0,0,0,0.25);">
-                        <i class="fa-solid fa-clock text-primary fs-3"></i>
+
+                <!-- Key Highlights & Hours Pill -->
+                <div class="d-flex flex-wrap gap-3 mb-4">
+                    <div class="d-flex align-items-center gap-3 px-3 py-2 rounded-3"
+                        style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(197, 168, 128, 0.25);">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 38px; height: 38px; background: rgba(197, 168, 128, 0.15); color: #dfc295; font-size: 1rem;">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
                         <div>
-                            <h6 class="mb-0 text-white font-serif"
-                                style="font-size: 0.95rem; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">Operating Hours</h6>
-                            <span class="small" style="color: #e2e8f0; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">Open
-                                Daily | Breakfast, Lunch & Dinner</span>
+                            <span class="d-block text-white-50" style="font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;">Operating Hours</span>
+                            <strong class="text-white small">Open Daily • Breakfast, Lunch & Dinner</strong>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-3 px-3 py-2 rounded-3"
+                        style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(197, 168, 128, 0.25);">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 38px; height: 38px; background: rgba(197, 168, 128, 0.15); color: #dfc295; font-size: 1rem;">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+                        <div>
+                            <span class="d-block text-white-50" style="font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;">Live Counter</span>
+                            <strong class="text-white small">Hot Drinks, Juices & Falooda Bar</strong>
                         </div>
                     </div>
                 </div>
-                <div class="d-flex gap-3">
-                    <a href="<?php echo base_url('restaurant'); ?>" class="btn btn-luxury">
-                        View Full Menu <i class="fa-solid fa-book-open ms-1"></i>
+
+                <!-- Action CTA Buttons -->
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="<?php echo base_url('restaurant'); ?>" class="btn btn-luxury px-4 py-3 shadow-lg">
+                        <i class="fa-solid fa-book-open me-2"></i> View Full Menu
                     </a>
-                    <a href="<?php echo base_url('restaurant#reserve'); ?>" class="btn btn-luxury-outline">
-                        Reserve a Table
+                    <a href="<?php echo base_url('restaurant#reserve'); ?>" class="btn btn-outline-light px-4 py-3"
+                        style="border-radius: 50px; border-color: rgba(197, 168, 128, 0.45); color: #dfc295; font-weight: 600; font-size: 0.88rem; letter-spacing: 0.04em;">
+                        <i class="fa-regular fa-calendar-check me-2"></i> Reserve a Table
                     </a>
                 </div>
             </div>
 
-            <!-- Food Categories / Menu Highlights -->
-            <div class="col-lg-7" data-aos="fade-left">
-                <div class="row g-3">
-                    <div class="col-sm-6">
-                        <div class="p-4 rounded-4 h-100"
-                            style="background: rgba(11, 17, 32, 0.48); border: 1px solid rgba(255, 255, 255, 0.22); backdrop-filter: blur(8px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); transition: all 0.3s ease;">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <span style="font-size: 1.6rem;">🍗</span>
-                                <h5 class="text-white mb-0 font-serif"
-                                    style="font-size: 1.05rem; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Non-Vegetarian
-                                    Delights</h5>
+            <!-- Right: Architectural Featured Image Frame -->
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="position-relative p-2 rounded-4"
+                    style="background: linear-gradient(135deg, rgba(197, 168, 128, 0.45) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(197, 168, 128, 0.2) 100%);">
+                    <div class="rounded-4 overflow-hidden position-relative shadow-2xl" style="height: 380px;">
+                        <img src="<?php echo base_url('uploads/canaan_restaurant_counter.jpg'); ?>"
+                            alt="Canaan Hotel Restaurant & Live Counter"
+                            class="w-100 h-100 dining-hero-img"
+                            style="object-fit: cover; object-position: center 35%; transition: transform 0.6s ease;">
+                        
+                        <!-- Gradient Vignette & Live Counter Tag -->
+                        <div class="position-absolute bottom-0 start-0 w-100 p-4"
+                            style="background: linear-gradient(to top, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.4) 60%, transparent 100%);">
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="badge" style="background: rgba(197, 168, 128, 0.95); color: #0f172a; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 6px;">
+                                        LIVE COUNTER
+                                    </span>
+                                    <span class="text-white small fw-semibold">Hot Drinks, Fresh Juices & Ice Creams</span>
+                                </div>
+                                <span class="badge bg-dark bg-opacity-75 text-white-50 border border-secondary border-opacity-50 small">
+                                    <i class="fa-solid fa-location-dot text-primary me-1"></i> Nagercoil
+                                </span>
                             </div>
-                            <p class="small mb-0"
-                                style="color: #f1f5f9; line-height: 1.6; font-size: 0.85rem; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);">
-                                Enjoy flavorful chicken, mutton, fish, and other delicious non-vegetarian specialties
-                                prepared with rich spices and authentic flavors.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="p-4 rounded-4 h-100"
-                            style="background: rgba(11, 17, 32, 0.48); border: 1px solid rgba(255, 255, 255, 0.22); backdrop-filter: blur(8px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); transition: all 0.3s ease;">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <span style="font-size: 1.6rem;">🥗</span>
-                                <h5 class="text-white mb-0 font-serif"
-                                    style="font-size: 1.05rem; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Vegetarian
-                                    Favorites</h5>
-                            </div>
-                            <p class="small mb-0"
-                                style="color: #f1f5f9; line-height: 1.6; font-size: 0.85rem; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);">
-                                A tempting selection of fresh and flavorful vegetarian dishes, perfect for a wholesome
-                                and satisfying meal.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="p-4 rounded-4 h-100"
-                            style="background: rgba(11, 17, 32, 0.48); border: 1px solid rgba(255, 255, 255, 0.22); backdrop-filter: blur(8px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); transition: all 0.3s ease;">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <span style="font-size: 1.6rem;">🥢</span>
-                                <h5 class="text-white mb-0 font-serif"
-                                    style="font-size: 1.05rem; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Chinese Cuisine
-                                </h5>
-                            </div>
-                            <p class="small mb-0"
-                                style="color: #f1f5f9; line-height: 1.6; font-size: 0.85rem; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);">
-                                Enjoy popular Chinese favorites featuring flavorful noodles, fried rice, Manchurian
-                                dishes, and delicious Indo-Chinese specialties.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="p-4 rounded-4 h-100"
-                            style="background: rgba(11, 17, 32, 0.48); border: 1px solid rgba(255, 255, 255, 0.22); backdrop-filter: blur(8px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); transition: all 0.3s ease;">
-                            <div class="d-flex align-items-center gap-2 mb-2">
-                                <span style="font-size: 1.6rem;">🍛</span>
-                                <h5 class="text-white mb-0 font-serif"
-                                    style="font-size: 1.05rem; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">South Indian
-                                    Specialties</h5>
-                            </div>
-                            <p class="small mb-0"
-                                style="color: #f1f5f9; line-height: 1.6; font-size: 0.85rem; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);">
-                                Experience authentic South Indian flavors with dosa, idli, parotta, biryani, meals,
-                                curries, and other traditional favorites.
-                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Bottom: 4 Curated Cuisine Collections Grid -->
+        <div class="row g-4 pt-2">
+            <!-- 1. South Indian Specialties -->
+            <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="dining-cuisine-card h-100 p-4 rounded-4 position-relative"
+                    style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 168, 128, 0.2); backdrop-filter: blur(10px); transition: all 0.35s ease;">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="cuisine-icon-badge rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(197, 168, 128, 0.25) 0%, rgba(197, 168, 128, 0.08) 100%); border: 1px solid rgba(197, 168, 128, 0.4); color: #dfc295; font-size: 1.25rem;">
+                            <i class="fa-solid fa-bowl-rice"></i>
+                        </div>
+                        <span class="badge" style="background: rgba(197, 168, 128, 0.12); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
+                            TRADITIONAL
+                        </span>
+                    </div>
+                    <h5 class="font-serif text-white mb-2 fs-6 fw-bold">South Indian Specialties</h5>
+                    <p class="small text-white-50 mb-3" style="line-height: 1.65; min-height: 54px;">
+                        Experience authentic South Indian flavors with crispy dosa, soft idli, flaky parotta, aromatic biryani, curries, and traditional feasts.
+                    </p>
+                    <a href="<?php echo base_url('restaurant'); ?>" class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
+                        Explore Dishes <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. Non-Vegetarian Delights -->
+            <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="dining-cuisine-card h-100 p-4 rounded-4 position-relative"
+                    style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 168, 128, 0.2); backdrop-filter: blur(10px); transition: all 0.35s ease;">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="cuisine-icon-badge rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(197, 168, 128, 0.25) 0%, rgba(197, 168, 128, 0.08) 100%); border: 1px solid rgba(197, 168, 128, 0.4); color: #dfc295; font-size: 1.25rem;">
+                            <i class="fa-solid fa-drumstick-bite"></i>
+                        </div>
+                        <span class="badge" style="background: rgba(239, 68, 68, 0.12); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
+                            SIGNATURE
+                        </span>
+                    </div>
+                    <h5 class="font-serif text-white mb-2 fs-6 fw-bold">Non-Vegetarian Delights</h5>
+                    <p class="small text-white-50 mb-3" style="line-height: 1.65; min-height: 54px;">
+                        Enjoy flavorful chicken, mutton, fresh coastal fish, and delicious non-vegetarian specialties cooked with rich spices and authentic recipes.
+                    </p>
+                    <a href="<?php echo base_url('restaurant'); ?>" class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
+                        Explore Dishes <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Chinese & Indo-Chinese Cuisine -->
+            <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="dining-cuisine-card h-100 p-4 rounded-4 position-relative"
+                    style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 168, 128, 0.2); backdrop-filter: blur(10px); transition: all 0.35s ease;">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="cuisine-icon-badge rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(197, 168, 128, 0.25) 0%, rgba(197, 168, 128, 0.08) 100%); border: 1px solid rgba(197, 168, 128, 0.4); color: #dfc295; font-size: 1.25rem;">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <span class="badge" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
+                            WOK-TOSSED
+                        </span>
+                    </div>
+                    <h5 class="font-serif text-white mb-2 fs-6 fw-bold">Chinese Cuisine</h5>
+                    <p class="small text-white-50 mb-3" style="line-height: 1.65; min-height: 54px;">
+                        Savor popular Chinese favorites featuring aromatic noodles, wok-fried rice, crispy Manchurian, chili gravies, and delicious Indo-Chinese fusion.
+                    </p>
+                    <a href="<?php echo base_url('restaurant'); ?>" class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
+                        Explore Dishes <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Vegetarian Favorites -->
+            <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="dining-cuisine-card h-100 p-4 rounded-4 position-relative"
+                    style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 168, 128, 0.2); backdrop-filter: blur(10px); transition: all 0.35s ease;">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="cuisine-icon-badge rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.06) 100%); border: 1px solid rgba(16, 185, 129, 0.35); color: #34d399; font-size: 1.25rem;">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <span class="badge" style="background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
+                            PURE VEG
+                        </span>
+                    </div>
+                    <h5 class="font-serif text-white mb-2 fs-6 fw-bold">Vegetarian Favorites</h5>
+                    <p class="small text-white-50 mb-3" style="line-height: 1.65; min-height: 54px;">
+                        A tempting selection of wholesome, freshly prepared vegetarian curries, paneer specialties, dals, and vegetable dishes for a fulfilling meal.
+                    </p>
+                    <a href="<?php echo base_url('restaurant'); ?>" class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
+                        Explore Dishes <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<style>
+    .dining-cuisine-card:hover {
+        transform: translateY(-7px);
+        background: rgba(255, 255, 255, 0.07) !important;
+        border-color: rgba(197, 168, 128, 0.6) !important;
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(197, 168, 128, 0.12) !important;
+    }
+    .dining-cuisine-card:hover .cuisine-icon-badge {
+        transform: scale(1.1);
+        border-color: #dfc295 !important;
+        box-shadow: 0 0 15px rgba(197, 168, 128, 0.3);
+    }
+    .dining-cuisine-card:hover .hover-arrow i {
+        transform: translateX(4px);
+    }
+    .dining-cuisine-card .hover-arrow i {
+        transition: transform 0.25s ease;
+    }
+    .dining-cuisine-card .cuisine-icon-badge {
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .dining-hero-img:hover {
+        transform: scale(1.04);
+    }
+</style>
 
 <!-- 7. Special Offers & Promotions Banner -->
 <?php if (!empty($promotions)): ?>
@@ -508,11 +612,16 @@
 
         <div class="row g-4">
             <?php if (!empty($blogs)):
-                foreach ($blogs as $idx => $blog): ?>
+                foreach ($blogs as $idx => $blog): 
+                    $blog_img = $blog['featured_image'];
+                    if (!empty($blog_img) && strpos($blog_img, 'http') !== 0) {
+                        $blog_img = base_url(ltrim($blog_img, '/'));
+                    }
+            ?>
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?php echo ($idx + 1) * 100; ?>">
                         <div class="luxury-card">
                             <div class="luxury-card-img-wrap">
-                                <img src="<?php echo htmlspecialchars($blog['featured_image']); ?>"
+                                <img src="<?php echo htmlspecialchars($blog_img); ?>"
                                     alt="<?php echo htmlspecialchars($blog['title']); ?>">
                                 <span class="card-category-badge"><?php echo htmlspecialchars($blog['category']); ?></span>
                             </div>

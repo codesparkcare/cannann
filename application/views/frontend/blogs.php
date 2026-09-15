@@ -17,28 +17,33 @@
             <!-- Left: Articles List -->
             <div class="col-lg-8" data-aos="fade-right">
                 <div class="row g-4">
-                    <?php if(!empty($blogs)): foreach($blogs as $blog): ?>
+                    <?php if(!empty($blogs)): foreach($blogs as $blog): 
+                        $blog_img = $blog['featured_image'];
+                        if (!empty($blog_img) && strpos($blog_img, 'http') !== 0) {
+                            $blog_img = base_url(ltrim($blog_img, '/'));
+                        }
+                    ?>
                         <div class="col-md-6">
                             <div class="luxury-card">
                                 <div class="luxury-card-img-wrap">
-                                    <img src="<?php echo htmlspecialchars($blog['featured_image']); ?>" alt="<?php echo htmlspecialchars($blog['title']); ?>">
+                                    <img src="<?php echo htmlspecialchars($blog_img); ?>" alt="<?php echo htmlspecialchars($blog['title']); ?>">
                                     <span class="card-category-badge"><?php echo htmlspecialchars($blog['category']); ?></span>
                                 </div>
                                 <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
                                     <div>
                                         <div class="d-flex align-items-center gap-2 small text-muted mb-2">
-                                            <span><i class="fa-regular fa-clock text-primary"></i> <?php echo htmlspecialchars($blog['read_time']); ?></span>
-                                            <span>•</span>
-                                            <span><i class="fa-regular fa-calendar text-primary"></i> <?php echo date('M d, Y', strtotime($blog['created_at'])); ?></span>
+                                             <span><i class="fa-regular fa-clock text-primary"></i> <?php echo htmlspecialchars($blog['read_time']); ?></span>
+                                             <span>•</span>
+                                             <span><i class="fa-regular fa-calendar text-primary"></i> <?php echo date('M d, Y', strtotime($blog['created_at'])); ?></span>
                                         </div>
                                         <h4 class="font-serif fs-5 mb-2">
-                                            <a href="<?php echo base_url('blog/' . $blog['slug']); ?>" class="text-dark hover-primary"><?php echo htmlspecialchars($blog['title']); ?></a>
+                                             <a href="<?php echo base_url('blog/' . $blog['slug']); ?>" class="text-dark hover-primary"><?php echo htmlspecialchars($blog['title']); ?></a>
                                         </h4>
                                         <p class="text-muted small mb-3"><?php echo htmlspecialchars(substr($blog['summary'], 0, 110)); ?>...</p>
                                     </div>
                                     <div>
                                         <a href="<?php echo base_url('blog/' . $blog['slug']); ?>" class="text-primary fw-bold small text-uppercase">
-                                            Read Article <i class="fa-solid fa-arrow-right ms-1"></i>
+                                             Read Article <i class="fa-solid fa-arrow-right ms-1"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -63,9 +68,14 @@
                 <!-- Recent Posts List -->
                 <div class="p-4 rounded-4 bg-white shadow-sm border border-light">
                     <h5 class="font-serif mb-3 pb-2 border-bottom">Popular Stories</h5>
-                    <?php if(!empty($recent_blogs)): foreach($recent_blogs as $rblog): ?>
+                    <?php if(!empty($recent_blogs)): foreach($recent_blogs as $rblog): 
+                        $rblog_img = $rblog['featured_image'];
+                        if (!empty($rblog_img) && strpos($rblog_img, 'http') !== 0) {
+                            $rblog_img = base_url(ltrim($rblog_img, '/'));
+                        }
+                    ?>
                         <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
-                            <img src="<?php echo htmlspecialchars($rblog['featured_image']); ?>" alt="<?php echo htmlspecialchars($rblog['title']); ?>" style="width: 70px; height: 70px; border-radius: 8px; object-fit: cover;">
+                            <img src="<?php echo htmlspecialchars($rblog_img); ?>" alt="<?php echo htmlspecialchars($rblog['title']); ?>" style="width: 70px; height: 70px; border-radius: 8px; object-fit: cover;">
                             <div>
                                 <a href="<?php echo base_url('blog/' . $rblog['slug']); ?>" class="text-dark fw-semibold small d-block mb-1 font-serif hover-primary" style="line-height: 1.4;">
                                     <?php echo htmlspecialchars(substr($rblog['title'], 0, 60)); ?>...

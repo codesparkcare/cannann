@@ -160,18 +160,7 @@ class Home extends CI_Controller {
     }
 
     public function facilities() {
-        $data = $this->get_common_data('Hotel Facilities & Wellness');
-        if ($this->should_show_opening_page($data['settings'])) {
-            $this->load->view('frontend/opening_countdown', $data);
-            return;
-        }
-
-        $data['facilities'] = $this->Facility_model->get_active_facilities();
-
-        $this->load->view('frontend/layout/header', $data);
-        $this->load->view('frontend/layout/navbar', $data);
-        $this->load->view('frontend/facilities', $data);
-        $this->load->view('frontend/layout/footer', $data);
+        redirect(base_url(), 'location', 301);
     }
 
     public function gallery() {
@@ -230,7 +219,11 @@ class Home extends CI_Controller {
 
         $data['blog'] = $blog;
         $data['recent_blogs'] = $this->Blog_model->get_recent_blogs($blog['id'], 3);
-        $data['og_image'] = $blog['featured_image'];
+        $blog_feat = $blog['featured_image'];
+        if (!empty($blog_feat) && strpos($blog_feat, 'http') !== 0) {
+            $blog_feat = base_url(ltrim($blog_feat, '/'));
+        }
+        $data['og_image'] = $blog_feat;
 
         $this->load->view('frontend/layout/header', $data);
         $this->load->view('frontend/layout/navbar', $data);
