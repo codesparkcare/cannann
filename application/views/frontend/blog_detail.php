@@ -5,7 +5,7 @@
         $blog_banner = base_url(ltrim($blog_banner, '/'));
     }
 ?>
-<section class="inner-page-banner" style="background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.9)), url('<?php echo htmlspecialchars($blog_banner); ?>');">
+<section class="inner-page-banner" style="background-image: linear-gradient(rgba(7, 25, 17, 0.75), rgba(7, 25, 17, 0.92)), url('<?php echo htmlspecialchars($blog_banner); ?>');">
     <div class="container">
         <span class="badge bg-primary text-white mb-2 px-3 py-2 text-uppercase"><?php echo htmlspecialchars($blog['category']); ?></span>
         <h1 class="font-serif"><?php echo htmlspecialchars($blog['title']); ?></h1>
@@ -75,7 +75,7 @@
             <!-- Right Sidebar: Recent Posts & Room Booking Callout -->
             <div class="col-lg-4" data-aos="fade-left">
                 <!-- Stay Reservation Callout -->
-                <div class="p-4 rounded-4 text-white mb-4 shadow-sm" style="background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80') center/cover;">
+                <div class="p-4 rounded-4 text-white mb-4 shadow-sm" style="background: linear-gradient(rgba(7, 25, 17, 0.88), rgba(7, 25, 17, 0.96)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80') center/cover;">
                     <span class="badge bg-primary text-white mb-2">STAY WITH US</span>
                     <h4 class="font-serif text-white mb-2">Book Your Luxury Ocean Retreat</h4>
                     <p class="small text-white-50 mb-3">Immerse yourself in authentic luxury and explore the wonders of the coast with Grand Cannann.</p>

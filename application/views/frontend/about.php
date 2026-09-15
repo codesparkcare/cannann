@@ -1,5 +1,5 @@
 <!-- Inner Page Banner -->
-<section class="inner-page-banner" style="background: linear-gradient(rgba(15, 23, 42, 0.60), rgba(15, 23, 42, 0.78)), url('<?php echo base_url('uploads/about_hotel.jpg'); ?>'); background-size: cover; background-position: center 35%;">
+<section class="inner-page-banner" style="background: linear-gradient(rgba(7, 25, 17, 0.62), rgba(7, 25, 17, 0.80)), url('<?php echo base_url('uploads/about_hotel.jpg'); ?>'); background-size: cover; background-position: center 35%;">
     <div class="container">
         <h1 class="font-serif">About Grand Cannann</h1>
         <div class="breadcrumb-luxury">

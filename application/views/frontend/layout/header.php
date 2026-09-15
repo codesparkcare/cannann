@@ -101,8 +101,8 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             --primary-dark: #a8895e;
             --primary-light: #f5eedf;
             --secondary: #1e293b;
-            --dark: #0f172a; /* Deep Obsidian */
-            --dark-surface: #192231;
+            --dark: #071911; /* Hotel Canaan Signature Deep Emerald Green */
+            --dark-surface: #0e291d;
             --light: #ffffff;
             --bg-cream: #faf8f5;
             --gray-100: #f1f5f9;
@@ -116,7 +116,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             --radius-lg: 24px;
             --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.05);
-            --shadow-luxury: 0 20px 45px rgba(15, 23, 42, 0.12);
+            --shadow-luxury: 0 20px 45px rgba(7, 25, 17, 0.14);
             --shadow-gold: 0 12px 30px rgba(197, 168, 128, 0.25);
         }
 
@@ -410,7 +410,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             background: var(--dark);
             color: #ffffff !important;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+            box-shadow: 0 8px 20px rgba(7, 25, 17, 0.25);
         }
         .btn-luxury-dark {
             background: var(--dark);
@@ -425,7 +425,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+            box-shadow: 0 8px 20px rgba(7, 25, 17, 0.25);
         }
         .btn-luxury-dark:hover {
             background: var(--primary);
@@ -730,7 +730,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             position: absolute;
             bottom: 14px;
             right: 14px;
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(7, 25, 17, 0.88);
             color: #ffffff;
             backdrop-filter: blur(8px);
             padding: 6px 14px;
@@ -762,20 +762,20 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             text-align: center;
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             height: 100%;
-            box-shadow: 0 10px 28px -5px rgba(15, 23, 42, 0.07);
+            box-shadow: 0 10px 28px -5px rgba(7, 25, 17, 0.08);
             position: relative;
         }
         .facility-box:hover {
             transform: translateY(-6px);
             border-color: var(--primary);
-            box-shadow: 0 20px 38px -8px rgba(197, 168, 128, 0.25), 0 10px 20px -5px rgba(15, 23, 42, 0.1);
+            box-shadow: 0 20px 38px -8px rgba(197, 168, 128, 0.25), 0 10px 20px -5px rgba(7, 25, 17, 0.12);
             background: #ffffff;
         }
         .facility-icon-wrap {
             width: 70px;
             height: 70px;
             margin: 0 auto 22px;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            background: linear-gradient(135deg, #0b2b1d 0%, #071911 100%);
             color: #d4b886;
             border: 2px solid rgba(197, 168, 128, 0.45);
             border-radius: 50%;
@@ -784,7 +784,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             justify-content: center;
             font-size: 1.75rem;
             transition: all 0.35s ease;
-            box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+            box-shadow: 0 8px 20px rgba(7, 25, 17, 0.2);
         }
         .facility-box:hover .facility-icon-wrap {
             background: linear-gradient(135deg, #c5a880 0%, #9e7f53 100%);
@@ -794,7 +794,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             box-shadow: 0 8px 22px rgba(197, 168, 128, 0.4);
         }
         .facility-card-title {
-            color: #0f172a;
+            color: #071911;
             font-family: var(--font-heading);
             font-size: 1.25rem;
             font-weight: 700;
@@ -869,7 +869,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
         .gallery-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(7, 25, 17, 0.75);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -924,7 +924,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             padding-left: 6px;
         }
         .footer-bottom {
-            background: #090e17;
+            background: #04100b;
             padding: 20px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 0.84rem;
@@ -932,7 +932,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
 
         /* Page Banner */
         .inner-page-banner {
-            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=85');
+            background: linear-gradient(rgba(7, 25, 17, 0.65), rgba(7, 25, 17, 0.85)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=85');
             background-size: cover;
             background-position: center;
             padding: 90px 0 70px;

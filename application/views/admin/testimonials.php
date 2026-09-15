@@ -25,7 +25,7 @@
                             <?php if(!empty($t['avatar'])): ?>
                                 <img src="<?php echo htmlspecialchars(strpos($t['avatar'], 'http') === 0 ? $t['avatar'] : base_url(ltrim($t['avatar'], '/'))); ?>" alt="Avatar" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
                             <?php else: ?>
-                                <div class="rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm" style="width: 48px; height: 48px; background: #0f172a; color: #dfc295; font-size: 1.1rem; border: 1px solid rgba(197, 168, 128, 0.4);">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm" style="width: 48px; height: 48px; background: #071911; color: #dfc295; font-size: 1.1rem; border: 1px solid rgba(197, 168, 128, 0.4);">
                                     <?php echo strtoupper(substr($t['guest_name'], 0, 1)); ?>
                                 </div>
                             <?php endif; ?>

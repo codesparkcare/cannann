@@ -53,7 +53,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #070c18 0%, #0f172a 50%, #1e293b 100%);
+            background: linear-gradient(135deg, #030f0a 0%, #071911 50%, #0b2b1d 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -158,7 +158,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
 
         .form-control-custom {
             width: 100%;
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(7, 25, 17, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: 13px 44px 13px 44px;
@@ -168,7 +168,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
         }
 
         .form-control-custom:focus {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(7, 25, 17, 0.95);
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.2);
             color: #ffffff;
@@ -320,7 +320,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
 
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="remember_me" id="remember_me" style="background-color: rgba(15,23,42,0.8); border-color: rgba(255,255,255,0.25);">
+                    <input class="form-check-input" type="checkbox" name="remember_me" id="remember_me" style="background-color: rgba(7,25,17,0.8); border-color: rgba(255,255,255,0.25);">
                     <label class="form-check-label small" for="remember_me" style="font-size: 0.85rem; color: #cbd5e1; cursor: pointer;">
                         Remember session
                     </label>

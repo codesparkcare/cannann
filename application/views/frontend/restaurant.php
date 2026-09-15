@@ -1,6 +1,6 @@
 <!-- Inner Page Banner -->
 <section class="inner-page-banner"
-    style="background-image: linear-gradient(rgba(15, 23, 42, 0.38), rgba(15, 23, 42, 0.50)), url('<?php echo base_url('uploads/canaan_restaurant_counter.jpg'); ?>'); background-position: center 35%;">
+    style="background-image: linear-gradient(rgba(7, 25, 17, 0.45), rgba(7, 25, 17, 0.60)), url('<?php echo base_url('uploads/canaan_restaurant_counter.jpg'); ?>'); background-position: center 35%;">
     <div class="container">
         <span class="badge bg-primary text-white mb-2 px-3 py-2 text-uppercase">MICHELIN-INSPIRED GASTRONOMY</span>
         <h1 class="font-serif">The Sapphire Restaurant & Bar</h1>
@@ -58,7 +58,7 @@
                         overflow: hidden;
                         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
                         position: relative;
-                        background: #0f172a;
+                        background: #071911;
                     }
                     .food-showcase-card img {
                         width: 100%;

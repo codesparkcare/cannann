@@ -7,7 +7,7 @@ if (empty($site_logo) && file_exists(FCPATH . 'uploads/site_logo.png')) {
 $logo_version = !empty($settings['updated_at']) ? strtotime($settings['updated_at']) : time();
 $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') !== false ? '&' : '?') . 'v=' . $logo_version : '';
 ?>
-<footer class="luxury-footer">
+<footer class="luxury-footer" style="background-color: #071911;">
     <div class="container pb-5">
         <div class="row g-4">
             <!-- Col 1: Hotel Brand Info -->
@@ -104,7 +104,7 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
     </div>
 
     <!-- Bottom Copyright -->
-    <div class="footer-bottom">
+    <div class="footer-bottom" style="background-color: #04100b;">
         <div class="container d-flex flex-column flex-md-row justify-content-center align-items-center gap-2">
             <div class="text-white-50 text-center">
                 &copy; 2026 HotelCanaan &ndash; Design by

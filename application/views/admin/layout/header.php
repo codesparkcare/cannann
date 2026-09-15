@@ -44,16 +44,16 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             --success: #10b981;
             --danger: #ef4444;
             --warning: #f59e0b;
-            --dark: #0f172a;
-            --dark-menu: #1e293b;
+            --dark: #071911;
+            --dark-menu: #0e2b1e;
             --light: #ffffff;
             --gray-100: #f8fafc;
             --gray-200: #e2e8f0;
             
             /* Sidebar Theme */
-            --sidebar-bg: #0f172a;
-            --sidebar-header: #020617;
-            --sidebar-hover: #1e293b;
+            --sidebar-bg: #071911;
+            --sidebar-header: #030f0a;
+            --sidebar-hover: #0e2b1e;
         }
 
         body {

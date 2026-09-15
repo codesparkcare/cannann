@@ -58,7 +58,7 @@
             <!-- Right: Sidebar with Recent Posts & Concierge Banner -->
             <div class="col-lg-4" data-aos="fade-left">
                 <!-- Concierge Desk Widget -->
-                <div class="p-4 rounded-4 text-white mb-4 shadow-sm" style="background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80') center/cover;">
+                <div class="p-4 rounded-4 text-white mb-4 shadow-sm" style="background: linear-gradient(rgba(7, 25, 17, 0.88), rgba(7, 25, 17, 0.96)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80') center/cover;">
                     <span class="badge bg-primary text-white mb-2">LOCAL CONCIERGE</span>
                     <h4 class="font-serif text-white mb-2">Need a Customized Sightseeing Itinerary?</h4>
                     <p class="small text-white-50 mb-3">Our concierge desk provides private catamarans, heritage guides, and luxury chauffeur transfers.</p>

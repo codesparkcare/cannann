@@ -5,7 +5,7 @@ if (!empty($banner_bg) && strpos($banner_bg, 'http') !== 0) {
     $banner_bg = base_url(ltrim($banner_bg, '/'));
 }
 ?>
-<section class="inner-page-banner" style="background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.85)), url('<?php echo htmlspecialchars($banner_bg); ?>');">
+<section class="inner-page-banner" style="background-image: linear-gradient(rgba(7, 25, 17, 0.70), rgba(7, 25, 17, 0.88)), url('<?php echo htmlspecialchars($banner_bg); ?>');">
     <div class="container">
         <span class="badge bg-primary text-white mb-2 px-3 py-2 text-uppercase"><?php echo htmlspecialchars($room['category_name'] ?? 'Deluxe Room'); ?></span>
         <h1 class="font-serif"><?php echo htmlspecialchars($room['title']); ?></h1>

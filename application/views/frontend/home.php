@@ -116,7 +116,7 @@
                         class="img-fluid rounded-4 shadow-lg w-100"
                         style="height: 480px; object-fit: cover; object-position: center 30%;">
                     <div class="position-absolute bottom-0 start-0 text-white p-4 rounded-4 m-3 shadow-lg d-none d-sm-block"
-                        style="max-width: 270px; border-left: 4px solid var(--primary); background: rgba(15, 23, 42, 0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.12); border-right: 1px solid rgba(255, 255, 255, 0.12); border-bottom: 1px solid rgba(255, 255, 255, 0.12);">
+                        style="max-width: 270px; border-left: 4px solid var(--primary); background: rgba(7, 25, 17, 0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.12); border-right: 1px solid rgba(255, 255, 255, 0.12); border-bottom: 1px solid rgba(255, 255, 255, 0.12);">
                         <div class="d-flex align-items-center gap-2 mb-1">
                             <i class="fa-solid fa-hotel text-warning fs-3"></i>
                             <span class="fs-5 fw-bold font-serif" style="color:white !important">Canaan Hotel</span>
@@ -202,8 +202,8 @@
 <section class="py-5 bg-cream" style="background-color: var(--bg-cream);">
     <div class="container py-lg-4">
         <div class="text-center mb-5" data-aos="fade-up">
-            <span class="section-badge shadow-sm" style="background: #0f172a; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">ACCOMMODATION & TARIFFS</span>
-            <h2 class="section-title" style="color: #0f172a; font-weight: 700; margin-top: 14px; margin-bottom: 14px;">Rooms & Suites Tariff – Canaan Hotel, Nagercoil</h2>
+            <span class="section-badge shadow-sm" style="background: #071911; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">ACCOMMODATION & TARIFFS</span>
+            <h2 class="section-title" style="color: #071911; font-weight: 700; margin-top: 14px; margin-bottom: 14px;">Rooms & Suites Tariff – Canaan Hotel, Nagercoil</h2>
             <p class="section-subtitle" style="color: #334155; font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 500;">Clean, well-maintained rooms with modern amenities and complimentary breakfast for online bookings. Extra bed available for ₹500.</p>
         </div>
 
@@ -282,9 +282,9 @@
     <div class="container py-lg-4">
         <div class="text-center mb-5" data-aos="fade-up">
             <span class="section-badge shadow-sm"
-                style="background: #0f172a; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">AMENITIES
+                style="background: #071911; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">AMENITIES
                 & FACILITIES</span>
-            <h2 class="section-title" style="color: #0f172a; font-weight: 700; margin-bottom: 16px;">Everything You Need
+            <h2 class="section-title" style="color: #071911; font-weight: 700; margin-bottom: 16px;">Everything You Need
                 for a Comfortable Stay</h2>
             <p class="section-subtitle"
                 style="color: #334155; font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 500;">
@@ -388,7 +388,7 @@
                             style="background: linear-gradient(to top, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.4) 60%, transparent 100%);">
                             <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
                                 <div class="d-flex align-items-center gap-2">
-                                    <span class="badge" style="background: rgba(197, 168, 128, 0.95); color: #0f172a; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 6px;">
+                                    <span class="badge" style="background: rgba(197, 168, 128, 0.95); color: #071911; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 6px;">
                                         LIVE COUNTER
                                     </span>
                                     <span class="text-white small fw-semibold">Hot Drinks, Fresh Juices & Ice Creams</span>
@@ -532,9 +532,9 @@
         <div class="container py-lg-3">
             <div class="text-center mb-5" data-aos="fade-up">
                 <span class="section-badge shadow-sm"
-                    style="background: #0f172a; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">SPECIAL
+                    style="background: #071911; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">SPECIAL
                     PACKAGES</span>
-                <h2 class="section-title" style="color: #0f172a; font-weight: 700; margin-top: 14px; margin-bottom: 14px;">
+                <h2 class="section-title" style="color: #071911; font-weight: 700; margin-top: 14px; margin-bottom: 14px;">
                     Special Stay Packages & Offers</h2>
                 <p class="section-subtitle"
                     style="color: #334155; font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 500;">
@@ -564,10 +564,10 @@
                                 <div class="col-md-7 p-3 p-sm-4 d-flex flex-column justify-content-between">
                                     <div>
                                         <span class="badge mb-2 px-3 py-2"
-                                            style="background: #0f172a; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.4); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 6px;">
+                                            style="background: #071911; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.4); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 6px;">
                                             <?php echo htmlspecialchars($promo['badge'] ?? 'SPECIAL PACKAGE'); ?>
                                         </span>
-                                        <h4 class="font-serif fs-5 mb-2 fw-bold" style="color: #0f172a;">
+                                        <h4 class="font-serif fs-5 mb-2 fw-bold" style="color: #071911;">
                                             <?php echo htmlspecialchars($promo['title']); ?>
                                         </h4>
                                         <p class="text-muted small mb-3"
@@ -661,9 +661,9 @@
     <div class="container py-lg-4">
         <div class="text-center mb-5" data-aos="fade-up">
             <span class="section-badge shadow-sm"
-                style="background: #0f172a; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">GUEST
+                style="background: #071911; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">GUEST
                 EXPERIENCES</span>
-            <h2 class="section-title" style="color: #0f172a; font-weight: 700; margin-top: 14px; margin-bottom: 14px;">
+            <h2 class="section-title" style="color: #071911; font-weight: 700; margin-top: 14px; margin-bottom: 14px;">
                 What Our Guests Say About Canaan Hotel</h2>
             <p class="section-subtitle"
                 style="color: #475569; font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 500;">
