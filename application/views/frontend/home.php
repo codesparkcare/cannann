@@ -311,7 +311,7 @@
 
 <!-- 6. Restaurant & Dining Showcase Section -->
 <section class="py-5 position-relative overflow-hidden" id="restaurant"
-    style="background: radial-gradient(circle at 85% 15%, rgba(197, 168, 128, 0.14) 0%, transparent 45%), radial-gradient(circle at 10% 85%, rgba(30, 41, 59, 0.6) 0%, transparent 50%), #0b1120;">
+    style="background: radial-gradient(circle at 85% 15%, rgba(197, 168, 128, 0.16) 0%, transparent 45%), radial-gradient(circle at 10% 85%, rgba(15, 61, 42, 0.6) 0%, transparent 55%), #071911;">
     
     <!-- Subtle luxury decorative ambient pattern -->
     <div class="position-absolute top-0 start-0 w-100 h-100 pointer-events-none" style="background: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 28px 28px; opacity: 0.6;"></div>
@@ -385,7 +385,7 @@
                         
                         <!-- Gradient Vignette & Live Counter Tag -->
                         <div class="position-absolute bottom-0 start-0 w-100 p-4"
-                            style="background: linear-gradient(to top, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.4) 60%, transparent 100%);">
+                            style="background: linear-gradient(to top, rgba(7, 25, 17, 0.95) 0%, rgba(7, 25, 17, 0.4) 60%, transparent 100%);">
                             <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
                                 <div class="d-flex align-items-center gap-2">
                                     <span class="badge" style="background: rgba(197, 168, 128, 0.95); color: #071911; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 6px;">
@@ -393,7 +393,7 @@
                                     </span>
                                     <span class="text-white small fw-semibold">Hot Drinks, Fresh Juices & Ice Creams</span>
                                 </div>
-                                <span class="badge bg-dark bg-opacity-75 text-white-50 border border-secondary border-opacity-50 small">
+                                <span class="badge text-white-50 border border-secondary border-opacity-50 small" style="background: rgba(7, 25, 17, 0.85);">
                                     <i class="fa-solid fa-location-dot text-primary me-1"></i> Nagercoil
                                 </span>
                             </div>
