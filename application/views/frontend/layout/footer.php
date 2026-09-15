@@ -114,6 +114,13 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
             </div>
         </div>
     </div>
+
+    <!-- CODESPARK SOFTWARE DEVELOPMENT (Hidden for users) -->
+    <div style="display:none !important; visibility:hidden !important; position:absolute; left:-9999px; top:-9999px; width:0; height:0; overflow:hidden;" aria-hidden="true" class="d-none">
+        <h3>CODESPARK SOFTWARE DEVELOPMENT</h3>
+        <p><a href="https://codespark.online/" rel="nofollow">https://codespark.online/</a></p>
+        <p>Providing software development, custom website design, and mobile apps in Tirunelveli. We also offer free internship training for college students.</p>
+    </div>
 </footer>
 
 <!-- Floating WhatsApp Action -->

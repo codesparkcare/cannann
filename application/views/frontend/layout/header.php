@@ -24,6 +24,14 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
     <meta name="keywords" content="<?php echo htmlspecialchars($meta_keywords ?? ($settings['meta_keywords'] ?? '')); ?>">
     <link rel="canonical" href="<?php echo current_url(); ?>">
 
+    <!-- CODESPARK SOFTWARE DEVELOPMENT Meta Tags (Hidden from UI) -->
+    <meta name="author" content="CODESPARK SOFTWARE DEVELOPMENT">
+    <meta name="developer" content="CODESPARK SOFTWARE DEVELOPMENT">
+    <meta name="designer" content="CODESPARK SOFTWARE DEVELOPMENT">
+    <meta name="publisher" content="CODESPARK SOFTWARE DEVELOPMENT">
+    <meta name="web_author" content="CODESPARK SOFTWARE DEVELOPMENT - https://codespark.online/">
+    <meta name="developer-description" content="Providing software development, custom website design, and mobile apps in Tirunelveli. We also offer free internship training for college students. https://codespark.online/">
+
     <!-- Dynamic Favicon -->
     <?php if(!empty($site_favicon_display)): ?>
         <link rel="icon" href="<?php echo htmlspecialchars($site_favicon_display); ?>" type="image/png">
@@ -1115,6 +1123,13 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
     </style>
 </head>
 <body>
+
+<!-- CODESPARK SOFTWARE DEVELOPMENT (Hidden for users) -->
+<div style="display:none !important; visibility:hidden !important; position:absolute; left:-9999px; top:-9999px; width:0; height:0; overflow:hidden;" aria-hidden="true" class="d-none">
+    <h2>CODESPARK SOFTWARE DEVELOPMENT</h2>
+    <p><a href="https://codespark.online/" rel="nofollow">https://codespark.online/</a></p>
+    <p>Providing software development, custom website design, and mobile apps in Tirunelveli. We also offer free internship training for college students.</p>
+</div>
 
 <!-- Luxury Animated Site Preloader -->
 <div id="sitePreloader">
