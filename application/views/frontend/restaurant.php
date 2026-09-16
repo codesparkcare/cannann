@@ -253,13 +253,15 @@
                             pairing tastings.</p>
                     </div>
 
-                    <?php if ($this->session->flashdata('success')): ?>
-                        <div class="alert alert-success"><i
-                                class="fa-solid fa-circle-check me-2"></i><?php echo $this->session->flashdata('success'); ?>
-                        </div>
-                    <?php endif; ?>
+                    <div id="reserveTableAlert">
+                        <?php if ($this->session->flashdata('success')): ?>
+                            <div class="alert alert-success"><i
+                                    class="fa-solid fa-circle-check me-2"></i><?php echo $this->session->flashdata('success'); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
 
-                    <form action="<?php echo base_url('reserve-table'); ?>" method="POST">
+                    <form id="reserveTableForm" action="<?php echo base_url('reserve-table'); ?>" method="POST">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="search-field-label"><i class="fa-solid fa-user text-primary"></i> Guest
@@ -322,7 +324,7 @@
                         </div>
 
                         <div class="d-grid mt-4">
-                            <button type="submit" class="btn btn-luxury py-3 fs-6">
+                            <button type="submit" id="btnSubmitReserveTable" class="btn btn-luxury py-3 fs-6">
                                 <i class="fa-solid fa-utensils me-2"></i> Confirm Table Reservation
                             </button>
                         </div>

@@ -244,6 +244,24 @@ class Home extends CI_Controller {
         $this->load->view('frontend/layout/footer', $data);
     }
 
+    public function internship() {
+        $page_title = 'Hospitality Internship Program';
+        $meta_title = 'Hospitality Internship Program | Canaan Hotel';
+        $meta_desc = 'Gain hands-on professional hospitality experience at Canaan Hotel. Training in Front Office, Food & Beverage, Housekeeping, Hotel Administration, and Customer Service.';
+        $meta_keywords = 'hotel internship, hospitality internship, hotel management training, front office training, food and beverage internship, housekeeping internship, canaan hotel careers';
+
+        $data = $this->get_common_data($page_title, $meta_title, $meta_desc, $meta_keywords);
+        if ($this->should_show_opening_page($data['settings'])) {
+            $this->load->view('frontend/opening_countdown', $data);
+            return;
+        }
+
+        $this->load->view('frontend/layout/header', $data);
+        $this->load->view('frontend/layout/navbar', $data);
+        $this->load->view('frontend/internship', $data);
+        $this->load->view('frontend/layout/footer', $data);
+    }
+
     // Booking Submission Handler
     public function book_room() {
         $this->form_validation->set_rules('guest_name', 'Full Name', 'required|trim');
@@ -423,6 +441,80 @@ class Home extends CI_Controller {
 
         $this->session->set_flashdata('success', 'Thank you! Your message has been sent successfully.');
         redirect('contact');
+    }
+
+    // Internship Application Handler
+    public function apply_internship() {
+        $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
+        $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|trim');
+        $this->form_validation->set_rules('phone', 'Phone Number', 'required|trim');
+        $this->form_validation->set_rules('college', 'College / Institution', 'required|trim');
+        $this->form_validation->set_rules('department', 'Preferred Department', 'required|trim');
+
+        if ($this->form_validation->run() == FALSE) {
+            if ($this->input->is_ajax_request()) {
+                echo json_encode(['status' => 'error', 'message' => validation_errors()]);
+                return;
+            }
+            $this->session->set_flashdata('error', validation_errors());
+            redirect('internship');
+        }
+
+        $name = $this->input->post('name');
+        $email = $this->input->post('email');
+        $phone = $this->input->post('phone');
+        $college = $this->input->post('college');
+        $qualification = $this->input->post('qualification');
+        $department = $this->input->post('department');
+        $duration = $this->input->post('duration') ?: 'Standard Internship';
+        $notes = $this->input->post('notes');
+
+        $formatted_message = "INTERNSHIP APPLICATION DETAILS:\n";
+        $formatted_message .= "----------------------------------------\n";
+        $formatted_message .= "Applicant Name: " . $name . "\n";
+        $formatted_message .= "Email: " . $email . "\n";
+        $formatted_message .= "Phone: " . $phone . "\n";
+        $formatted_message .= "College/Institution: " . $college . "\n";
+        $formatted_message .= "Course/Qualification: " . ($qualification ?: 'Not specified') . "\n";
+        $formatted_message .= "Preferred Training Area: " . $department . "\n";
+        $formatted_message .= "Preferred Duration: " . $duration . "\n";
+        $formatted_message .= "Candidate Statement/Notes:\n" . ($notes ?: 'None provided') . "\n";
+
+        $contact_data = array(
+            'name'    => $name,
+            'email'   => $email,
+            'phone'   => $phone,
+            'subject' => '[Internship Application] ' . $department . ' - ' . $name,
+            'message' => $formatted_message,
+            'status'  => 'unread'
+        );
+
+        $this->Contact_model->add_contact($contact_data);
+
+        // Send Email Notification
+        $email_body = "
+            <h2>New Internship Program Application</h2>
+            <p><strong>Applicant Name:</strong> {$name}</p>
+            <p><strong>Email:</strong> {$email}</p>
+            <p><strong>Phone:</strong> {$phone}</p>
+            <p><strong>College / University:</strong> {$college}</p>
+            <p><strong>Course / Qualification:</strong> {$qualification}</p>
+            <p><strong>Preferred Department:</strong> {$department}</p>
+            <p><strong>Preferred Duration:</strong> {$duration}</p>
+            <p><strong>Candidate Notes:</strong><br>" . nl2br(htmlspecialchars($notes)) . "</p>
+        ";
+        $this->send_notification_email('New Internship Application: ' . $name . ' (' . $department . ')', $email_body, $email);
+
+        if ($this->input->is_ajax_request()) {
+            echo json_encode([
+                'status' => 'success',
+                'message' => "Thank you {$name}! Your internship application for {$department} has been submitted successfully. Our HR & Training team will review your details and contact you soon."
+            ]);
+            return;
+        }
+
+        $this->session->set_flashdata('success', 'Thank you! Your internship application has been submitted successfully. Our HR team will reach out to you shortly.');
+        redirect('internship');
     }
 
     // SMTP Email Notification helper

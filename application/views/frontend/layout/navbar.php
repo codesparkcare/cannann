@@ -50,19 +50,22 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                     <a class="nav-link <?php echo empty($current_segment) ? 'active' : ''; ?>" href="<?php echo base_url(); ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $current_segment == 'about' ? 'active' : ''; ?>" href="<?php echo base_url('about'); ?>">About Us</a>
+                    <a class="nav-link <?php echo $current_segment == 'about' ? 'active' : ''; ?>" href="<?php echo base_url('about'); ?>">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $current_segment == 'rooms' || $current_segment == 'room' ? 'active' : ''; ?>" href="<?php echo base_url('rooms'); ?>">Rooms & Suites</a>
+                    <a class="nav-link <?php echo $current_segment == 'rooms' || $current_segment == 'room' ? 'active' : ''; ?>" href="<?php echo base_url('rooms'); ?>">Rooms</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $current_segment == 'restaurant' ? 'active' : ''; ?>" href="<?php echo base_url('restaurant'); ?>">Restaurant & Menu</a>
+                    <a class="nav-link <?php echo $current_segment == 'restaurant' ? 'active' : ''; ?>" href="<?php echo base_url('restaurant'); ?>">Restaurant</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $current_segment == 'gallery' ? 'active' : ''; ?>" href="<?php echo base_url('gallery'); ?>">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $current_segment == 'blogs' || $current_segment == 'blog' ? 'active' : ''; ?>" href="<?php echo base_url('blogs'); ?>">Tourist Guides</a>
+                    <a class="nav-link <?php echo $current_segment == 'blogs' || $current_segment == 'blog' ? 'active' : ''; ?>" href="<?php echo base_url('blogs'); ?>">Guides</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php echo $current_segment == 'internship' ? 'active' : ''; ?>" href="<?php echo base_url('internship'); ?>">Internship</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $current_segment == 'contact' ? 'active' : ''; ?>" href="<?php echo base_url('contact'); ?>">Contact</a>
@@ -122,6 +125,11 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
             <li class="nav-item">
                 <a class="nav-link <?php echo $current_segment == 'blogs' || $current_segment == 'blog' ? 'active' : ''; ?>" href="<?php echo base_url('blogs'); ?>">
                     <span>Tourist Blogs</span><i class="fa-solid fa-chevron-right small text-white-50" style="font-size: 0.7rem;"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <?php echo $current_segment == 'internship' ? 'active' : ''; ?>" href="<?php echo base_url('internship'); ?>">
+                    <span>Internship Program</span><i class="fa-solid fa-chevron-right small text-white-50" style="font-size: 0.7rem;"></i>
                 </a>
             </li>
             <li class="nav-item">

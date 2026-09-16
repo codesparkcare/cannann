@@ -97,7 +97,7 @@
                     </select>
                 </div>
                 <div class="col-lg-2 col-md-4">
-                    <button type="submit" class="btn btn-luxury w-100 py-3" style="border-radius: var(--radius-sm);">
+                    <button type="submit" class="btn btn-luxury w-100 py-3" style="border-radius: var(--radius-sm); white-space: nowrap;">
                         <i class="fa-solid fa-magnifying-glass me-1"></i> Check Now
                     </button>
                 </div>
@@ -596,6 +596,72 @@
         </div>
     </section>
 <?php endif; ?>
+
+<!-- Hospitality Internship Program Section (Short Homepage Version) -->
+<section class="py-5" style="background: linear-gradient(135deg, #071911 0%, #0d2f20 100%); color: #fff; position: relative; overflow: hidden;">
+    <div class="container py-lg-4 position-relative">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <span class="section-badge shadow-sm" style="background: rgba(197, 168, 128, 0.2); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.4); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px; display: inline-block; margin-bottom: 14px;">
+                    CAREER OPPORTUNITY
+                </span>
+                <h2 class="section-title text-white mb-2" style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700;">Hospitality Internship Program</h2>
+                <h4 class="font-serif mb-3" style="color: #dfc295; font-size: 1.25rem;">Learn Hospitality. Gain Experience. Build Your Future.</h4>
+                <p class="text-white-50 mb-4" style="line-height: 1.85; font-size: 1.02rem; color: #cbd5e1 !important;">
+                    Join the Canaan Hotel Internship Program and gain practical exposure to front office, food &amp; beverage, housekeeping, guest relations, and hotel administration. Develop professional skills, gain real-world experience, and take your first step toward a rewarding hospitality career.
+                </p>
+
+                <div class="d-flex flex-wrap gap-2 mb-4 pb-2">
+                    <span class="badge px-3 py-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
+                        <i class="fa-solid fa-bell-concierge text-warning me-1"></i> Front Office
+                    </span>
+                    <span class="badge px-3 py-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
+                        <i class="fa-solid fa-utensils text-warning me-1"></i> Food &amp; Beverage
+                    </span>
+                    <span class="badge px-3 py-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
+                        <i class="fa-solid fa-bed text-warning me-1"></i> Housekeeping
+                    </span>
+                    <span class="badge px-3 py-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
+                        <i class="fa-solid fa-hand-holding-heart text-warning me-1"></i> Guest Relations
+                    </span>
+                    <span class="badge px-3 py-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
+                        <i class="fa-solid fa-chart-line text-warning me-1"></i> Administration
+                    </span>
+                </div>
+
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="<?php echo base_url('internship#apply-section'); ?>" class="btn btn-luxury px-4 py-3" style="font-weight: 700;">
+                        <i class="fa-solid fa-paper-plane me-2"></i> APPLY NOW
+                    </a>
+                    <a href="<?php echo base_url('internship'); ?>" class="btn btn-luxury-outline px-4 py-3">
+                        EXPLORE PROGRAM <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="rounded-4 overflow-hidden shadow-lg border mb-3" style="border-color: rgba(197, 168, 128, 0.3) !important; height: 210px;">
+                            <img src="<?php echo base_url('assets/frontfesk.png'); ?>" alt="Canaan Front Desk Training" class="w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="rounded-4 overflow-hidden shadow-lg border" style="border-color: rgba(197, 168, 128, 0.3) !important; height: 160px;">
+                            <img src="<?php echo base_url('assets/housekeep.png'); ?>" alt="Housekeeping Training" class="w-100 h-100 object-fit-cover">
+                        </div>
+                    </div>
+                    <div class="col-6 pt-4">
+                        <div class="rounded-4 overflow-hidden shadow-lg border mb-3" style="border-color: rgba(197, 168, 128, 0.3) !important; height: 160px;">
+                            <img src="<?php echo base_url('assets/food&bevrage.png'); ?>" alt="F&amp;B Service Training" class="w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="rounded-4 overflow-hidden shadow-lg border" style="border-color: rgba(197, 168, 128, 0.3) !important; height: 210px;">
+                            <img src="<?php echo base_url('assets/Guestservice.png'); ?>" alt="Guest Relations Training" class="w-100 h-100 object-fit-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- 8. Tourist Blogs & Travel Guides Section (FULL DYNAMIC SEO) -->
 <section class="py-5">

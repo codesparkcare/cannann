@@ -31,7 +31,7 @@ $queries = [
         `smtp_user` VARCHAR(150) DEFAULT '',
         `smtp_pass` VARCHAR(255) DEFAULT '',
         `smtp_crypto` VARCHAR(10) DEFAULT 'tls',
-        `smtp_from_email` VARCHAR(150) DEFAULT 'reservations@grandcannann.com',
+        `smtp_from_email` VARCHAR(150) DEFAULT 'reservation@grandcannann.com',
         `smtp_from_name` VARCHAR(150) DEFAULT 'Grand Cannann Hotel',
         `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -247,18 +247,18 @@ if ($row['cnt'] == 0) {
     $map = "https://maps.google.com/maps?q=Advocate+Gnaniah+Complex,+Court+Road,+Veppamoodu+Junction,+Nagercoil,+Tamil+Nadu+629001&t=&z=16&ie=UTF8&iwloc=&output=embed";
     $m_desc = "Experience world-class luxury at Grand Cannann Hotel & Resort. Premium rooms, delicious dining, and warm hospitality in Nagercoil.";
     $m_keys = "luxury hotel, hotel nagercoil, kanyakumari stay, fine dining restaurant, hotel booking, boutique hotel nagercoil, tourist stay";
-    
+
     $stmt = $mysqli->prepare("INSERT INTO site_settings (hotel_name, hotel_tagline, hotel_email, hotel_phone, hotel_address, map_iframe, meta_title, meta_description, meta_keywords, facebook_url, instagram_url, smtp_host, smtp_port, smtp_crypto, smtp_from_email, smtp_from_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $h_name = "Grand Cannann Resort & Luxury Suites";
     $h_tag = "Where Timeless Heritage Meets Contemporary Luxury";
-    $h_email = "reservations@grandcannann.com";
+    $h_email = "reservation@grandcannann.com";
     $h_phone = "+91 99949 99695";
     $soc_url = "https://www.facebook.com/share/1MoP3i1NQu/";
     $m_title = "Grand Cannann Resort & Spa | Luxury Boutique Hotel & Suites";
     $smtp_host = "smtp.gmail.com";
     $smtp_port = 587;
     $smtp_crypto = "tls";
-    $smtp_from_email = "reservations@grandcannann.com";
+    $smtp_from_email = "reservation@grandcannann.com";
     $smtp_from_name = "Grand Cannann Hotel";
     $stmt->bind_param("ssssssssssssisss", $h_name, $h_tag, $h_email, $h_phone, $hotel_addr, $map, $m_title, $m_desc, $m_keys, $soc_url, $soc_url, $smtp_host, $smtp_port, $smtp_crypto, $smtp_from_email, $smtp_from_name);
     $stmt->execute();

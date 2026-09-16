@@ -67,6 +67,7 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                     <li><a href="<?php echo base_url('rooms'); ?>">Luxury Suites</a></li>
                     <li><a href="<?php echo base_url('restaurant'); ?>">The Sapphire Dining</a></li>
                     <li><a href="<?php echo base_url('gallery'); ?>">Photo Gallery</a></li>
+                    <li><a href="<?php echo base_url('internship'); ?>">Internship Program</a></li>
                     <li><a href="<?php echo base_url('contact'); ?>">Contact Us</a></li>
                 </ul>
             </div>
@@ -76,7 +77,7 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                 <h5>Experiences & Guides</h5>
                 <ul class="footer-links">
                     <li><a href="<?php echo base_url('blogs'); ?>">Tourist Attractions</a></li>
-                    <li><a href="<?php echo base_url('blogs'); ?>">Ayurveda & Spa Rituals</a></li>
+                    <li><a href="<?php echo base_url('internship'); ?>">Hospitality Training</a></li>
                     <li><a href="<?php echo base_url('restaurant'); ?>">Coastal Seafood Menu</a></li>
                     <li><a href="<?php echo base_url('contact'); ?>">Concierge & Transfers</a></li>
                     <li><a href="<?php echo base_url('contact'); ?>">Weddings & Banquets</a></li>
@@ -234,6 +235,51 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
     </div>
 </div>
 
+<!-- Universal Luxury Thank You Modal -->
+<div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true" style="z-index: 1065;">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 480px;">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden; background: #ffffff; border: 1px solid rgba(197, 168, 128, 0.4) !important;">
+            <!-- Header Banner with Canaan Luxury Styling -->
+            <div class="position-relative text-center pt-4 pb-3 px-4" style="background: linear-gradient(135deg, #071911 0%, #112d20 100%); border-bottom: 2px solid rgba(197, 168, 128, 0.35);">
+                <button type="button" class="btn-close btn-close-white position-absolute" style="top: 16px; right: 16px; opacity: 0.8;" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+                <!-- Animated Luxury Checkmark Badge -->
+                <div class="mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #c5a880 0%, #e2ceb1 100%); box-shadow: 0 10px 25px rgba(197, 168, 128, 0.4); border: 3px solid rgba(255,255,255,0.25);">
+                    <i class="fa-solid fa-check text-white fs-2" style="text-shadow: 0 2px 6px rgba(0,0,0,0.25);"></i>
+                </div>
+                
+                <span class="badge px-3 py-1 mb-2" style="background: rgba(197, 168, 128, 0.2); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;">
+                    <i class="fa-solid fa-hotel me-1 text-warning"></i> Canaan Hotel
+                </span>
+                <h3 class="font-serif text-white mb-1 fw-bold" id="thankYouModalTitle" style="font-size: 1.65rem; letter-spacing: 0.02em;">Thank You!</h3>
+                <p class="small mb-0 font-serif" style="color: #dfc295 !important;">Comfortable Stays & Warm Hospitality &middot; Nagercoil</p>
+            </div>
+
+            <!-- Modal Body (Pure Thank You message without form details) -->
+            <div class="modal-body text-center p-4 pt-3">
+                <div class="my-2" style="height: 2px; width: 60px; background: linear-gradient(90deg, transparent, #c5a880, transparent); margin: 0 auto 16px auto;"></div>
+                
+                <p class="mb-4" id="thankYouModalMessage" style="line-height: 1.75; font-size: 0.98rem; color: #4a5568 !important;">
+                    Your request has been received successfully. Our team will review the details and get back to you shortly.
+                </p>
+
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-luxury py-3 fw-semibold fs-6" data-bs-dismiss="modal" style="border-radius: 50px; letter-spacing: 0.04em;">
+                        <i class="fa-solid fa-circle-check me-2"></i> OK, Got It
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Modal Footer Assistance Info -->
+            <div class="text-center py-2 px-3 border-top w-100" style="background: #faf8f5; border-color: rgba(197, 168, 128, 0.2) !important;">
+                <span class="text-muted small" style="font-size: 0.78rem;">
+                    <i class="fa-solid fa-phone text-warning me-1"></i> Front Desk Assistance: <a href="tel:+919994999695" class="text-dark fw-bold text-decoration-none">+91 99949 99695</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- JS Dependencies -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
@@ -241,6 +287,42 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
 <script>
+    // Universal Thank You Modal Function
+    window.showThankYouPopup = function(title, message) {
+        const modalEl = document.getElementById('thankYouModal');
+        if (!modalEl) return;
+        
+        if (title) {
+            document.getElementById('thankYouModalTitle').textContent = title;
+        }
+        if (message) {
+            document.getElementById('thankYouModalMessage').textContent = message;
+        }
+
+        // Close any other open Bootstrap modals smoothly first
+        document.querySelectorAll('.modal.show').forEach(m => {
+            if (m.id !== 'thankYouModal') {
+                const inst = bootstrap.Modal.getInstance(m);
+                if (inst) inst.hide();
+            }
+        });
+
+        setTimeout(function() {
+            let thankYouModal = bootstrap.Modal.getInstance(modalEl);
+            if (!thankYouModal) {
+                thankYouModal = new bootstrap.Modal(modalEl);
+            }
+            thankYouModal.show();
+        }, 200);
+    };
+
+    // Auto-trigger if session flashdata success exists
+    <?php if ($this->session->flashdata('success')): ?>
+    document.addEventListener('DOMContentLoaded', function() {
+        showThankYouPopup('Thank You!', <?php echo json_encode($this->session->flashdata('success')); ?>);
+    });
+    <?php endif; ?>
+
     // Initialize AOS Scroll Animations
     AOS.init({
         duration: 900,
@@ -306,7 +388,7 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
         modal.show();
     }
 
-    // AJAX Booking Submission
+    // 1. AJAX Room Booking Submission (Quick Booking Modal)
     document.getElementById('bookingForm')?.addEventListener('submit', function (e) {
         e.preventDefault();
         const form = this;
@@ -314,7 +396,8 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
         const alertBox = document.getElementById('bookingAlert');
 
         btn.disabled = true;
-        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> Processing...';
+        const originalBtnHtml = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> Processing Reservation...';
 
         const formData = new FormData(form);
 
@@ -325,28 +408,164 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                 'X-Requested-With': 'XMLHttpRequest'
             }
         })
-            .then(res => res.json())
-            .then(data => {
+        .then(res => res.json())
+        .then(data => {
+            btn.disabled = false;
+            btn.innerHTML = originalBtnHtml;
+            if (data.status === 'success') {
+                form.reset();
+                if (alertBox) alertBox.innerHTML = '';
+                showThankYouPopup(
+                    'Reservation Request Received!',
+                    'Thank you for choosing Canaan Hotel. Your room reservation request has been received. Our team will verify room availability and contact you shortly with your confirmation.'
+                );
+            } else {
+                if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
+            }
+        })
+        .catch(err => {
+            btn.disabled = false;
+            btn.innerHTML = originalBtnHtml;
+            form.submit();
+        });
+    });
+
+    // 2. AJAX Room Detail Booking Form
+    document.getElementById('roomDetailBookingForm')?.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = this;
+        const btn = document.getElementById('btnSubmitRoomDetailBooking');
+        const alertBox = document.getElementById('roomDetailAlert');
+
+        if (btn) btn.disabled = true;
+        const originalBtnHtml = btn ? btn.innerHTML : '';
+        if (btn) btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> Processing...';
+
+        const formData = new FormData(form);
+
+        fetch('<?php echo base_url("book-room"); ?>', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (btn) {
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fa-solid fa-check-circle me-2"></i> Confirm & Submit Reservation Request';
-                if (data.status === 'success') {
-                    alertBox.innerHTML = '<div class="alert alert-success"><i class="fa-solid fa-circle-check me-2"></i>' + data.message + '</div>';
-                    form.reset();
-                    setTimeout(() => {
-                        const modalEl = document.getElementById('quickBookingModal');
-                        const modal = bootstrap.Modal.getInstance(modalEl);
-                        if (modal) modal.hide();
-                        alertBox.innerHTML = '';
-                    }, 4000);
-                } else {
-                    alertBox.innerHTML = '<div class="alert alert-danger"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
-                }
-            })
-            .catch(err => {
+                btn.innerHTML = originalBtnHtml;
+            }
+            if (data.status === 'success') {
+                form.reset();
+                if (alertBox) alertBox.innerHTML = '';
+                showThankYouPopup(
+                    'Reservation Request Received!',
+                    'Thank you for booking with Canaan Hotel. Your room reservation request has been received. Our team will contact you shortly with confirmation.'
+                );
+            } else {
+                if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
+            }
+        })
+        .catch(err => {
+            if (btn) {
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fa-solid fa-check-circle me-2"></i> Confirm & Submit Reservation Request';
-                form.submit();
-            });
+                btn.innerHTML = originalBtnHtml;
+            }
+            form.submit();
+        });
+    });
+
+    // 3. AJAX Table Reservation Submission (Restaurant Page)
+    document.getElementById('reserveTableForm')?.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = this;
+        const btn = document.getElementById('btnSubmitReserveTable');
+        const alertBox = document.getElementById('reserveTableAlert');
+
+        if (btn) btn.disabled = true;
+        const originalBtnHtml = btn ? btn.innerHTML : '';
+        if (btn) btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> Confirming Reservation...';
+
+        const formData = new FormData(form);
+
+        fetch('<?php echo base_url("reserve-table"); ?>', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = originalBtnHtml;
+            }
+            if (data.status === 'success') {
+                form.reset();
+                if (alertBox) alertBox.innerHTML = '';
+                showThankYouPopup(
+                    'Table Reservation Confirmed!',
+                    'Thank you! Your dining table reservation request at The Sapphire Restaurant has been received. Our team will prepare your table and contact you shortly.'
+                );
+            } else {
+                if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
+            }
+        })
+        .catch(err => {
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = originalBtnHtml;
+            }
+            form.submit();
+        });
+    });
+
+    // 4. AJAX Contact Form Submission
+    document.getElementById('contactForm')?.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const form = this;
+        const btn = document.getElementById('btnSubmitContact');
+        const alertBox = document.getElementById('contactFormAlert');
+
+        if (btn) btn.disabled = true;
+        const originalBtnHtml = btn ? btn.innerHTML : '';
+        if (btn) btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i> Sending Message...';
+
+        const formData = new FormData(form);
+
+        fetch('<?php echo base_url("submit-contact"); ?>', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = originalBtnHtml;
+            }
+            if (data.status === 'success') {
+                form.reset();
+                if (alertBox) alertBox.innerHTML = '';
+                showThankYouPopup(
+                    'Thank You for Contacting Us!',
+                    'Your message has been sent successfully. Our concierge team has received your enquiry and will get back to you promptly.'
+                );
+            } else {
+                if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
+            }
+        })
+        .catch(err => {
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = originalBtnHtml;
+            }
+            form.submit();
+        });
     });
 </script>
 </body>

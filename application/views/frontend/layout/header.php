@@ -173,20 +173,21 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             z-index: 1020;
         }
         .luxury-navbar .nav-link {
-            font-size: 0.94rem;
+            font-size: 0.85rem;
             font-weight: 500;
             color: #f1f5f9;
-            padding: 8px 15px !important;
-            letter-spacing: 0.03em;
+            padding: 8px 11px !important;
+            letter-spacing: 0.02em;
             position: relative;
             transition: var(--transition);
+            white-space: nowrap;
         }
         .luxury-navbar .nav-link::after {
             content: '';
             position: absolute;
             bottom: 0px;
-            left: 15px;
-            right: 15px;
+            left: 11px;
+            right: 11px;
             height: 2px;
             background-color: #c5a880;
             box-shadow: 0 0 8px rgba(197, 168, 128, 0.6);
@@ -1050,7 +1051,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             background: linear-gradient(90deg, #a8895e, #f5d79e, #c5a880);
             border-radius: 8px;
             box-shadow: 0 0 10px #f5d79e;
-            animation: luxuryProgressFill 5s cubic-bezier(0.1, 0.7, 0.3, 1) forwards;
+            animation: luxuryProgressFill 2s cubic-bezier(0.1, 0.7, 0.3, 1) forwards;
         }
 
         @keyframes luxuryProgressFill {
@@ -1146,9 +1147,9 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
 </div>
 
 <script>
-// Luxury 5-Second Animated Site Preloader
+// Luxury Animated Site Preloader
 (function() {
-    var preloaderDuration = 5000; // 5 seconds display
+    var preloaderDuration = 2000; // 2 seconds display
     var preloader = document.getElementById('sitePreloader');
 
     function dismissSitePreloader() {
@@ -1162,7 +1163,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
         }
     }
 
-    // Dismiss cleanly after 5 seconds
+    // Dismiss cleanly after 2 seconds
     setTimeout(dismissSitePreloader, preloaderDuration);
 })();
 </script>

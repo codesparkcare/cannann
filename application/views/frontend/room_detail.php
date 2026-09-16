@@ -139,7 +139,9 @@ if (!empty($banner_bg) && strpos($banner_bg, 'http') !== 0) {
                         <div class="small fw-semibold text-success" style="line-height: 1.3;">Complimentary Breakfast<br><span class="fw-normal text-muted" style="font-size: 0.75rem;">Only Online Tariff</span></div>
                     </div>
 
-                    <form action="<?php echo base_url('book-room'); ?>" method="POST">
+                    <div id="roomDetailAlert"></div>
+
+                    <form id="roomDetailBookingForm" action="<?php echo base_url('book-room'); ?>" method="POST">
                         <input type="hidden" name="room_id" value="<?php echo $room['id']; ?>">
                         <input type="hidden" name="room_category_id" value="<?php echo $room['category_id']; ?>">
 
@@ -192,7 +194,7 @@ if (!empty($banner_bg) && strpos($banner_bg, 'http') !== 0) {
                             <textarea name="special_requests" class="search-field-input" rows="2" placeholder="Late check-in, extra bed (₹500), etc."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-luxury w-100 py-3 fs-6">
+                        <button type="submit" id="btnSubmitRoomDetailBooking" class="btn btn-luxury w-100 py-3 fs-6">
                             <i class="fa-solid fa-calendar-check me-1"></i> Reserve Room
                         </button>
                     </form>

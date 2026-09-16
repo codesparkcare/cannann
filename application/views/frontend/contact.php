@@ -97,18 +97,20 @@
                             promptly.</p>
                     </div>
 
-                    <?php if ($this->session->flashdata('success')): ?>
-                        <div class="alert alert-success"><i
-                                class="fa-solid fa-circle-check me-2"></i><?php echo $this->session->flashdata('success'); ?>
-                        </div>
-                    <?php endif; ?>
-                    <?php if ($this->session->flashdata('error')): ?>
-                        <div class="alert alert-danger"><i
-                                class="fa-solid fa-triangle-exclamation me-2"></i><?php echo $this->session->flashdata('error'); ?>
-                        </div>
-                    <?php endif; ?>
+                    <div id="contactFormAlert">
+                        <?php if ($this->session->flashdata('success')): ?>
+                            <div class="alert alert-success"><i
+                                    class="fa-solid fa-circle-check me-2"></i><?php echo $this->session->flashdata('success'); ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if ($this->session->flashdata('error')): ?>
+                            <div class="alert alert-danger"><i
+                                    class="fa-solid fa-triangle-exclamation me-2"></i><?php echo $this->session->flashdata('error'); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
 
-                    <form action="<?php echo base_url('submit-contact'); ?>" method="POST">
+                    <form id="contactForm" action="<?php echo base_url('submit-contact'); ?>" method="POST">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="search-field-label"><i class="fa-solid fa-user text-primary"></i> Your
@@ -143,7 +145,7 @@
                         </div>
 
                         <div class="mt-4">
-                            <button type="submit" class="btn btn-luxury py-3 px-5">
+                            <button type="submit" id="btnSubmitContact" class="btn btn-luxury py-3 px-5">
                                 <i class="fa-solid fa-paper-plane me-2"></i> Send Message
                             </button>
                         </div>
