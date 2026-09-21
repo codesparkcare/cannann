@@ -1,6 +1,6 @@
 <!-- Inner Page Banner -->
 <section class="inner-page-banner"
-    style="background-image: linear-gradient(rgba(7, 25, 17, 0.45), rgba(7, 25, 17, 0.60)), url('<?php echo base_url('uploads/canaan_restaurant_counter.jpg'); ?>'); background-position: center 35%;">
+    style="background-image: linear-gradient(rgba(7, 25, 17, 0.45), rgba(7, 25, 17, 0.60)), url('<?php echo base_url('uploads/restaurant/sree_guru_restaurant.jpg'); ?>'); background-position: center 40%;">
     <div class="container">
         <span class="badge bg-primary text-white mb-2 px-3 py-2 text-uppercase">MICHELIN-INSPIRED GASTRONOMY</span>
         <h1 class="font-serif">The Sapphire Restaurant & Bar</h1>
@@ -20,7 +20,7 @@
                 <span class="section-badge">CULINARY EXCELLENCE</span>
                 <h2 class="section-title">A Taste of Coastal Flavours & World Cuisine</h2>
                 <p class="text-muted mb-3" style="line-height: 1.8;">
-                    Experience delicious dining at Grand Cannann, where fresh ingredients, traditional flavours, and
+                    Experience delicious dining at Grand Canaann, where fresh ingredients, traditional flavours, and
                     carefully prepared dishes come together to create a memorable culinary experience. Our menu brings
                     together the rich flavours of South Indian, North Indian, Chinese, vegetarian, and non-vegetarian
                     cuisine, offering something for every guest.
@@ -60,6 +60,7 @@
                         position: relative;
                         background: #071911;
                     }
+
                     .food-showcase-card img {
                         width: 100%;
                         height: 100%;
@@ -67,19 +68,24 @@
                         transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
                         display: block;
                     }
+
                     .food-showcase-card:hover img {
                         transform: scale(1.05);
                     }
+
                     .food-showcase-top {
                         height: 250px;
                     }
+
                     .food-showcase-bottom {
                         height: 230px;
                     }
+
                     @media (max-width: 767.98px) {
                         .food-showcase-top {
                             height: 165px;
                         }
+
                         .food-showcase-bottom {
                             height: 180px;
                         }
@@ -88,20 +94,20 @@
                 <div class="row g-3">
                     <div class="col-6">
                         <div class="food-showcase-card food-showcase-top">
-                            <img src="<?php echo base_url('assets/idli.png'); ?>" alt="South Indian Breakfast & Dosa"
+                            <img src="<?php echo base_url('uploads/restaurant/food_south_indian.png'); ?>" alt="South Indian Breakfast & Dosa"
                                 style="object-position: center 25%;">
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="food-showcase-card food-showcase-top">
-                            <img src="<?php echo base_url('assets/fish.webp'); ?>" alt="Coastal Fish Fry"
+                            <img src="<?php echo base_url('uploads/restaurant/food_nonveg.png'); ?>" alt="Non-Vegetarian & Biryani Specialties"
                                 style="object-position: center center;">
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="food-showcase-card food-showcase-bottom">
-                            <img src="<?php echo base_url('assets/chinese.png'); ?>" alt="Chinese Noodles & Specialities"
-                                style="object-position: center 32%;">
+                            <img src="<?php echo base_url('uploads/restaurant/food_chinese.png'); ?>"
+                                alt="Chinese Noodles & Specialities" style="object-position: center 32%;">
                         </div>
                     </div>
                 </div>
@@ -153,7 +159,8 @@
                                         <div class="flex-grow-1">
                                             <div class="d-flex justify-content-between align-items-center mb-1">
                                                 <h5 class="font-serif fs-6 mb-0 text-dark">
-                                                    <?php echo htmlspecialchars($item['name']); ?></h5>
+                                                    <?php echo htmlspecialchars($item['name']); ?>
+                                                </h5>
                                                 <span
                                                     class="text-primary fw-bold fs-6">₹<?php echo number_format($item['price']); ?></span>
                                             </div>
@@ -173,7 +180,8 @@
                                                 <?php endif; ?>
                                             </div>
                                             <p class="text-muted small mb-0">
-                                                <?php echo htmlspecialchars($item['description']); ?></p>
+                                                <?php echo htmlspecialchars($item['description']); ?>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -203,7 +211,8 @@
                                                     <div class="flex-grow-1">
                                                         <div class="d-flex justify-content-between align-items-center mb-1">
                                                             <h5 class="font-serif fs-6 mb-0 text-dark">
-                                                                <?php echo htmlspecialchars($item['name']); ?></h5>
+                                                                <?php echo htmlspecialchars($item['name']); ?>
+                                                            </h5>
                                                             <span
                                                                 class="text-primary fw-bold fs-6">₹<?php echo number_format($item['price']); ?></span>
                                                         </div>
@@ -223,7 +232,8 @@
                                                             <?php endif; ?>
                                                         </div>
                                                         <p class="text-muted small mb-0">
-                                                            <?php echo htmlspecialchars($item['description']); ?></p>
+                                                            <?php echo htmlspecialchars($item['description']); ?>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>

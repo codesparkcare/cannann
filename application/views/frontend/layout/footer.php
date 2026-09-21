@@ -15,13 +15,13 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                 <div class="d-flex align-items-center gap-2 mb-3">
                     <?php if (!empty($site_logo_display)): ?>
                         <img src="<?php echo htmlspecialchars($site_logo_display); ?>"
-                            alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?>"
+                            alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann'); ?>"
                             class="brand-logo-img">
                     <?php else: ?>
                         <div class="logo-icon-wrap" style="width: 36px; height: 36px; font-size: 1rem;"><i
                                 class="fa-solid fa-crown text-white"></i></div>
                         <h4 class="text-white mb-0 font-serif">
-                            <?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?>
+                            <?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann'); ?>
                         </h4>
                     <?php endif; ?>
                 </div>
@@ -96,7 +96,7 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                         class="text-white-50 text-decoration-none hover-primary"><?php echo htmlspecialchars($settings['hotel_phone'] ?? '+91 99949 99695'); ?></a>
                 </p>
                 <p class="text-white-50 mb-4 small"><i
-                        class="fa-solid fa-envelope text-primary me-2"></i><?php echo htmlspecialchars($settings['hotel_email'] ?? 'contact@grandcannann.com'); ?>
+                        class="fa-solid fa-envelope text-primary me-2"></i><?php echo htmlspecialchars($settings['hotel_email'] ?? 'contact@grandcanaann.com'); ?>
                 </p>
 
 
@@ -108,19 +108,21 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
     <div class="footer-bottom" style="background-color: #04100b;">
         <div class="container d-flex flex-column flex-md-row justify-content-center align-items-center gap-2">
             <div class="text-white-50 text-center">
-                &copy; 2026 HotelCanaan &ndash; Design by
+                &copy; 2026 HotelCanaann &ndash; Design by
                 <a href="https://codespark.online/" target="_blank" rel="noopener noreferrer"
-                   style="color: var(--primary); font-weight: 600; text-decoration: none; transition: opacity 0.2s;"
-                   onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">CODESPARK</a>
+                    style="color: var(--primary); font-weight: 600; text-decoration: none; transition: opacity 0.2s;"
+                    onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">CODESPARK</a>
             </div>
         </div>
     </div>
 
     <!-- CODESPARK SOFTWARE DEVELOPMENT (Hidden for users) -->
-    <div style="display:none !important; visibility:hidden !important; position:absolute; left:-9999px; top:-9999px; width:0; height:0; overflow:hidden;" aria-hidden="true" class="d-none">
+    <div style="display:none !important; visibility:hidden !important; position:absolute; left:-9999px; top:-9999px; width:0; height:0; overflow:hidden;"
+        aria-hidden="true" class="d-none">
         <h3>CODESPARK SOFTWARE DEVELOPMENT</h3>
         <p><a href="https://codespark.online/" rel="nofollow">https://codespark.online/</a></p>
-        <p>Providing software development, custom website design, and mobile apps in Tirunelveli. We also offer free internship training for college students.</p>
+        <p>Providing software development, custom website design, and mobile apps in Tirunelveli. We also offer free
+            internship training for college students.</p>
     </div>
 </footer>
 
@@ -236,44 +238,59 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
 </div>
 
 <!-- Universal Luxury Thank You Modal -->
-<div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true" style="z-index: 1065;">
+<div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true"
+    style="z-index: 1065;">
     <div class="modal-dialog modal-dialog-centered" style="max-width: 480px;">
-        <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden; background: #ffffff; border: 1px solid rgba(197, 168, 128, 0.4) !important;">
-            <!-- Header Banner with Canaan Luxury Styling -->
-            <div class="position-relative text-center pt-4 pb-3 px-4" style="background: linear-gradient(135deg, #071911 0%, #112d20 100%); border-bottom: 2px solid rgba(197, 168, 128, 0.35);">
-                <button type="button" class="btn-close btn-close-white position-absolute" style="top: 16px; right: 16px; opacity: 0.8;" data-bs-dismiss="modal" aria-label="Close"></button>
-                
+        <div class="modal-content border-0 shadow-lg"
+            style="border-radius: 20px; overflow: hidden; background: #ffffff; border: 1px solid rgba(197, 168, 128, 0.4) !important;">
+            <!-- Header Banner with Canaann Luxury Styling -->
+            <div class="position-relative text-center pt-4 pb-3 px-4"
+                style="background: linear-gradient(135deg, #071911 0%, #112d20 100%); border-bottom: 2px solid rgba(197, 168, 128, 0.35);">
+                <button type="button" class="btn-close btn-close-white position-absolute"
+                    style="top: 16px; right: 16px; opacity: 0.8;" data-bs-dismiss="modal" aria-label="Close"></button>
+
                 <!-- Animated Luxury Checkmark Badge -->
-                <div class="mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #c5a880 0%, #e2ceb1 100%); box-shadow: 0 10px 25px rgba(197, 168, 128, 0.4); border: 3px solid rgba(255,255,255,0.25);">
+                <div class="mx-auto mb-3 d-flex align-items-center justify-content-center"
+                    style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #c5a880 0%, #e2ceb1 100%); box-shadow: 0 10px 25px rgba(197, 168, 128, 0.4); border: 3px solid rgba(255,255,255,0.25);">
                     <i class="fa-solid fa-check text-white fs-2" style="text-shadow: 0 2px 6px rgba(0,0,0,0.25);"></i>
                 </div>
-                
-                <span class="badge px-3 py-1 mb-2" style="background: rgba(197, 168, 128, 0.2); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;">
-                    <i class="fa-solid fa-hotel me-1 text-warning"></i> Canaan Hotel
+
+                <span class="badge px-3 py-1 mb-2"
+                    style="background: rgba(197, 168, 128, 0.2); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;">
+                    <i class="fa-solid fa-hotel me-1 text-warning"></i> Canaann Hotel
                 </span>
-                <h3 class="font-serif text-white mb-1 fw-bold" id="thankYouModalTitle" style="font-size: 1.65rem; letter-spacing: 0.02em;">Thank You!</h3>
-                <p class="small mb-0 font-serif" style="color: #dfc295 !important;">Comfortable Stays & Warm Hospitality &middot; Nagercoil</p>
+                <h3 class="font-serif text-white mb-1 fw-bold" id="thankYouModalTitle"
+                    style="font-size: 1.65rem; letter-spacing: 0.02em;">Thank You!</h3>
+                <p class="small mb-0 font-serif" style="color: #dfc295 !important;">Comfortable Stays & Warm Hospitality
+                    &middot; Nagercoil</p>
             </div>
 
             <!-- Modal Body (Pure Thank You message without form details) -->
             <div class="modal-body text-center p-4 pt-3">
-                <div class="my-2" style="height: 2px; width: 60px; background: linear-gradient(90deg, transparent, #c5a880, transparent); margin: 0 auto 16px auto;"></div>
-                
-                <p class="mb-4" id="thankYouModalMessage" style="line-height: 1.75; font-size: 0.98rem; color: #4a5568 !important;">
-                    Your request has been received successfully. Our team will review the details and get back to you shortly.
+                <div class="my-2"
+                    style="height: 2px; width: 60px; background: linear-gradient(90deg, transparent, #c5a880, transparent); margin: 0 auto 16px auto;">
+                </div>
+
+                <p class="mb-4" id="thankYouModalMessage"
+                    style="line-height: 1.75; font-size: 0.98rem; color: #4a5568 !important;">
+                    Your request has been received successfully. Our team will review the details and get back to you
+                    shortly.
                 </p>
 
                 <div class="d-grid gap-2">
-                    <button type="button" class="btn btn-luxury py-3 fw-semibold fs-6" data-bs-dismiss="modal" style="border-radius: 50px; letter-spacing: 0.04em;">
+                    <button type="button" class="btn btn-luxury py-3 fw-semibold fs-6" data-bs-dismiss="modal"
+                        style="border-radius: 50px; letter-spacing: 0.04em;">
                         <i class="fa-solid fa-circle-check me-2"></i> OK, Got It
                     </button>
                 </div>
             </div>
-            
+
             <!-- Modal Footer Assistance Info -->
-            <div class="text-center py-2 px-3 border-top w-100" style="background: #faf8f5; border-color: rgba(197, 168, 128, 0.2) !important;">
+            <div class="text-center py-2 px-3 border-top w-100"
+                style="background: #faf8f5; border-color: rgba(197, 168, 128, 0.2) !important;">
                 <span class="text-muted small" style="font-size: 0.78rem;">
-                    <i class="fa-solid fa-phone text-warning me-1"></i> Front Desk Assistance: <a href="tel:+919994999695" class="text-dark fw-bold text-decoration-none">+91 99949 99695</a>
+                    <i class="fa-solid fa-phone text-warning me-1"></i> Front Desk Assistance: <a
+                        href="tel:+919994999695" class="text-dark fw-bold text-decoration-none">+91 99949 99695</a>
                 </span>
             </div>
         </div>
@@ -288,10 +305,10 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
 
 <script>
     // Universal Thank You Modal Function
-    window.showThankYouPopup = function(title, message) {
+    window.showThankYouPopup = function (title, message) {
         const modalEl = document.getElementById('thankYouModal');
         if (!modalEl) return;
-        
+
         if (title) {
             document.getElementById('thankYouModalTitle').textContent = title;
         }
@@ -307,7 +324,7 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
             }
         });
 
-        setTimeout(function() {
+        setTimeout(function () {
             let thankYouModal = bootstrap.Modal.getInstance(modalEl);
             if (!thankYouModal) {
                 thankYouModal = new bootstrap.Modal(modalEl);
@@ -318,9 +335,9 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
 
     // Auto-trigger if session flashdata success exists
     <?php if ($this->session->flashdata('success')): ?>
-    document.addEventListener('DOMContentLoaded', function() {
-        showThankYouPopup('Thank You!', <?php echo json_encode($this->session->flashdata('success')); ?>);
-    });
+        document.addEventListener('DOMContentLoaded', function () {
+            showThankYouPopup('Thank You!', <?php echo json_encode($this->session->flashdata('success')); ?>);
+        });
     <?php endif; ?>
 
     // Initialize AOS Scroll Animations
@@ -408,26 +425,26 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                 'X-Requested-With': 'XMLHttpRequest'
             }
         })
-        .then(res => res.json())
-        .then(data => {
-            btn.disabled = false;
-            btn.innerHTML = originalBtnHtml;
-            if (data.status === 'success') {
-                form.reset();
-                if (alertBox) alertBox.innerHTML = '';
-                showThankYouPopup(
-                    'Reservation Request Received!',
-                    'Thank you for choosing Canaan Hotel. Your room reservation request has been received. Our team will verify room availability and contact you shortly with your confirmation.'
-                );
-            } else {
-                if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
-            }
-        })
-        .catch(err => {
-            btn.disabled = false;
-            btn.innerHTML = originalBtnHtml;
-            form.submit();
-        });
+            .then(res => res.json())
+            .then(data => {
+                btn.disabled = false;
+                btn.innerHTML = originalBtnHtml;
+                if (data.status === 'success') {
+                    form.reset();
+                    if (alertBox) alertBox.innerHTML = '';
+                    showThankYouPopup(
+                        'Reservation Request Received!',
+                        'Thank you for choosing Canaann Hotel. Your room reservation request has been received. Our team will verify room availability and contact you shortly with your confirmation.'
+                    );
+                } else {
+                    if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
+                }
+            })
+            .catch(err => {
+                btn.disabled = false;
+                btn.innerHTML = originalBtnHtml;
+                form.submit();
+            });
     });
 
     // 2. AJAX Room Detail Booking Form
@@ -450,30 +467,30 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                 'X-Requested-With': 'XMLHttpRequest'
             }
         })
-        .then(res => res.json())
-        .then(data => {
-            if (btn) {
-                btn.disabled = false;
-                btn.innerHTML = originalBtnHtml;
-            }
-            if (data.status === 'success') {
-                form.reset();
-                if (alertBox) alertBox.innerHTML = '';
-                showThankYouPopup(
-                    'Reservation Request Received!',
-                    'Thank you for booking with Canaan Hotel. Your room reservation request has been received. Our team will contact you shortly with confirmation.'
-                );
-            } else {
-                if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
-            }
-        })
-        .catch(err => {
-            if (btn) {
-                btn.disabled = false;
-                btn.innerHTML = originalBtnHtml;
-            }
-            form.submit();
-        });
+            .then(res => res.json())
+            .then(data => {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnHtml;
+                }
+                if (data.status === 'success') {
+                    form.reset();
+                    if (alertBox) alertBox.innerHTML = '';
+                    showThankYouPopup(
+                        'Reservation Request Received!',
+                        'Thank you for booking with Canaann Hotel. Your room reservation request has been received. Our team will contact you shortly with confirmation.'
+                    );
+                } else {
+                    if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
+                }
+            })
+            .catch(err => {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnHtml;
+                }
+                form.submit();
+            });
     });
 
     // 3. AJAX Table Reservation Submission (Restaurant Page)
@@ -496,30 +513,30 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                 'X-Requested-With': 'XMLHttpRequest'
             }
         })
-        .then(res => res.json())
-        .then(data => {
-            if (btn) {
-                btn.disabled = false;
-                btn.innerHTML = originalBtnHtml;
-            }
-            if (data.status === 'success') {
-                form.reset();
-                if (alertBox) alertBox.innerHTML = '';
-                showThankYouPopup(
-                    'Table Reservation Confirmed!',
-                    'Thank you! Your dining table reservation request at The Sapphire Restaurant has been received. Our team will prepare your table and contact you shortly.'
-                );
-            } else {
-                if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
-            }
-        })
-        .catch(err => {
-            if (btn) {
-                btn.disabled = false;
-                btn.innerHTML = originalBtnHtml;
-            }
-            form.submit();
-        });
+            .then(res => res.json())
+            .then(data => {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnHtml;
+                }
+                if (data.status === 'success') {
+                    form.reset();
+                    if (alertBox) alertBox.innerHTML = '';
+                    showThankYouPopup(
+                        'Table Reservation Confirmed!',
+                        'Thank you! Your dining table reservation request at The Sapphire Restaurant has been received. Our team will prepare your table and contact you shortly.'
+                    );
+                } else {
+                    if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
+                }
+            })
+            .catch(err => {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnHtml;
+                }
+                form.submit();
+            });
     });
 
     // 4. AJAX Contact Form Submission
@@ -542,30 +559,30 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                 'X-Requested-With': 'XMLHttpRequest'
             }
         })
-        .then(res => res.json())
-        .then(data => {
-            if (btn) {
-                btn.disabled = false;
-                btn.innerHTML = originalBtnHtml;
-            }
-            if (data.status === 'success') {
-                form.reset();
-                if (alertBox) alertBox.innerHTML = '';
-                showThankYouPopup(
-                    'Thank You for Contacting Us!',
-                    'Your message has been sent successfully. Our concierge team has received your enquiry and will get back to you promptly.'
-                );
-            } else {
-                if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
-            }
-        })
-        .catch(err => {
-            if (btn) {
-                btn.disabled = false;
-                btn.innerHTML = originalBtnHtml;
-            }
-            form.submit();
-        });
+            .then(res => res.json())
+            .then(data => {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnHtml;
+                }
+                if (data.status === 'success') {
+                    form.reset();
+                    if (alertBox) alertBox.innerHTML = '';
+                    showThankYouPopup(
+                        'Thank You for Contacting Us!',
+                        'Your message has been sent successfully. Our concierge team has received your enquiry and will get back to you promptly.'
+                    );
+                } else {
+                    if (alertBox) alertBox.innerHTML = '<div class="alert alert-danger mb-3"><i class="fa-solid fa-triangle-exclamation me-2"></i>' + data.message + '</div>';
+                }
+            })
+            .catch(err => {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = originalBtnHtml;
+                }
+                form.submit();
+            });
     });
 </script>
 </body>

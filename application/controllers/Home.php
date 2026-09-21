@@ -1,9 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends CI_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('Settings_model');
         $this->load->model('Slider_model');
@@ -18,11 +20,12 @@ class Home extends CI_Controller {
         $this->load->model('Testimonial_model');
     }
 
-    private function get_common_data($page_title = '', $meta_title = '', $meta_desc = '', $meta_keywords = '') {
+    private function get_common_data($page_title = '', $meta_title = '', $meta_desc = '', $meta_keywords = '')
+    {
         $settings = $this->Settings_model->get_settings();
         $data['settings'] = $settings;
-        $data['page_title'] = $page_title ? $page_title . ' | ' . ($settings['hotel_name'] ?? 'Grand Cannann') : ($settings['meta_title'] ?? 'Grand Cannann | Luxury Hotel & Resort');
-        $data['meta_title'] = $meta_title ?: ($settings['meta_title'] ?? 'Grand Cannann Resort');
+        $data['page_title'] = $page_title ? $page_title . ' | ' . ($settings['hotel_name'] ?? 'Grand Canaann') : ($settings['meta_title'] ?? 'Grand Canaann | Luxury Hotel & Resort');
+        $data['meta_title'] = $meta_title ?: ($settings['meta_title'] ?? 'Grand Canaann Resort');
         $data['meta_desc'] = $meta_desc ?: ($settings['meta_description'] ?? 'Experience luxury stays, fine dining, and coastal serenity.');
         $data['meta_keywords'] = $meta_keywords ?: ($settings['meta_keywords'] ?? 'hotel, resort, luxury stay, suites, restaurant');
         $data['room_categories'] = $this->Room_model->get_active_categories();
@@ -30,7 +33,8 @@ class Home extends CI_Controller {
         return $data;
     }
 
-    private function should_show_opening_page($settings) {
+    private function should_show_opening_page($settings)
+    {
         if (!empty($settings['is_opening_enabled']) && $settings['is_opening_enabled'] == 1 && ($settings['opening_mode'] ?? 'countdown_page') === 'countdown_page') {
             $is_admin = $this->session->userdata('admin_logged_in');
             $admin_preview_full = $this->session->userdata('admin_preview_full_site');
@@ -42,21 +46,24 @@ class Home extends CI_Controller {
         return false;
     }
 
-    public function preview_full_site() {
+    public function preview_full_site()
+    {
         if ($this->session->userdata('admin_logged_in')) {
             $this->session->set_userdata('admin_preview_full_site', TRUE);
         }
         redirect('');
     }
 
-    public function preview_opening_page() {
+    public function preview_opening_page()
+    {
         if ($this->session->userdata('admin_logged_in')) {
             $this->session->unset_userdata('admin_preview_full_site');
         }
         redirect('');
     }
 
-    public function index() {
+    public function index()
+    {
         $data = $this->get_common_data('Luxury Boutique Hotel & Resort');
         if ($this->should_show_opening_page($data['settings'])) {
             $this->load->view('frontend/opening_countdown', $data);
@@ -79,7 +86,8 @@ class Home extends CI_Controller {
         $this->load->view('frontend/layout/footer', $data);
     }
 
-    public function about() {
+    public function about()
+    {
         $data = $this->get_common_data('About Our Heritage & Hospitality');
         if ($this->should_show_opening_page($data['settings'])) {
             $this->load->view('frontend/opening_countdown', $data);
@@ -95,7 +103,8 @@ class Home extends CI_Controller {
         $this->load->view('frontend/layout/footer', $data);
     }
 
-    public function rooms() {
+    public function rooms()
+    {
         $data = $this->get_common_data('Rooms & Luxury Suites');
         if ($this->should_show_opening_page($data['settings'])) {
             $this->load->view('frontend/opening_countdown', $data);
@@ -113,7 +122,8 @@ class Home extends CI_Controller {
         $this->load->view('frontend/layout/footer', $data);
     }
 
-    public function room_detail($slug = '') {
+    public function room_detail($slug = '')
+    {
         if (!$slug) {
             redirect('rooms');
         }
@@ -123,7 +133,7 @@ class Home extends CI_Controller {
         }
 
         $page_title = $room['title'];
-        $meta_title = $room['title'] . ' | ' . ($room['category_name'] ?? 'Luxury Suite') . ' - Grand Cannann';
+        $meta_title = $room['title'] . ' | ' . ($room['category_name'] ?? 'Luxury Suite') . ' - Grand Canaann';
         $meta_desc = substr(strip_tags($room['short_description'] ?: $room['long_description']), 0, 160);
         $meta_keywords = 'room booking, ' . strtolower($room['title']) . ', ' . strtolower($room['category_name'] ?? '') . ', luxury suites';
 
@@ -142,7 +152,8 @@ class Home extends CI_Controller {
         $this->load->view('frontend/layout/footer', $data);
     }
 
-    public function restaurant() {
+    public function restaurant()
+    {
         $data = $this->get_common_data('The Sapphire Fine Dining & Bar');
         if ($this->should_show_opening_page($data['settings'])) {
             $this->load->view('frontend/opening_countdown', $data);
@@ -159,11 +170,13 @@ class Home extends CI_Controller {
         $this->load->view('frontend/layout/footer', $data);
     }
 
-    public function facilities() {
+    public function facilities()
+    {
         redirect(base_url(), 'location', 301);
     }
 
-    public function gallery() {
+    public function gallery()
+    {
         $data = $this->get_common_data('Photo Gallery & Resort Moments');
         if ($this->should_show_opening_page($data['settings'])) {
             $this->load->view('frontend/opening_countdown', $data);
@@ -180,7 +193,8 @@ class Home extends CI_Controller {
         $this->load->view('frontend/layout/footer', $data);
     }
 
-    public function blogs() {
+    public function blogs()
+    {
         $data = $this->get_common_data('Tourist Guides, Travel Stories & News');
         if ($this->should_show_opening_page($data['settings'])) {
             $this->load->view('frontend/opening_countdown', $data);
@@ -196,7 +210,8 @@ class Home extends CI_Controller {
         $this->load->view('frontend/layout/footer', $data);
     }
 
-    public function blog_detail($slug = '') {
+    public function blog_detail($slug = '')
+    {
         if (!$slug) {
             redirect('blogs');
         }
@@ -207,7 +222,7 @@ class Home extends CI_Controller {
 
         // FULL DYNAMIC SEO SETUP
         $page_title = $blog['title'];
-        $meta_title = $blog['meta_title'] ?: ($blog['title'] . ' | Grand Cannann Travel Guide');
+        $meta_title = $blog['meta_title'] ?: ($blog['title'] . ' | Grand Canaann Travel Guide');
         $meta_desc = $blog['meta_description'] ?: substr(strip_tags($blog['summary'] ?: $blog['content']), 0, 160);
         $meta_keywords = $blog['meta_keywords'] ?: 'tourist guide, hotel blog, luxury travel, chennai resort attractions';
 
@@ -231,7 +246,8 @@ class Home extends CI_Controller {
         $this->load->view('frontend/layout/footer', $data);
     }
 
-    public function contact() {
+    public function contact()
+    {
         $data = $this->get_common_data('Contact Us & Location');
         if ($this->should_show_opening_page($data['settings'])) {
             $this->load->view('frontend/opening_countdown', $data);
@@ -244,11 +260,12 @@ class Home extends CI_Controller {
         $this->load->view('frontend/layout/footer', $data);
     }
 
-    public function internship() {
+    public function internship()
+    {
         $page_title = 'Hospitality Internship Program';
-        $meta_title = 'Hospitality Internship Program | Canaan Hotel';
-        $meta_desc = 'Gain hands-on professional hospitality experience at Canaan Hotel. Training in Front Office, Food & Beverage, Housekeeping, Hotel Administration, and Customer Service.';
-        $meta_keywords = 'hotel internship, hospitality internship, hotel management training, front office training, food and beverage internship, housekeeping internship, canaan hotel careers';
+        $meta_title = 'Hospitality Internship Program | Canaann Hotel';
+        $meta_desc = 'Gain hands-on professional hospitality experience at Canaann Hotel. Training in Front Office, Food & Beverage, Housekeeping, Hotel Administration, and Customer Service.';
+        $meta_keywords = 'hotel internship, hospitality internship, hotel management training, front office training, food and beverage internship, housekeeping internship, Canaann hotel careers';
 
         $data = $this->get_common_data($page_title, $meta_title, $meta_desc, $meta_keywords);
         if ($this->should_show_opening_page($data['settings'])) {
@@ -263,7 +280,8 @@ class Home extends CI_Controller {
     }
 
     // Booking Submission Handler
-    public function book_room() {
+    public function book_room()
+    {
         $this->form_validation->set_rules('guest_name', 'Full Name', 'required|trim');
         $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|trim');
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|trim');
@@ -296,19 +314,19 @@ class Home extends CI_Controller {
         }
 
         $data = array(
-            'booking_number'   => $booking_number,
-            'room_id'          => $room_id,
+            'booking_number' => $booking_number,
+            'room_id' => $room_id,
             'room_category_id' => $room_category_id,
-            'check_in'         => $this->input->post('check_in'),
-            'check_out'        => $this->input->post('check_out'),
-            'adults'           => $this->input->post('adults') ?: 2,
-            'children'         => $this->input->post('children') ?: 0,
-            'guest_name'       => $this->input->post('guest_name'),
-            'email'            => $this->input->post('email'),
-            'phone'            => $this->input->post('phone'),
-            'total_amount'     => $total_amount,
+            'check_in' => $this->input->post('check_in'),
+            'check_out' => $this->input->post('check_out'),
+            'adults' => $this->input->post('adults') ?: 2,
+            'children' => $this->input->post('children') ?: 0,
+            'guest_name' => $this->input->post('guest_name'),
+            'email' => $this->input->post('email'),
+            'phone' => $this->input->post('phone'),
+            'total_amount' => $total_amount,
             'special_requests' => $this->input->post('special_requests'),
-            'status'           => 'pending'
+            'status' => 'pending'
         );
 
         $this->Booking_model->create_booking($data);
@@ -340,7 +358,8 @@ class Home extends CI_Controller {
     }
 
     // Table Reservation Handler
-    public function reserve_table() {
+    public function reserve_table()
+    {
         $this->form_validation->set_rules('guest_name', 'Full Name', 'required|trim');
         $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|trim');
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|trim');
@@ -357,15 +376,15 @@ class Home extends CI_Controller {
         }
 
         $data = array(
-            'guest_name'       => $this->input->post('guest_name'),
-            'email'            => $this->input->post('email'),
-            'phone'            => $this->input->post('phone'),
+            'guest_name' => $this->input->post('guest_name'),
+            'email' => $this->input->post('email'),
+            'phone' => $this->input->post('phone'),
             'reservation_date' => $this->input->post('reservation_date'),
             'reservation_time' => $this->input->post('reservation_time'),
-            'guest_count'      => $this->input->post('guest_count') ?: 2,
+            'guest_count' => $this->input->post('guest_count') ?: 2,
             'table_preference' => $this->input->post('table_preference') ?: 'Indoor Romantic',
-            'special_notes'    => $this->input->post('special_notes'),
-            'status'           => 'pending'
+            'special_notes' => $this->input->post('special_notes'),
+            'status' => 'pending'
         );
 
         $this->Restaurant_model->add_reservation($data);
@@ -395,7 +414,8 @@ class Home extends CI_Controller {
     }
 
     // Contact Submission Handler
-    public function submit_contact() {
+    public function submit_contact()
+    {
         $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
         $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|trim');
         $this->form_validation->set_rules('subject', 'Subject', 'required|trim');
@@ -411,12 +431,12 @@ class Home extends CI_Controller {
         }
 
         $data = array(
-            'name'    => $this->input->post('name'),
-            'email'   => $this->input->post('email'),
-            'phone'   => $this->input->post('phone'),
+            'name' => $this->input->post('name'),
+            'email' => $this->input->post('email'),
+            'phone' => $this->input->post('phone'),
             'subject' => $this->input->post('subject'),
             'message' => $this->input->post('message'),
-            'status'  => 'unread'
+            'status' => 'unread'
         );
 
         $this->Contact_model->add_contact($data);
@@ -444,7 +464,8 @@ class Home extends CI_Controller {
     }
 
     // Internship Application Handler
-    public function apply_internship() {
+    public function apply_internship()
+    {
         $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
         $this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|trim');
         $this->form_validation->set_rules('phone', 'Phone Number', 'required|trim');
@@ -481,12 +502,12 @@ class Home extends CI_Controller {
         $formatted_message .= "Candidate Statement/Notes:\n" . ($notes ?: 'None provided') . "\n";
 
         $contact_data = array(
-            'name'    => $name,
-            'email'   => $email,
-            'phone'   => $phone,
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone,
             'subject' => '[Internship Application] ' . $department . ' - ' . $name,
             'message' => $formatted_message,
-            'status'  => 'unread'
+            'status' => 'unread'
         );
 
         $this->Contact_model->add_contact($contact_data);
@@ -518,28 +539,32 @@ class Home extends CI_Controller {
     }
 
     // SMTP Email Notification helper
-    private function send_notification_email($subject, $body_html, $reply_to = null) {
+    private function send_notification_email($subject, $body_html, $reply_to = null)
+    {
         $settings = $this->Settings_model->get_settings();
         if (empty($settings['smtp_host']) || empty($settings['smtp_user'])) {
             return false;
         }
 
         $config = array(
-            'protocol'  => 'smtp',
-            'smtp_host' => $settings['smtp_host'],
-            'smtp_port' => $settings['smtp_port'] ?: 587,
-            'smtp_user' => $settings['smtp_user'],
-            'smtp_pass' => $settings['smtp_pass'],
-            'smtp_crypto' => $settings['smtp_crypto'] ?: 'tls',
-            'mailtype'  => 'html',
-            'charset'   => 'utf-8',
-            'newline'   => "\r\n",
-            'wordwrap'  => TRUE
+            'protocol'    => 'smtp',
+            'smtp_host'   => trim($settings['smtp_host']),
+            'smtp_port'   => (int)($settings['smtp_port'] ?: 587),
+            'smtp_user'   => trim($settings['smtp_user']),
+            'smtp_pass'   => $settings['smtp_pass'],
+            'smtp_crypto' => !empty($settings['smtp_crypto']) ? trim($settings['smtp_crypto']) : '',
+            'mailtype'    => 'html',
+            'charset'     => 'utf-8',
+            'newline'     => "\r\n",
+            'crlf'        => "\r\n",
+            'smtp_timeout'=> 15,
+            'wordwrap'    => TRUE
         );
 
+        $this->email->clear(TRUE);
         $this->email->initialize($config);
-        $this->email->from($settings['smtp_from_email'] ?: 'noreply@grandcannann.com', $settings['smtp_from_name'] ?: 'Grand Cannann Resort');
-        $this->email->to($settings['hotel_email'] ?: 'contact@grandcannann.com');
+        $this->email->from($settings['smtp_from_email'] ?: 'noreply@grandcanaann.com', $settings['smtp_from_name'] ?: 'Grand Canaann Resort');
+        $this->email->to($settings['hotel_email'] ?: 'contact@grandcanaann.com');
         if ($reply_to) {
             $this->email->reply_to($reply_to);
         }

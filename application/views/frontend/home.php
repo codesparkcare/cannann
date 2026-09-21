@@ -97,7 +97,8 @@
                     </select>
                 </div>
                 <div class="col-lg-2 col-md-4">
-                    <button type="submit" class="btn btn-luxury w-100 py-3" style="border-radius: var(--radius-sm); white-space: nowrap;">
+                    <button type="submit" class="btn btn-luxury w-100 py-3"
+                        style="border-radius: var(--radius-sm); white-space: nowrap;">
                         <i class="fa-solid fa-magnifying-glass me-1"></i> Check Now
                     </button>
                 </div>
@@ -107,30 +108,31 @@
 </div>
 
 <!-- 3. Welcome & Heritage Section with Counter Stats -->
-<section class="py-5 my-4 position-relative" style="background: #ffffff; border-top: 1px solid rgba(197, 168, 128, 0.15); border-bottom: 1px solid rgba(197, 168, 128, 0.15);">
+<section class="py-5 my-4 position-relative"
+    style="background: #ffffff; border-top: 1px solid rgba(197, 168, 128, 0.15); border-bottom: 1px solid rgba(197, 168, 128, 0.15);">
     <div class="container py-lg-4">
         <div class="row align-items-center g-5">
             <div class="col-lg-6" data-aos="fade-right">
                 <div class="position-relative">
-                    <img src="<?php echo base_url('uploads/about_hotel.jpg'); ?>" alt="Canaan Hotel Architecture"
+                    <img src="<?php echo base_url('uploads/about_hotel.jpg'); ?>" alt="Canaann Hotel Building & Architecture"
                         class="img-fluid rounded-4 shadow-lg w-100"
-                        style="height: 480px; object-fit: cover; object-position: center 30%;">
+                        style="height: 480px; object-fit: cover; object-position: center 40%;">
                     <div class="position-absolute bottom-0 start-0 text-white p-4 rounded-4 m-3 shadow-lg d-none d-sm-block"
                         style="max-width: 270px; border-left: 4px solid var(--primary); background: rgba(7, 25, 17, 0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(255, 255, 255, 0.12); border-right: 1px solid rgba(255, 255, 255, 0.12); border-bottom: 1px solid rgba(255, 255, 255, 0.12);">
                         <div class="d-flex align-items-center gap-2 mb-1">
                             <i class="fa-solid fa-hotel text-warning fs-3"></i>
-                            <span class="fs-5 fw-bold font-serif" style="color:white !important">Canaan Hotel</span>
+                            <span class="fs-5 fw-bold font-serif" style="color:white !important">Canaann Hotel</span>
                         </div>
                         <p class="small text-white-50 mb-0">Comfortable Stays & Warm Hospitality in Nagercoil.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6" data-aos="fade-left">
-                <span class="section-badge" style="box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);">ABOUT CANAAN
+                <span class="section-badge" style="box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);">ABOUT Canaann
                     HOTEL</span>
                 <h2 class="section-title">Comfortable Stays, Warm Hospitality</h2>
                 <p class="text-muted mb-4" style="line-height: 1.8;">
-                    Located in Nagercoil, Canaan Hotel offers a comfortable and welcoming stay for families, business
+                    Located in Nagercoil, Canaann Hotel offers a comfortable and welcoming stay for families, business
                     travellers, and guests exploring the beautiful surroundings of Kanyakumari. With well-maintained
                     rooms, convenient facilities, delicious dining options, and friendly hospitality, we strive to make
                     every stay relaxing and memorable.
@@ -166,7 +168,8 @@
                             <i class="fa-solid fa-utensils text-primary fs-3 mt-1"></i>
                             <div>
                                 <h5 class="mb-1 fw-bold font-serif fs-6">Delicious Dining</h5>
-                                <span class="small text-muted" style="line-height: 1.4; display: block;">Tasty multi-cuisine
+                                <span class="small text-muted" style="line-height: 1.4; display: block;">Tasty
+                                    multi-cuisine
                                     food, coffee, juices, and refreshing beverages</span>
                             </div>
                         </div>
@@ -202,33 +205,42 @@
 <section class="py-5 bg-cream" style="background-color: var(--bg-cream);">
     <div class="container py-lg-4">
         <div class="text-center mb-5" data-aos="fade-up">
-            <span class="section-badge shadow-sm" style="background: #071911; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">ACCOMMODATION & TARIFFS</span>
-            <h2 class="section-title" style="color: #071911; font-weight: 700; margin-top: 14px; margin-bottom: 14px;">Rooms & Suites Tariff – Canaan Hotel, Nagercoil</h2>
-            <p class="section-subtitle" style="color: #334155; font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 500;">Clean, well-maintained rooms with modern amenities and complimentary breakfast for online bookings. Extra bed available for ₹500.</p>
+            <span class="section-badge shadow-sm"
+                style="background: #071911; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">ACCOMMODATION
+                & TARIFFS</span>
+            <h2 class="section-title" style="color: #071911; font-weight: 700; margin-top: 14px; margin-bottom: 14px;">
+                Rooms & Suites Tariff – Canaann Hotel, Nagercoil</h2>
+            <p class="section-subtitle"
+                style="color: #334155; font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 500;">
+                Clean, well-maintained rooms with modern amenities and complimentary breakfast for online bookings.
+                Extra bed available for ₹500.</p>
         </div>
 
         <div class="row g-4">
             <?php if (!empty($featured_rooms)):
-                foreach ($featured_rooms as $idx => $room): 
+                foreach ($featured_rooms as $idx => $room):
                     $room_img = $room['featured_image'];
                     if (!empty($room_img) && strpos($room_img, 'http') !== 0) {
                         $room_img = base_url(ltrim($room_img, '/'));
                     }
-                ?>
+                    ?>
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?php echo ($idx + 1) * 100; ?>">
                         <div class="luxury-card">
                             <div class="luxury-card-img-wrap">
                                 <img src="<?php echo htmlspecialchars($room_img); ?>"
                                     alt="<?php echo htmlspecialchars($room['title']); ?>">
-                                <span class="card-category-badge"><?php echo htmlspecialchars($room['category_name'] ?? 'Deluxe Room'); ?></span>
+                                <span
+                                    class="card-category-badge"><?php echo htmlspecialchars($room['category_name'] ?? 'Deluxe Room'); ?></span>
                                 <div class="card-price-badge">
-                                    ₹<?php echo number_format($room['price'], ($room['price'] == floor($room['price']) ? 0 : 2)); ?> <span class="fw-normal small">/ night</span>
+                                    ₹<?php echo number_format($room['price'], ($room['price'] == floor($room['price']) ? 0 : 2)); ?>
+                                    <span class="fw-normal small">/ night</span>
                                 </div>
                             </div>
                             <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
                                 <div>
                                     <div class="mb-2">
-                                        <span class="badge" style="background: rgba(16, 185, 129, 0.12); color: #047857; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.72rem; font-weight: 700; padding: 5px 9px;">
+                                        <span class="badge"
+                                            style="background: rgba(16, 185, 129, 0.12); color: #047857; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.72rem; font-weight: 700; padding: 5px 9px;">
                                             <i class="fa-solid fa-mug-hot me-1"></i> Complimentary Breakfast
                                         </span>
                                     </div>
@@ -242,7 +254,8 @@
 
                                     <div class="d-flex flex-wrap gap-2 mb-3 pb-3 border-bottom small text-muted">
                                         <span><i class="fa-solid fa-user-group text-primary me-1"></i>
-                                            <?php echo $room['max_adults']; ?> <?php echo $room['max_adults'] == 1 ? 'Person' : 'Persons'; ?></span>
+                                            <?php echo $room['max_adults']; ?>
+                                            <?php echo $room['max_adults'] == 1 ? 'Person' : 'Persons'; ?></span>
                                         <span>•</span>
                                         <span><i class="fa-solid fa-bed text-primary me-1"></i>
                                             <?php echo htmlspecialchars($room['bed_type']); ?></span>
@@ -288,7 +301,7 @@
                 for a Comfortable Stay</h2>
             <p class="section-subtitle"
                 style="color: #334155; font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 500;">
-                Enjoy a relaxing and convenient experience at Canaan Hotel, Nagercoil, with thoughtfully provided
+                Enjoy a relaxing and convenient experience at Canaann Hotel, Nagercoil, with thoughtfully provided
                 facilities, comfortable accommodation, delicious dining, and attentive guest services.</p>
         </div>
 
@@ -312,9 +325,11 @@
 <!-- 6. Restaurant & Dining Showcase Section -->
 <section class="py-5 position-relative overflow-hidden" id="restaurant"
     style="background: radial-gradient(circle at 85% 15%, rgba(197, 168, 128, 0.16) 0%, transparent 45%), radial-gradient(circle at 10% 85%, rgba(15, 61, 42, 0.6) 0%, transparent 55%), #071911;">
-    
+
     <!-- Subtle luxury decorative ambient pattern -->
-    <div class="position-absolute top-0 start-0 w-100 h-100 pointer-events-none" style="background: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 28px 28px; opacity: 0.6;"></div>
+    <div class="position-absolute top-0 start-0 w-100 h-100 pointer-events-none"
+        style="background: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 28px 28px; opacity: 0.6;">
+    </div>
 
     <div class="container py-lg-4 position-relative" style="z-index: 2;">
         <!-- Top Row: Editorial Story & Featured Architectural Image Frame -->
@@ -325,13 +340,17 @@
                     style="background: rgba(197, 168, 128, 0.12); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.4); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.18em; padding: 7px 18px; border-radius: 50px; display: inline-flex; align-items: center; gap: 7px;">
                     <i class="fa-solid fa-utensils text-primary" style="font-size: 0.75rem;"></i> RESTAURANT & DINING
                 </span>
-                
+
                 <h2 class="font-serif text-white display-6 fw-bold mt-3 mb-3" style="line-height: 1.25;">
-                    A Delicious Taste for <span style="background: linear-gradient(135deg, #dfc295 0%, #c5a880 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Every Occasion</span>
+                    A Delicious Taste for <span
+                        style="background: linear-gradient(135deg, #dfc295 0%, #c5a880 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Every
+                        Occasion</span>
                 </h2>
-                
+
                 <p class="mb-4" style="color: #cbd5e1; font-size: 1.03rem; line-height: 1.85; font-weight: 400;">
-                    Discover a delightful selection of dishes at Canaan Hotel, Nagercoil. From flavorful South Indian favorites and aromatic Chinese specialties to delicious vegetarian and non-vegetarian dishes, our restaurant brings together comforting flavors and satisfying meals for every guest.
+                    Discover a delightful selection of dishes at Canaann Hotel, Nagercoil. From flavorful South Indian
+                    favorites and aromatic Chinese specialties to delicious vegetarian and non-vegetarian dishes, our
+                    restaurant brings together comforting flavors and satisfying meals for every guest.
                 </p>
 
                 <!-- Key Highlights & Hours Pill -->
@@ -343,7 +362,9 @@
                             <i class="fa-regular fa-clock"></i>
                         </div>
                         <div>
-                            <span class="d-block text-white-50" style="font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;">Operating Hours</span>
+                            <span class="d-block text-white-50"
+                                style="font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;">Operating
+                                Hours</span>
                             <strong class="text-white small">Open Daily • Breakfast, Lunch & Dinner</strong>
                         </div>
                     </div>
@@ -355,7 +376,9 @@
                             <i class="fa-solid fa-mug-hot"></i>
                         </div>
                         <div>
-                            <span class="d-block text-white-50" style="font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;">Live Counter</span>
+                            <span class="d-block text-white-50"
+                                style="font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;">Live
+                                Counter</span>
                             <strong class="text-white small">Hot Drinks, Juices & Falooda Bar</strong>
                         </div>
                     </div>
@@ -373,31 +396,151 @@
                 </div>
             </div>
 
-            <!-- Right: Architectural Featured Image Frame -->
+            <!-- Right: Architectural Featured Image & Food Carousel Frame -->
             <div class="col-lg-6" data-aos="fade-left">
                 <div class="position-relative p-2 rounded-4"
                     style="background: linear-gradient(135deg, rgba(197, 168, 128, 0.45) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(197, 168, 128, 0.2) 100%);">
-                    <div class="rounded-4 overflow-hidden position-relative shadow-2xl" style="height: 380px;">
-                        <img src="<?php echo base_url('uploads/canaan_restaurant_counter.jpg'); ?>"
-                            alt="Canaan Hotel Restaurant & Live Counter"
-                            class="w-100 h-100 dining-hero-img"
-                            style="object-fit: cover; object-position: center 35%; transition: transform 0.6s ease;">
-                        
-                        <!-- Gradient Vignette & Live Counter Tag -->
-                        <div class="position-absolute bottom-0 start-0 w-100 p-4"
-                            style="background: linear-gradient(to top, rgba(7, 25, 17, 0.95) 0%, rgba(7, 25, 17, 0.4) 60%, transparent 100%);">
-                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="badge" style="background: rgba(197, 168, 128, 0.95); color: #071911; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 6px;">
-                                        LIVE COUNTER
-                                    </span>
-                                    <span class="text-white small fw-semibold">Hot Drinks, Fresh Juices & Ice Creams</span>
+                    <div id="diningShowcaseCarousel" class="carousel slide carousel-fade rounded-4 overflow-hidden position-relative shadow-2xl" data-bs-ride="carousel" data-bs-interval="3500" style="height: 380px;">
+                        <!-- Carousel Indicators -->
+                        <div class="carousel-indicators mb-2" style="z-index: 10;">
+                            <button type="button" data-bs-target="#diningShowcaseCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Sree Guru Restaurant"></button>
+                            <button type="button" data-bs-target="#diningShowcaseCarousel" data-bs-slide-to="1" aria-label="South Indian Specialties"></button>
+                            <button type="button" data-bs-target="#diningShowcaseCarousel" data-bs-slide-to="2" aria-label="Beverage Point & Juices"></button>
+                            <button type="button" data-bs-target="#diningShowcaseCarousel" data-bs-slide-to="3" aria-label="Non-Vegetarian Specialties"></button>
+                            <button type="button" data-bs-target="#diningShowcaseCarousel" data-bs-slide-to="4" aria-label="Chinese Cuisine"></button>
+                        </div>
+
+                        <!-- Carousel Slides -->
+                        <div class="carousel-inner h-100">
+                            <!-- Slide 1: Restaurant Ambience & Live Counter -->
+                            <div class="carousel-item active h-100 position-relative">
+                                <img src="<?php echo base_url('uploads/restaurant/sree_guru_restaurant.jpg'); ?>"
+                                    alt="Sree Guru Restaurant - Canaann Hotel" class="w-100 h-100 dining-hero-img"
+                                    style="object-fit: cover; object-position: center;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4"
+                                    style="background: linear-gradient(to top, rgba(7, 25, 17, 0.95) 0%, rgba(7, 25, 17, 0.45) 60%, transparent 100%);">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pe-4">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="badge"
+                                                style="background: rgba(197, 168, 128, 0.95); color: #071911; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 6px;">
+                                                LIVE COUNTER
+                                            </span>
+                                            <span class="text-white small fw-semibold">Hot Drinks, Fresh Juices & Ice Creams</span>
+                                        </div>
+                                        <span class="badge text-white-50 border border-secondary border-opacity-50 small"
+                                            style="background: rgba(7, 25, 17, 0.85);">
+                                            <i class="fa-solid fa-location-dot text-primary me-1"></i> Sree Guru Restaurant
+                                        </span>
+                                    </div>
                                 </div>
-                                <span class="badge text-white-50 border border-secondary border-opacity-50 small" style="background: rgba(7, 25, 17, 0.85);">
-                                    <i class="fa-solid fa-location-dot text-primary me-1"></i> Nagercoil
-                                </span>
+                            </div>
+
+                            <!-- Slide 2: South Indian Specialties -->
+                            <div class="carousel-item h-100 position-relative">
+                                <img src="<?php echo base_url('uploads/restaurant/food_south_indian.png'); ?>"
+                                    alt="South Indian Breakfast & Delicacies" class="w-100 h-100 dining-hero-img"
+                                    style="object-fit: cover; object-position: center;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4"
+                                    style="background: linear-gradient(to top, rgba(7, 25, 17, 0.95) 0%, rgba(7, 25, 17, 0.45) 60%, transparent 100%);">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pe-4">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="badge"
+                                                style="background: rgba(197, 168, 128, 0.95); color: #071911; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 6px;">
+                                                SOUTH INDIAN
+                                            </span>
+                                            <span class="text-white small fw-semibold">Crispy Dosa, Soft Idli, Vada & Sambar</span>
+                                        </div>
+                                        <span class="badge text-white-50 border border-secondary border-opacity-50 small"
+                                            style="background: rgba(7, 25, 17, 0.85);">
+                                            <i class="fa-solid fa-utensils text-primary me-1"></i> Fresh Daily
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3: Beverage Point & Fresh Juices -->
+                            <div class="carousel-item h-100 position-relative">
+                                <img src="<?php echo base_url('uploads/restaurant/food_beverages.png'); ?>"
+                                    alt="Fresh Juices, Coffee & Beverage Point" class="w-100 h-100 dining-hero-img"
+                                    style="object-fit: cover; object-position: center;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4"
+                                    style="background: linear-gradient(to top, rgba(7, 25, 17, 0.95) 0%, rgba(7, 25, 17, 0.45) 60%, transparent 100%);">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pe-4">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="badge"
+                                                style="background: rgba(197, 168, 128, 0.95); color: #071911; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 6px;">
+                                                BEVERAGE POINT
+                                            </span>
+                                            <span class="text-white small fw-semibold">Tea, Filter Coffee & Cold Fruit Juices</span>
+                                        </div>
+                                        <span class="badge text-white-50 border border-secondary border-opacity-50 small"
+                                            style="background: rgba(7, 25, 17, 0.85);">
+                                            <i class="fa-solid fa-glass-water text-primary me-1"></i> Refreshment Bar
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 4: Non-Vegetarian & Tandoori -->
+                            <div class="carousel-item h-100 position-relative">
+                                <img src="<?php echo base_url('uploads/restaurant/food_nonveg.png'); ?>"
+                                    alt="Non-Vegetarian Curries, Biryani & Tandoori" class="w-100 h-100 dining-hero-img"
+                                    style="object-fit: cover; object-position: center;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4"
+                                    style="background: linear-gradient(to top, rgba(7, 25, 17, 0.95) 0%, rgba(7, 25, 17, 0.45) 60%, transparent 100%);">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pe-4">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="badge"
+                                                style="background: rgba(239, 68, 68, 0.9); color: #fff; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 6px;">
+                                                SIGNATURE DISHES
+                                            </span>
+                                            <span class="text-white small fw-semibold">Tandoori Grill, Biryani, Mutton & Seafood</span>
+                                        </div>
+                                        <span class="badge text-white-50 border border-secondary border-opacity-50 small"
+                                            style="background: rgba(7, 25, 17, 0.85);">
+                                            <i class="fa-solid fa-fire text-danger me-1"></i> Chef's Special
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 5: Chinese & Indo-Chinese -->
+                            <div class="carousel-item h-100 position-relative">
+                                <img src="<?php echo base_url('uploads/restaurant/food_chinese.png'); ?>"
+                                    alt="Chinese Noodles, Fried Rice & Momos" class="w-100 h-100 dining-hero-img"
+                                    style="object-fit: cover; object-position: center;">
+                                <div class="position-absolute bottom-0 start-0 w-100 p-4"
+                                    style="background: linear-gradient(to top, rgba(7, 25, 17, 0.95) 0%, rgba(7, 25, 17, 0.45) 60%, transparent 100%);">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 pe-4">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="badge"
+                                                style="background: rgba(245, 158, 11, 0.95); color: #071911; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 6px;">
+                                                CHINESE CUISINE
+                                            </span>
+                                            <span class="text-white small fw-semibold">Wok-Tossed Noodles, Fried Rice & Momos</span>
+                                        </div>
+                                        <span class="badge text-white-50 border border-secondary border-opacity-50 small"
+                                            style="background: rgba(7, 25, 17, 0.85);">
+                                            <i class="fa-solid fa-bowl-rice text-warning me-1"></i> Indo-Chinese
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- Carousel Controls -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#diningShowcaseCarousel" data-bs-slide="prev" style="width: 45px; z-index: 12;">
+                            <span class="d-inline-flex align-items-center justify-content-center rounded-circle" style="width: 36px; height: 36px; background: rgba(7, 25, 17, 0.7); backdrop-filter: blur(4px); border: 1px solid rgba(197, 168, 128, 0.4); color: #dfc295;">
+                                <i class="fa-solid fa-chevron-left small"></i>
+                            </span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#diningShowcaseCarousel" data-bs-slide="next" style="width: 45px; z-index: 12;">
+                            <span class="d-inline-flex align-items-center justify-content-center rounded-circle" style="width: 36px; height: 36px; background: rgba(7, 25, 17, 0.7); backdrop-filter: blur(4px); border: 1px solid rgba(197, 168, 128, 0.4); color: #dfc295;">
+                                <i class="fa-solid fa-chevron-right small"></i>
+                            </span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -414,15 +557,18 @@
                             style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(197, 168, 128, 0.25) 0%, rgba(197, 168, 128, 0.08) 100%); border: 1px solid rgba(197, 168, 128, 0.4); color: #dfc295; font-size: 1.25rem;">
                             <i class="fa-solid fa-bowl-rice"></i>
                         </div>
-                        <span class="badge" style="background: rgba(197, 168, 128, 0.12); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
+                        <span class="badge"
+                            style="background: rgba(197, 168, 128, 0.12); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
                             TRADITIONAL
                         </span>
                     </div>
                     <h5 class="font-serif text-white mb-2 fs-6 fw-bold">South Indian Specialties</h5>
                     <p class="small text-white-50 mb-3" style="line-height: 1.65; min-height: 54px;">
-                        Experience authentic South Indian flavors with crispy dosa, soft idli, flaky parotta, aromatic biryani, curries, and traditional feasts.
+                        Experience authentic South Indian flavors with crispy dosa, soft idli, flaky parotta, aromatic
+                        biryani, curries, and traditional feasts.
                     </p>
-                    <a href="<?php echo base_url('restaurant'); ?>" class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
+                    <a href="<?php echo base_url('restaurant'); ?>"
+                        class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
                         Explore Dishes <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
                     </a>
                 </div>
@@ -437,15 +583,18 @@
                             style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(197, 168, 128, 0.25) 0%, rgba(197, 168, 128, 0.08) 100%); border: 1px solid rgba(197, 168, 128, 0.4); color: #dfc295; font-size: 1.25rem;">
                             <i class="fa-solid fa-drumstick-bite"></i>
                         </div>
-                        <span class="badge" style="background: rgba(239, 68, 68, 0.12); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
+                        <span class="badge"
+                            style="background: rgba(239, 68, 68, 0.12); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
                             SIGNATURE
                         </span>
                     </div>
                     <h5 class="font-serif text-white mb-2 fs-6 fw-bold">Non-Vegetarian Delights</h5>
                     <p class="small text-white-50 mb-3" style="line-height: 1.65; min-height: 54px;">
-                        Enjoy flavorful chicken, mutton, fresh coastal fish, and delicious non-vegetarian specialties cooked with rich spices and authentic recipes.
+                        Enjoy flavorful chicken, mutton, fresh coastal fish, and delicious non-vegetarian specialties
+                        cooked with rich spices and authentic recipes.
                     </p>
-                    <a href="<?php echo base_url('restaurant'); ?>" class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
+                    <a href="<?php echo base_url('restaurant'); ?>"
+                        class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
                         Explore Dishes <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
                     </a>
                 </div>
@@ -460,39 +609,44 @@
                             style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(197, 168, 128, 0.25) 0%, rgba(197, 168, 128, 0.08) 100%); border: 1px solid rgba(197, 168, 128, 0.4); color: #dfc295; font-size: 1.25rem;">
                             <i class="fa-solid fa-utensils"></i>
                         </div>
-                        <span class="badge" style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
+                        <span class="badge"
+                            style="background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
                             WOK-TOSSED
                         </span>
                     </div>
                     <h5 class="font-serif text-white mb-2 fs-6 fw-bold">Chinese Cuisine</h5>
                     <p class="small text-white-50 mb-3" style="line-height: 1.65; min-height: 54px;">
-                        Savor popular Chinese favorites featuring aromatic noodles, wok-fried rice, crispy Manchurian, chili gravies, and delicious Indo-Chinese fusion.
+                        Savor popular Chinese favorites featuring aromatic noodles, wok-fried rice, crispy Manchurian,
+                        chili gravies, and delicious Indo-Chinese fusion.
                     </p>
-                    <a href="<?php echo base_url('restaurant'); ?>" class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
+                    <a href="<?php echo base_url('restaurant'); ?>"
+                        class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
                         Explore Dishes <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
                     </a>
                 </div>
             </div>
 
-            <!-- 4. Vegetarian Favorites -->
+            <!-- 4. Beverage Point -->
             <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
                 <div class="dining-cuisine-card h-100 p-4 rounded-4 position-relative"
                     style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(197, 168, 128, 0.2); backdrop-filter: blur(10px); transition: all 0.35s ease;">
                     <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="cuisine-icon-badge rounded-circle d-flex align-items-center justify-content-center"
-                            style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.06) 100%); border: 1px solid rgba(16, 185, 129, 0.35); color: #34d399; font-size: 1.25rem;">
-                            <i class="fa-solid fa-leaf"></i>
+                            style="width: 48px; height: 48px; background: linear-gradient(135deg, rgba(197, 168, 128, 0.25) 0%, rgba(197, 168, 128, 0.08) 100%); border: 1px solid rgba(197, 168, 128, 0.4); color: #dfc295; font-size: 1.25rem;">
+                            <i class="fa-solid fa-mug-hot"></i>
                         </div>
-                        <span class="badge" style="background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
-                            PURE VEG
+                        <span class="badge"
+                            style="background: rgba(197, 168, 128, 0.12); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.25); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
+                            BEVERAGES
                         </span>
                     </div>
-                    <h5 class="font-serif text-white mb-2 fs-6 fw-bold">Vegetarian Favorites</h5>
+                    <h5 class="font-serif text-white mb-2 fs-6 fw-bold">Beverage Point</h5>
                     <p class="small text-white-50 mb-3" style="line-height: 1.65; min-height: 54px;">
-                        A tempting selection of wholesome, freshly prepared vegetarian curries, paneer specialties, dals, and vegetable dishes for a fulfilling meal.
+                        Enjoy freshly prepared tea, coffee, refreshing juices, and a variety of beverages in a comfortable and relaxing setting.
                     </p>
-                    <a href="<?php echo base_url('restaurant'); ?>" class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
-                        Explore Dishes <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
+                    <a href="<?php echo base_url('restaurant'); ?>"
+                        class="small fw-semibold text-primary text-decoration-none d-inline-flex align-items-center gap-1 hover-arrow">
+                        Explore Drinks <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem;"></i>
                     </a>
                 </div>
             </div>
@@ -507,20 +661,25 @@
         border-color: rgba(197, 168, 128, 0.6) !important;
         box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(197, 168, 128, 0.12) !important;
     }
+
     .dining-cuisine-card:hover .cuisine-icon-badge {
         transform: scale(1.1);
         border-color: #dfc295 !important;
         box-shadow: 0 0 15px rgba(197, 168, 128, 0.3);
     }
+
     .dining-cuisine-card:hover .hover-arrow i {
         transform: translateX(4px);
     }
+
     .dining-cuisine-card .hover-arrow i {
         transition: transform 0.25s ease;
     }
+
     .dining-cuisine-card .cuisine-icon-badge {
         transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
+
     .dining-hero-img:hover {
         transform: scale(1.04);
     }
@@ -538,7 +697,7 @@
                     Special Stay Packages & Offers</h2>
                 <p class="section-subtitle"
                     style="color: #334155; font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 500;">
-                    Make your stay at Canaan Hotel even more enjoyable with our specially designed packages for families,
+                    Make your stay at Canaann Hotel even more enjoyable with our specially designed packages for families,
                     couples, and guests looking for a memorable getaway in Nagercoil.</p>
             </div>
 
@@ -598,39 +757,52 @@
 <?php endif; ?>
 
 <!-- Hospitality Internship Program Section (Short Homepage Version) -->
-<section class="py-5" style="background: linear-gradient(135deg, #071911 0%, #0d2f20 100%); color: #fff; position: relative; overflow: hidden;">
+<section class="py-5"
+    style="background: linear-gradient(135deg, #071911 0%, #0d2f20 100%); color: #fff; position: relative; overflow: hidden;">
     <div class="container py-lg-4 position-relative">
         <div class="row align-items-center g-5">
             <div class="col-lg-6" data-aos="fade-right">
-                <span class="section-badge shadow-sm" style="background: rgba(197, 168, 128, 0.2); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.4); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px; display: inline-block; margin-bottom: 14px;">
+                <span class="section-badge shadow-sm"
+                    style="background: rgba(197, 168, 128, 0.2); color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.4); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px; display: inline-block; margin-bottom: 14px;">
                     CAREER OPPORTUNITY
                 </span>
-                <h2 class="section-title text-white mb-2" style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700;">Hospitality Internship Program</h2>
-                <h4 class="font-serif mb-3" style="color: #dfc295; font-size: 1.25rem;">Learn Hospitality. Gain Experience. Build Your Future.</h4>
+                <h2 class="section-title text-white mb-2"
+                    style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 700;">Hospitality Internship Program
+                </h2>
+                <h4 class="font-serif mb-3" style="color: #dfc295; font-size: 1.25rem;">Learn Hospitality. Gain
+                    Experience. Build Your Future.</h4>
                 <p class="text-white-50 mb-4" style="line-height: 1.85; font-size: 1.02rem; color: #cbd5e1 !important;">
-                    Join the Canaan Hotel Internship Program and gain practical exposure to front office, food &amp; beverage, housekeeping, guest relations, and hotel administration. Develop professional skills, gain real-world experience, and take your first step toward a rewarding hospitality career.
+                    Join the Canaann Hotel Internship Program and gain practical exposure to front office, food &amp;
+                    beverage, housekeeping, guest relations, and hotel administration. Develop professional skills, gain
+                    real-world experience, and take your first step toward a rewarding hospitality career.
                 </p>
 
                 <div class="d-flex flex-wrap gap-2 mb-4 pb-2">
-                    <span class="badge px-3 py-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
+                    <span class="badge px-3 py-2"
+                        style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
                         <i class="fa-solid fa-bell-concierge text-warning me-1"></i> Front Office
                     </span>
-                    <span class="badge px-3 py-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
+                    <span class="badge px-3 py-2"
+                        style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
                         <i class="fa-solid fa-utensils text-warning me-1"></i> Food &amp; Beverage
                     </span>
-                    <span class="badge px-3 py-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
+                    <span class="badge px-3 py-2"
+                        style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
                         <i class="fa-solid fa-bed text-warning me-1"></i> Housekeeping
                     </span>
-                    <span class="badge px-3 py-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
+                    <span class="badge px-3 py-2"
+                        style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
                         <i class="fa-solid fa-hand-holding-heart text-warning me-1"></i> Guest Relations
                     </span>
-                    <span class="badge px-3 py-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
+                    <span class="badge px-3 py-2"
+                        style="background: rgba(255,255,255,0.08); border: 1px solid rgba(197, 168, 128, 0.35); color: #f1f5f9; font-weight: 600; font-size: 0.82rem;">
                         <i class="fa-solid fa-chart-line text-warning me-1"></i> Administration
                     </span>
                 </div>
 
                 <div class="d-flex gap-3 flex-wrap">
-                    <a href="<?php echo base_url('internship#apply-section'); ?>" class="btn btn-luxury px-4 py-3" style="font-weight: 700;">
+                    <a href="<?php echo base_url('internship#apply-section'); ?>" class="btn btn-luxury px-4 py-3"
+                        style="font-weight: 700;">
                         <i class="fa-solid fa-paper-plane me-2"></i> APPLY NOW
                     </a>
                     <a href="<?php echo base_url('internship'); ?>" class="btn btn-luxury-outline px-4 py-3">
@@ -642,19 +814,27 @@
             <div class="col-lg-6" data-aos="fade-left">
                 <div class="row g-3">
                     <div class="col-6">
-                        <div class="rounded-4 overflow-hidden shadow-lg border mb-3" style="border-color: rgba(197, 168, 128, 0.3) !important; height: 210px;">
-                            <img src="<?php echo base_url('assets/frontfesk.png'); ?>" alt="Canaan Front Desk Training" class="w-100 h-100 object-fit-cover">
+                        <div class="rounded-4 overflow-hidden shadow-lg border mb-3"
+                            style="border-color: rgba(197, 168, 128, 0.3) !important; height: 210px;">
+                            <img src="<?php echo base_url('assets/frontfesk.png'); ?>" alt="Canaann Front Desk Training"
+                                class="w-100 h-100 object-fit-cover">
                         </div>
-                        <div class="rounded-4 overflow-hidden shadow-lg border" style="border-color: rgba(197, 168, 128, 0.3) !important; height: 160px;">
-                            <img src="<?php echo base_url('assets/housekeep.png'); ?>" alt="Housekeeping Training" class="w-100 h-100 object-fit-cover">
+                        <div class="rounded-4 overflow-hidden shadow-lg border"
+                            style="border-color: rgba(197, 168, 128, 0.3) !important; height: 160px;">
+                            <img src="<?php echo base_url('assets/housekeep.png'); ?>" alt="Housekeeping Training"
+                                class="w-100 h-100 object-fit-cover">
                         </div>
                     </div>
                     <div class="col-6 pt-4">
-                        <div class="rounded-4 overflow-hidden shadow-lg border mb-3" style="border-color: rgba(197, 168, 128, 0.3) !important; height: 160px;">
-                            <img src="<?php echo base_url('assets/food&bevrage.png'); ?>" alt="F&amp;B Service Training" class="w-100 h-100 object-fit-cover">
+                        <div class="rounded-4 overflow-hidden shadow-lg border mb-3"
+                            style="border-color: rgba(197, 168, 128, 0.3) !important; height: 160px;">
+                            <img src="<?php echo base_url('assets/food&bevrage.png'); ?>" alt="F&amp;B Service Training"
+                                class="w-100 h-100 object-fit-cover">
                         </div>
-                        <div class="rounded-4 overflow-hidden shadow-lg border" style="border-color: rgba(197, 168, 128, 0.3) !important; height: 210px;">
-                            <img src="<?php echo base_url('assets/Guestservice.png'); ?>" alt="Guest Relations Training" class="w-100 h-100 object-fit-cover">
+                        <div class="rounded-4 overflow-hidden shadow-lg border"
+                            style="border-color: rgba(197, 168, 128, 0.3) !important; height: 210px;">
+                            <img src="<?php echo base_url('assets/Guestservice.png'); ?>" alt="Guest Relations Training"
+                                class="w-100 h-100 object-fit-cover">
                         </div>
                     </div>
                 </div>
@@ -678,12 +858,12 @@
 
         <div class="row g-4">
             <?php if (!empty($blogs)):
-                foreach ($blogs as $idx => $blog): 
+                foreach ($blogs as $idx => $blog):
                     $blog_img = $blog['featured_image'];
                     if (!empty($blog_img) && strpos($blog_img, 'http') !== 0) {
                         $blog_img = base_url(ltrim($blog_img, '/'));
                     }
-            ?>
+                    ?>
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="<?php echo ($idx + 1) * 100; ?>">
                         <div class="luxury-card">
                             <div class="luxury-card-img-wrap">
@@ -730,7 +910,7 @@
                 style="background: #071911; color: #dfc295; border: 1px solid rgba(197, 168, 128, 0.45); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.16em; padding: 7px 18px;">GUEST
                 EXPERIENCES</span>
             <h2 class="section-title" style="color: #071911; font-weight: 700; margin-top: 14px; margin-bottom: 14px;">
-                What Our Guests Say About Canaan Hotel</h2>
+                What Our Guests Say About Canaann Hotel</h2>
             <p class="section-subtitle"
                 style="color: #475569; font-size: 1.05rem; line-height: 1.7; max-width: 800px; margin: 0 auto; font-weight: 500;">
                 Real experiences and feedback from guests who stayed with us in Nagercoil.</p>
@@ -756,7 +936,8 @@
                                 </div>
                                 <div class="mt-4 pt-3 border-top">
                                     <h6 class="mb-0 font-serif fw-bold text-dark fs-6" style="letter-spacing: 0.02em;">
-                                        <?php echo htmlspecialchars($test['guest_name']); ?></h6>
+                                        <?php echo htmlspecialchars($test['guest_name']); ?>
+                                    </h6>
                                 </div>
                             </div>
                         </div>
@@ -771,7 +952,7 @@
 <section class="py-5">
     <div class="container py-lg-3">
         <div class="text-center mb-5" data-aos="fade-up">
-            <span class="section-badge">MOMENTS AT CANAAN HOTEL</span>
+            <span class="section-badge">MOMENTS AT Canaann HOTEL</span>
             <h2 class="section-title">Visual Glimpses of Pure Elegance</h2>
         </div>
 

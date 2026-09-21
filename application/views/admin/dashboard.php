@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h3 class="fw-bold mb-1">Hotel Management Dashboard</h3>
-            <span class="text-muted">Welcome to Grand Cannann Administration & Operations Portal</span>
+            <span class="text-muted">Welcome to Grand Canaann Administration & Operations Portal</span>
         </div>
         <div class="d-flex gap-2">
             <a href="<?php echo base_url('admin/rooms'); ?>" class="btn btn-primary"><i class="fa-solid fa-plus me-1"></i> Add Room</a>

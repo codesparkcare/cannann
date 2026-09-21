@@ -56,7 +56,7 @@
                                 <div>
                                     <h6 class="text-white font-serif mb-1">Direct Inquiries</h6>
                                     <span
-                                        class="small text-white-50"><?php echo htmlspecialchars($settings['hotel_email'] ?? 'contact@grandcannann.com'); ?></span>
+                                        class="small text-white-50"><?php echo htmlspecialchars($settings['hotel_email'] ?? 'contact@grandcanaann.com'); ?></span>
                                 </div>
                             </div>
                         </div>

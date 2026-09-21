@@ -24,7 +24,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title><?php echo htmlspecialchars($opening_title); ?> | <?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann Hotel'); ?></title>
+    <title><?php echo htmlspecialchars($opening_title); ?> | <?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann Hotel'); ?></title>
     
     <!-- Favicon -->
     <?php if(!empty($site_favicon)): ?>
@@ -571,12 +571,12 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
         <!-- Logo -->
         <div class="logo-wrap reveal-item reveal-delay-1">
             <?php if(!empty($site_logo)): ?>
-                <img src="<?php echo htmlspecialchars($site_logo); ?>" alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?>" class="brand-logo-img">
+                <img src="<?php echo htmlspecialchars($site_logo); ?>" alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann'); ?>" class="brand-logo-img">
             <?php else: ?>
                 <div style="font-size: 3rem; color: var(--primary); margin-bottom: 4px;">
                     <i class="fa-solid fa-crown"></i>
                 </div>
-                <h2 class="fw-bold mb-0 text-white font-serif"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?></h2>
+                <h2 class="fw-bold mb-0 text-white font-serif"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann'); ?></h2>
             <?php endif; ?>
         </div>
 
@@ -615,7 +615,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
             <button class="btn-gold-action" data-bs-toggle="modal" data-bs-target="#vipInquiryModal">
                 <i class="fa-solid fa-calendar-check"></i> VIP Pre-Booking Request
             </button>
-            <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', $settings['hotel_phone'] ?? '919876543210'); ?>?text=Hello%20Grand%20Cannann%20Team%2C%20I%20would%20like%20to%20inquire%20about%20Grand%20Opening%20Pre-Bookings." target="_blank" class="btn-whatsapp-action">
+            <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', $settings['hotel_phone'] ?? '919876543210'); ?>?text=Hello%20Grand%20Canaann%20Team%2C%20I%20would%20like%20to%20inquire%20about%20Grand%20Opening%20Pre-Bookings." target="_blank" class="btn-whatsapp-action">
                 <i class="fa-brands fa-whatsapp fs-5"></i> Chat on WhatsApp
             </a>
         </div>
@@ -649,7 +649,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
                         <h5 class="modal-title fw-bold text-white mb-1" id="vipInquiryModalLabel">
                             <i class="fa-solid fa-crown text-warning me-2"></i> VIP Pre-Booking Priority Pass
                         </h5>
-                        <small class="text-white-50">Be among the first privileged guests to experience Grand Cannann.</small>
+                        <small class="text-white-50">Be among the first privileged guests to experience Grand Canaann.</small>
                     </div>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -689,7 +689,7 @@ $hotel_address = str_ireplace('Chennai', 'Nagercoil', $raw_address);
 
     <!-- Footer -->
     <footer class="opening-footer">
-        <div>&copy; <?php echo date('Y'); ?> <strong><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann Hotel'); ?></strong>. All Rights Reserved.</div>
+        <div>&copy; <?php echo date('Y'); ?> <strong><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann Hotel'); ?></strong>. All Rights Reserved.</div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

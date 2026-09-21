@@ -1,9 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_model extends CI_Model {
+class Admin_model extends CI_Model
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->ensure_admin_table();
     }
@@ -11,7 +13,8 @@ class Admin_model extends CI_Model {
     /**
      * Ensure admin_users table exists and has a default account
      */
-    private function ensure_admin_table() {
+    private function ensure_admin_table()
+    {
         if (!$this->db->table_exists('admin_users')) {
             $this->load->dbforge();
             $fields = array(
@@ -35,12 +38,12 @@ class Admin_model extends CI_Model {
         $count = $this->db->count_all('admin_users');
         if ($count === 0) {
             $this->db->insert('admin_users', array(
-                'username'   => 'admin',
-                'email'      => 'admin@hotelcanaann.com',
-                'password'   => password_hash('Admin@123', PASSWORD_BCRYPT),
-                'name'       => 'Hotel General Manager',
-                'role'       => 'superadmin',
-                'status'     => 'active',
+                'username' => 'admin',
+                'email' => 'admin@hotelCanaannn.com',
+                'password' => password_hash('Admin@123', PASSWORD_BCRYPT),
+                'name' => 'Hotel General Manager',
+                'role' => 'superadmin',
+                'status' => 'active',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ));
@@ -50,7 +53,8 @@ class Admin_model extends CI_Model {
     /**
      * Authenticate by username or email
      */
-    public function authenticate($login_identity, $password) {
+    public function authenticate($login_identity, $password)
+    {
         $this->db->group_start();
         $this->db->where('username', $login_identity);
         $this->db->or_where('email', $login_identity);
@@ -76,27 +80,31 @@ class Admin_model extends CI_Model {
         return false;
     }
 
-    public function get_user_by_id($id) {
+    public function get_user_by_id($id)
+    {
         $query = $this->db->get_where('admin_users', array('id' => $id));
         return $query->row_array();
     }
 
-    public function update_profile($id, $data) {
+    public function update_profile($id, $data)
+    {
         $data['updated_at'] = date('Y-m-d H:i:s');
         $this->db->where('id', $id);
         return $this->db->update('admin_users', $data);
     }
 
-    public function update_password($id, $new_password) {
+    public function update_password($id, $new_password)
+    {
         $hash = password_hash($new_password, PASSWORD_BCRYPT);
         $this->db->where('id', $id);
         return $this->db->update('admin_users', array(
-            'password'   => $hash,
+            'password' => $hash,
             'updated_at' => date('Y-m-d H:i:s')
         ));
     }
 
-    public function update_last_login($id) {
+    public function update_last_login($id)
+    {
         $this->db->where('id', $id);
         return $this->db->update('admin_users', array(
             'last_login' => date('Y-m-d H:i:s')

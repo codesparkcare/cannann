@@ -37,7 +37,7 @@ if (isset($_SERVER['HTTP_HOST'])) {
 
 	$config['base_url'] = $protocol . $host . $sub_dir;
 } else {
-	$config['base_url'] = 'https://hotelcanaann.com/';
+	$config['base_url'] = 'https://hotelCanaannn.com/';
 }
 
 /*

@@ -1,5 +1,5 @@
 <?php
-// Database migration and seed script for Cannann Luxury Hotel
+// Database migration and seed script for Canaann Luxury Hotel
 $mysqli = new mysqli('localhost', 'cannann', 'Rathi@123*', 'cannann');
 
 if ($mysqli->connect_error) {
@@ -10,11 +10,11 @@ $queries = [
     // 1. Site Settings Table
     "CREATE TABLE IF NOT EXISTS `site_settings` (
         `id` INT AUTO_INCREMENT PRIMARY KEY,
-        `hotel_name` VARCHAR(255) DEFAULT 'Grand Cannann Resort & Spa',
+        `hotel_name` VARCHAR(255) DEFAULT 'Grand Canaann Resort & Spa',
         `hotel_tagline` VARCHAR(255) DEFAULT 'Luxury Stays & Unforgettable Memories',
         `hotel_logo` VARCHAR(255) DEFAULT '',
         `hotel_favicon` VARCHAR(255) DEFAULT '',
-        `hotel_email` VARCHAR(150) DEFAULT 'contact@grandcannann.com',
+        `hotel_email` VARCHAR(150) DEFAULT 'contact@grandcanaann.com',
         `hotel_phone` VARCHAR(50) DEFAULT '+91 98765 43210',
         `hotel_alt_phone` VARCHAR(50) DEFAULT '+91 44 2345 6789',
         `hotel_address` TEXT,
@@ -23,7 +23,7 @@ $queries = [
         `instagram_url` VARCHAR(255) DEFAULT 'https://instagram.com',
         `twitter_url` VARCHAR(255) DEFAULT 'https://twitter.com',
         `tripadvisor_url` VARCHAR(255) DEFAULT 'https://tripadvisor.com',
-        `meta_title` VARCHAR(255) DEFAULT 'Grand Cannann | Luxury Hotel & Resort',
+        `meta_title` VARCHAR(255) DEFAULT 'Grand Canaann | Luxury Hotel & Resort',
         `meta_description` TEXT,
         `meta_keywords` TEXT,
         `smtp_host` VARCHAR(150) DEFAULT 'smtp.gmail.com',
@@ -31,8 +31,8 @@ $queries = [
         `smtp_user` VARCHAR(150) DEFAULT '',
         `smtp_pass` VARCHAR(255) DEFAULT '',
         `smtp_crypto` VARCHAR(10) DEFAULT 'tls',
-        `smtp_from_email` VARCHAR(150) DEFAULT 'reservation@grandcannann.com',
-        `smtp_from_name` VARCHAR(150) DEFAULT 'Grand Cannann Hotel',
+        `smtp_from_email` VARCHAR(150) DEFAULT 'reservation@hotelcanaann.com',
+        `smtp_from_name` VARCHAR(150) DEFAULT 'Grand Canaann Hotel',
         `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;",
@@ -245,21 +245,21 @@ $row = $chk->fetch_assoc();
 if ($row['cnt'] == 0) {
     $hotel_addr = "105A, Court Road, Advocate Gnaniah Complex, Veppamoodu Junction, Nagercoil, Tamil Nadu 629001, India";
     $map = "https://maps.google.com/maps?q=Advocate+Gnaniah+Complex,+Court+Road,+Veppamoodu+Junction,+Nagercoil,+Tamil+Nadu+629001&t=&z=16&ie=UTF8&iwloc=&output=embed";
-    $m_desc = "Experience world-class luxury at Grand Cannann Hotel & Resort. Premium rooms, delicious dining, and warm hospitality in Nagercoil.";
+    $m_desc = "Experience world-class luxury at Grand Canaann Hotel & Resort. Premium rooms, delicious dining, and warm hospitality in Nagercoil.";
     $m_keys = "luxury hotel, hotel nagercoil, kanyakumari stay, fine dining restaurant, hotel booking, boutique hotel nagercoil, tourist stay";
 
     $stmt = $mysqli->prepare("INSERT INTO site_settings (hotel_name, hotel_tagline, hotel_email, hotel_phone, hotel_address, map_iframe, meta_title, meta_description, meta_keywords, facebook_url, instagram_url, smtp_host, smtp_port, smtp_crypto, smtp_from_email, smtp_from_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $h_name = "Grand Cannann Resort & Luxury Suites";
+    $h_name = "Grand Canaann Resort & Luxury Suites";
     $h_tag = "Where Timeless Heritage Meets Contemporary Luxury";
-    $h_email = "reservation@grandcannann.com";
+    $h_email = "reservation@hotelcanaann.com";
     $h_phone = "+91 99949 99695";
     $soc_url = "https://www.facebook.com/share/1MoP3i1NQu/";
-    $m_title = "Grand Cannann Resort & Spa | Luxury Boutique Hotel & Suites";
+    $m_title = "Grand Canaann Resort & Spa | Luxury Boutique Hotel & Suites";
     $smtp_host = "smtp.gmail.com";
     $smtp_port = 587;
     $smtp_crypto = "tls";
-    $smtp_from_email = "reservation@grandcannann.com";
-    $smtp_from_name = "Grand Cannann Hotel";
+    $smtp_from_email = "reservation@hotelcanaann.com";
+    $smtp_from_name = "Grand Canaann Hotel";
     $stmt->bind_param("ssssssssssssisss", $h_name, $h_tag, $h_email, $h_phone, $hotel_addr, $map, $m_title, $m_desc, $m_keys, $soc_url, $soc_url, $smtp_host, $smtp_port, $smtp_crypto, $smtp_from_email, $smtp_from_name);
     $stmt->execute();
 }
@@ -347,7 +347,7 @@ if ($row['cnt'] == 0) {
             'featured_image' => 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=85',
             'gallery_images' => 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80,https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80,https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80',
             'short_description' => 'Unsurpassed coastal opulence with private jacuzzi deck, floor-to-ceiling glass panoramic windows, and personal round-the-clock butler.',
-            'long_description' => 'Perched on the top tier of Grand Cannann, the Royal Ocean Penthouse represents the gold standard of coastal hospitality. Boasting 1,450 square feet of curated architectural elegance, this master sanctuary features an oversized wrap-around balcony, a heated private whirlpool jacuzzi facing the ocean, bespoke Italian marble bathrooms with rainfall showers, and personalized round-the-clock concierge services.',
+            'long_description' => 'Perched on the top tier of Grand Canaann, the Royal Ocean Penthouse represents the gold standard of coastal hospitality. Boasting 1,450 square feet of curated architectural elegance, this master sanctuary features an oversized wrap-around balcony, a heated private whirlpool jacuzzi facing the ocean, bespoke Italian marble bathrooms with rainfall showers, and personalized round-the-clock concierge services.',
             'is_featured' => 1
         ],
         [
@@ -576,7 +576,7 @@ $chk = $mysqli->query("SELECT COUNT(*) as cnt FROM testimonials");
 $row = $chk->fetch_assoc();
 if ($row['cnt'] == 0) {
     $tests = [
-        ['Eleanor Vance', 'Luxury Travel Writer', 'London, United Kingdom', 5, 'Grand Cannann exceeded every expectation. From the personal butler service to the immaculate ocean sunsets from our suite balcony, it is truly one of the finest boutique properties in Asia.', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'],
+        ['Eleanor Vance', 'Luxury Travel Writer', 'London, United Kingdom', 5, 'Grand Canaann exceeded every expectation. From the personal butler service to the immaculate ocean sunsets from our suite balcony, it is truly one of the finest boutique properties in Asia.', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'],
         ['David & Sarah Miller', 'Honeymoon Guests', 'Sydney, Australia', 5, 'The Private Pool Villa was like stepping into heaven on earth. The food at Sapphire Restaurant was Michelin-worthy, especially the grilled lobster and truffle burrata. Unforgettable experience!', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'],
         ['Dr. Rajeshwari Sundaram', 'Corporate Executive', 'Bengaluru, India', 5, 'Our leadership summit here was executed flawlessly. High speed internet, world class banquet facilities, and calming spa sessions in the evening. Highly recommended!', 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80']
     ];

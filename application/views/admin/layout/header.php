@@ -22,7 +22,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann Hotel'); ?> | Admin Management</title>
+    <title><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann Hotel'); ?> | Admin Management</title>
     
     <!-- Dynamic Favicon -->
     <?php if(!empty($site_favicon_display)): ?>

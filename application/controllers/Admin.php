@@ -422,7 +422,7 @@ class Admin extends CI_Controller {
                 'short_description' => $this->input->post('short_description'),
                 'full_description'  => $this->input->post('full_description'),
                 'sort_order'        => (int)$this->input->post('sort_order'),
-                'status'            => $this->input->post('status')
+                'status'            => $this->input->post('status') ?: 'active'
             );
             if ($uploaded_image) {
                 $data['image'] = $uploaded_image;
@@ -983,31 +983,75 @@ class Admin extends CI_Controller {
 
     public function send_test_email() {
         if ($this->input->post()) {
-            $to_email = $this->input->post('test_email');
+            $to_email = trim($this->input->post('test_email'));
             $settings = $this->Settings_model->get_settings();
+
+            if (empty($settings['smtp_host']) || empty($settings['smtp_user'])) {
+                $this->session->set_flashdata('error', 'SMTP Host and Username must be configured in Site Settings before sending a test email.');
+                redirect('admin/settings');
+                return;
+            }
 
             $config = array(
                 'protocol'    => 'smtp',
-                'smtp_host'   => $settings['smtp_host'],
-                'smtp_port'   => $settings['smtp_port'] ?: 587,
-                'smtp_user'   => $settings['smtp_user'],
+                'smtp_host'   => trim($settings['smtp_host']),
+                'smtp_port'   => (int)($settings['smtp_port'] ?: 587),
+                'smtp_user'   => trim($settings['smtp_user']),
                 'smtp_pass'   => $settings['smtp_pass'],
-                'smtp_crypto' => $settings['smtp_crypto'] ?: 'tls',
+                'smtp_crypto' => !empty($settings['smtp_crypto']) ? trim($settings['smtp_crypto']) : '',
                 'mailtype'    => 'html',
                 'charset'     => 'utf-8',
-                'newline'     => "\r\n"
+                'newline'     => "\r\n",
+                'crlf'        => "\r\n",
+                'smtp_timeout'=> 15
             );
 
+            $this->email->clear(TRUE);
             $this->email->initialize($config);
-            $this->email->from($settings['smtp_from_email'] ?: 'noreply@grandcannann.com', $settings['smtp_from_name'] ?: 'Grand Cannann Resort');
+            $from_email = !empty($settings['smtp_from_email']) ? trim($settings['smtp_from_email']) : trim($settings['smtp_user']);
+            $from_name = !empty($settings['smtp_from_name']) ? trim($settings['smtp_from_name']) : ($settings['hotel_name'] ?? 'Grand Canaann');
+
+            $this->email->from($from_email, $from_name);
             $this->email->to($to_email);
-            $this->email->subject('Grand Cannann SMTP Test Email');
-            $this->email->message('<h3>SMTP Configuration Test</h3><p>Congratulations! Your SMTP settings for <strong>' . $settings['hotel_name'] . '</strong> are functioning correctly.</p>');
+            $this->email->subject('Grand Canaann - SMTP Test Email');
+            $this->email->message('
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
+                    <h2 style="color: #071911; margin-top: 0;">🎉 SMTP Configuration Successful</h2>
+                    <p>Congratulations! Your outgoing SMTP email server settings are working properly.</p>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                        <tr><td style="padding: 6px 0; color: #64748b;"><strong>SMTP Host:</strong></td><td>' . htmlspecialchars($settings['smtp_host']) . '</td></tr>
+                        <tr><td style="padding: 6px 0; color: #64748b;"><strong>Port / Crypto:</strong></td><td>' . htmlspecialchars($settings['smtp_port']) . ' (' . strtoupper($settings['smtp_crypto'] ?: 'PLAIN') . ')</td></tr>
+                        <tr><td style="padding: 6px 0; color: #64748b;"><strong>Sender Email:</strong></td><td>' . htmlspecialchars($from_email) . '</td></tr>
+                        <tr><td style="padding: 6px 0; color: #64748b;"><strong>Recipient:</strong></td><td>' . htmlspecialchars($to_email) . '</td></tr>
+                    </table>
+                    <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+                    <p style="font-size: 12px; color: #94a3b8; margin: 0;">Sent via Grand Canaann Hotel Management System.</p>
+                </div>
+            ');
 
             if ($this->email->send()) {
-                $this->session->set_flashdata('success', 'Test email sent successfully to ' . $to_email);
+                $this->session->set_flashdata('success', 'Test email was sent successfully to <strong>' . htmlspecialchars($to_email) . '</strong>!');
             } else {
-                $this->session->set_flashdata('error', 'Failed to send test email. Error details: ' . $this->email->print_debugger());
+                $raw_debug = $this->email->print_debugger(array('headers', 'subject', 'body'));
+                // Sanitize any binary/garbled characters for clean display
+                $clean_debug = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\xFF]/', '', strip_tags($raw_debug));
+                
+                $hint = '';
+                if (stripos($clean_debug, '535') !== false || stripos($clean_debug, 'authentication failed') !== false) {
+                    $hint = '<strong>Authentication Failed (535):</strong> The SMTP username or password provided was rejected by the server. If using Gmail, please use a 16-digit Google App Password.';
+                } elseif (stripos($clean_debug, '10060') !== false || stripos($clean_debug, 'timed out') !== false) {
+                    $hint = '<strong>Connection Timeout:</strong> Could not connect to host ' . htmlspecialchars($settings['smtp_host']) . ' on port ' . htmlspecialchars($settings['smtp_port']) . '. Please check firewall and port settings.';
+                } elseif (stripos($clean_debug, 'TLS') !== false || stripos($clean_debug, 'crypto') !== false) {
+                    $hint = '<strong>Encryption Handshake Issue:</strong> Please check if Port 587 (TLS) or Port 465 (SSL) matches your server requirements.';
+                }
+
+                $err_msg = 'Failed to send test email.';
+                if ($hint) {
+                    $err_msg .= '<br><div class="mt-2 p-2 bg-light border rounded small text-dark">' . $hint . '</div>';
+                }
+                $err_msg .= '<details class="mt-2"><summary class="small text-muted" style="cursor:pointer;">View Technical Debug Log</summary><pre class="small text-muted p-2 mt-1 bg-white border rounded" style="max-height: 200px; overflow: auto; white-space: pre-wrap;">' . htmlspecialchars($clean_debug) . '</pre></details>';
+
+                $this->session->set_flashdata('error', $err_msg);
             }
             redirect('admin/settings');
         }
@@ -1041,7 +1085,7 @@ class Admin extends CI_Controller {
     public function export_database() {
         $this->load->helper('download');
         $backup = $this->Sync_model->export_sql_dump();
-        $filename = 'cannann_backup_' . date('Y-m-d_His') . '.sql';
+        $filename = 'canaann_backup_' . date('Y-m-d_His') . '.sql';
         force_download($filename, $backup);
     }
 

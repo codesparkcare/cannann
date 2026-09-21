@@ -1,9 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sync_model extends CI_Model {
+class Sync_model extends CI_Model
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->dbforge();
         $this->load->dbutil();
@@ -12,7 +14,8 @@ class Sync_model extends CI_Model {
     /**
      * Get list of database tables and metadata
      */
-    public function get_tables_overview() {
+    public function get_tables_overview()
+    {
         $db_name = $this->db->database;
         $sql = "SELECT 
                     TABLE_NAME as name, 
@@ -25,7 +28,7 @@ class Sync_model extends CI_Model {
                     UPDATE_TIME as updated_at 
                 FROM information_schema.TABLES 
                 WHERE TABLE_SCHEMA = ?";
-        
+
         $query = $this->db->query($sql, array($db_name));
         return $query ? $query->result_array() : array();
     }
@@ -33,15 +36,16 @@ class Sync_model extends CI_Model {
     /**
      * Run full schema synchronization: ensures all required tables exist
      */
-    public function sync_all_schemas() {
+    public function sync_all_schemas()
+    {
         $results = array();
 
         $schemas = array(
             'site_settings' => "CREATE TABLE IF NOT EXISTS `site_settings` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
-                `hotel_name` varchar(200) NOT NULL DEFAULT 'Grand Cannann Hotel',
+                `hotel_name` varchar(200) NOT NULL DEFAULT 'Grand Canaann Hotel',
                 `hotel_tagline` varchar(255) DEFAULT 'Luxury Accommodation & Fine Dining',
-                `hotel_email` varchar(150) DEFAULT 'info@hotelcanaann.com',
+                `hotel_email` varchar(150) DEFAULT 'info@hotelCanaann.com',
                 `hotel_phone` varchar(50) DEFAULT '+91 98765 43210',
                 `hotel_alt_phone` varchar(50) DEFAULT '',
                 `hotel_address` text DEFAULT NULL,
@@ -52,7 +56,7 @@ class Sync_model extends CI_Model {
                 `tripadvisor_url` varchar(255) DEFAULT '',
                 `hotel_logo` varchar(255) DEFAULT '',
                 `hotel_favicon` varchar(255) DEFAULT '',
-                `meta_title` varchar(255) DEFAULT 'Grand Cannann | Luxury Boutique Hotel',
+                `meta_title` varchar(255) DEFAULT 'Grand Canaann | Luxury Boutique Hotel',
                 `meta_description` text DEFAULT NULL,
                 `meta_keywords` varchar(255) DEFAULT 'hotel, luxury stay, dining, resort',
                 `smtp_host` varchar(150) DEFAULT '',
@@ -60,8 +64,8 @@ class Sync_model extends CI_Model {
                 `smtp_user` varchar(150) DEFAULT '',
                 `smtp_pass` varchar(255) DEFAULT '',
                 `smtp_crypto` varchar(20) DEFAULT 'tls',
-                `smtp_from_email` varchar(150) DEFAULT 'reservations@hotelcanaann.com',
-                `smtp_from_name` varchar(150) DEFAULT 'Grand Cannann Hotel',
+                `smtp_from_email` varchar(150) DEFAULT 'reservations@hotelCanaann.com',
+                `smtp_from_name` varchar(150) DEFAULT 'Grand Canaann Hotel',
                 `currency_symbol` varchar(10) DEFAULT '₹',
                 `is_opening_enabled` tinyint(1) NOT NULL DEFAULT 0,
                 `opening_date` datetime NULL DEFAULT '2026-09-12 09:00:00',
@@ -314,8 +318,8 @@ class Sync_model extends CI_Model {
             $table_existed = $this->db->table_exists($table_name);
             $this->db->query($sql);
             $results[] = array(
-                'table'   => $table_name,
-                'status'  => $table_existed ? 'Verified & In Sync' : 'Created & Synced',
+                'table' => $table_name,
+                'status' => $table_existed ? 'Verified & In Sync' : 'Created & Synced',
                 'existed' => $table_existed
             );
         }
@@ -324,13 +328,13 @@ class Sync_model extends CI_Model {
         $settings_count = $this->db->count_all('site_settings');
         if ($settings_count === 0) {
             $this->db->insert('site_settings', array(
-                'id'            => 1,
-                'hotel_name'    => 'Grand Cannann Hotel',
+                'id' => 1,
+                'hotel_name' => 'Grand Canaann Hotel',
                 'hotel_tagline' => 'Luxury Stay & Exquisite Culinary Experience',
-                'hotel_email'   => 'info@hotelcanaann.com',
-                'hotel_phone'   => '+91 98765 43210',
-                'hotel_address' => 'Grand Cannann Highway Road, City Center',
-                'created_at'    => date('Y-m-d H:i:s')
+                'hotel_email' => 'info@hotelCanaann.com',
+                'hotel_phone' => '+91 98765 43210',
+                'hotel_address' => 'Grand Canaann Highway Road, City Center',
+                'created_at' => date('Y-m-d H:i:s')
             ));
         }
 
@@ -338,12 +342,12 @@ class Sync_model extends CI_Model {
         $admin_count = $this->db->count_all('admin_users');
         if ($admin_count === 0) {
             $this->db->insert('admin_users', array(
-                'username'   => 'admin',
-                'email'      => 'admin@hotelcanaann.com',
-                'password'   => password_hash('Admin@123', PASSWORD_BCRYPT),
-                'name'       => 'Super Admin',
-                'role'       => 'superadmin',
-                'status'     => 'active',
+                'username' => 'admin',
+                'email' => 'admin@hotelCanaann.com',
+                'password' => password_hash('Admin@123', PASSWORD_BCRYPT),
+                'name' => 'Super Admin',
+                'role' => 'superadmin',
+                'status' => 'active',
                 'created_at' => date('Y-m-d H:i:s')
             ));
         }
@@ -354,7 +358,8 @@ class Sync_model extends CI_Model {
     /**
      * Optimize all tables in current database
      */
-    public function optimize_all_tables() {
+    public function optimize_all_tables()
+    {
         $tables = $this->db->list_tables();
         $results = array();
         foreach ($tables as $table) {
@@ -367,13 +372,14 @@ class Sync_model extends CI_Model {
     /**
      * Generate complete SQL Dump string
      */
-    public function export_sql_dump() {
+    public function export_sql_dump()
+    {
         $prefs = array(
-            'format'             => 'txt',
-            'filename'           => 'cannann_database_dump.sql',
-            'add_drop'           => TRUE,
-            'add_insert'         => TRUE,
-            'newline'            => "\n",
+            'format' => 'txt',
+            'filename' => 'canaann_database_dump.sql',
+            'add_drop' => TRUE,
+            'add_insert' => TRUE,
+            'newline' => "\n",
             'foreign_key_checks' => FALSE
         );
         return $this->dbutil->backup($prefs);
@@ -382,7 +388,8 @@ class Sync_model extends CI_Model {
     /**
      * Import and execute SQL script
      */
-    public function import_sql_script($sql_content) {
+    public function import_sql_script($sql_content)
+    {
         // Strip comments and split by semicolon
         $lines = explode("\n", $sql_content);
         $clean_sql = '';
@@ -416,16 +423,17 @@ class Sync_model extends CI_Model {
         $this->db->trans_complete();
 
         return array(
-            'success'  => $this->db->trans_status(),
+            'success' => $this->db->trans_status(),
             'executed' => $executed,
-            'errors'   => $errors
+            'errors' => $errors
         );
     }
 
     /**
      * Seed baseline sample data if tables are empty
      */
-    public function seed_sample_data() {
+    public function seed_sample_data()
+    {
         $seeded = array();
 
         // 1. Room Categories

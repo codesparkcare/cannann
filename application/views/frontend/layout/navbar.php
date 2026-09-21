@@ -31,12 +31,12 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
     <div class="container">
         <a class="navbar-brand brand-logo" href="<?php echo base_url(); ?>">
             <?php if(!empty($site_logo_display)): ?>
-                <img src="<?php echo htmlspecialchars($site_logo_display); ?>" alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?>" class="brand-logo-img">
+                <img src="<?php echo htmlspecialchars($site_logo_display); ?>" alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann'); ?>" class="brand-logo-img">
             <?php else: ?>
                 <div class="logo-icon-wrap">
                     <i class="fa-solid fa-crown"></i>
                 </div>
-                <span><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?></span>
+                <span><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann'); ?></span>
             <?php endif; ?>
         </a>
 
@@ -86,10 +86,10 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
     <div class="offcanvas-header">
         <a class="brand-logo text-decoration-none" href="<?php echo base_url(); ?>">
             <?php if(!empty($site_logo_display)): ?>
-                <img src="<?php echo htmlspecialchars($site_logo_display); ?>" alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?>" class="brand-logo-img">
+                <img src="<?php echo htmlspecialchars($site_logo_display); ?>" alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann'); ?>" class="brand-logo-img">
             <?php else: ?>
                 <div class="logo-icon-wrap"><i class="fa-solid fa-crown"></i></div>
-                <span class="text-white fw-bold" style="font-size: 1.15rem;"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?></span>
+                <span class="text-white fw-bold" style="font-size: 1.15rem;"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann'); ?></span>
             <?php endif; ?>
         </a>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -153,9 +153,9 @@ $site_logo_display = !empty($site_logo) ? $site_logo . (strpos($site_logo, '?') 
                     <span class="contact-drawer-icon"><i class="fa-solid fa-phone text-warning"></i></span>
                     <span class="text-white fw-semibold small"><?php echo htmlspecialchars($settings['hotel_phone'] ?? '+91 98765 43210'); ?></span>
                 </a>
-                <a href="mailto:<?php echo htmlspecialchars($settings['hotel_email'] ?? 'contact@grandcannann.com'); ?>" class="text-decoration-none d-flex align-items-center gap-2 py-1 text-hover-gold">
+                <a href="mailto:<?php echo htmlspecialchars($settings['hotel_email'] ?? 'contact@grandcanaann.com'); ?>" class="text-decoration-none d-flex align-items-center gap-2 py-1 text-hover-gold">
                     <span class="contact-drawer-icon"><i class="fa-solid fa-envelope text-warning"></i></span>
-                    <span class="text-white fw-semibold small"><?php echo htmlspecialchars($settings['hotel_email'] ?? 'contact@grandcannann.com'); ?></span>
+                    <span class="text-white fw-semibold small"><?php echo htmlspecialchars($settings['hotel_email'] ?? 'contact@grandcanaann.com'); ?></span>
                 </a>
                 <?php if(!empty($settings['hotel_address'])): ?>
                     <div class="d-flex align-items-start gap-2 py-1">

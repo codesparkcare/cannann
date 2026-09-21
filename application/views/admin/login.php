@@ -22,7 +22,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login | <?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann Hotel'); ?></title>
+    <title>Admin Login | <?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann Hotel'); ?></title>
     
     <!-- Dynamic Favicon -->
     <?php if(!empty($site_favicon_display)): ?>
@@ -272,13 +272,13 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
     <div class="login-card">
         <div class="brand-section">
             <?php if(!empty($site_logo)): ?>
-                <img src="<?php echo htmlspecialchars($site_logo); ?>" alt="Grand Cannann" class="brand-logo mb-2">
+                <img src="<?php echo htmlspecialchars($site_logo); ?>" alt="Grand Canaann" class="brand-logo mb-2">
             <?php else: ?>
                 <div style="font-size: 2.2rem; color: var(--primary); margin-bottom: 6px;">
                     <i class="fa-solid fa-crown"></i>
                 </div>
             <?php endif; ?>
-            <h1 class="brand-title"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann Hotel'); ?></h1>
+            <h1 class="brand-title"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann Hotel'); ?></h1>
             <div class="brand-subtitle">Management Control Center</div>
         </div>
 
@@ -333,7 +333,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
         <?php echo form_close(); ?>
 
         <div class="portal-footer">
-            <div>&copy; <?php echo date('Y'); ?> <?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann Hotel'); ?></div>
+            <div>&copy; <?php echo date('Y'); ?> <?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann Hotel'); ?></div>
             <div class="mt-1">
                 <a href="<?php echo base_url(); ?>"><i class="fa-solid fa-arrow-left me-1"></i> Back to Main Website</a>
             </div>

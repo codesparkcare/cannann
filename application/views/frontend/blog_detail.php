@@ -78,7 +78,7 @@
                 <div class="p-4 rounded-4 text-white mb-4 shadow-sm" style="background: linear-gradient(rgba(7, 25, 17, 0.88), rgba(7, 25, 17, 0.96)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80') center/cover;">
                     <span class="badge bg-primary text-white mb-2">STAY WITH US</span>
                     <h4 class="font-serif text-white mb-2">Book Your Luxury Ocean Retreat</h4>
-                    <p class="small text-white-50 mb-3">Immerse yourself in authentic luxury and explore the wonders of the coast with Grand Cannann.</p>
+                    <p class="small text-white-50 mb-3">Immerse yourself in authentic luxury and explore the wonders of the coast with Grand Canaann.</p>
                     <button class="btn btn-luxury w-100" onclick="openBookingForRoom()">Book A Suite Now</button>
                 </div>
 

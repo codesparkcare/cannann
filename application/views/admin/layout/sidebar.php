@@ -20,7 +20,7 @@ if (empty($site_logo) && file_exists(FCPATH . 'uploads/site_logo.png')) {
         <?php else: ?>
             <div class="logo-icon"><i class="fa-solid fa-crown text-warning"></i></div>
             <div>
-                <h5 class="mb-0 fw-bold text-white"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Cannann'); ?></h5>
+                <h5 class="mb-0 fw-bold text-white"><?php echo htmlspecialchars($settings['hotel_name'] ?? 'Grand Canaann'); ?></h5>
                 <span class="small text-white-50" style="font-size: 0.72rem;">Admin Management</span>
             </div>
         <?php endif; ?>
@@ -134,7 +134,7 @@ if (empty($site_logo) && file_exists(FCPATH . 'uploads/site_logo.png')) {
             <button type="button" id="sidebarCollapse" class="navbar-btn">
                 <i class="fa-solid fa-bars"></i>
             </button>
-            <span class="ms-3 fw-semibold text-dark">Grand Cannann Management Portal</span>
+            <span class="ms-3 fw-semibold text-dark">Grand Canaann Management Portal</span>
         </div>
 
         <div class="d-flex align-items-center gap-3">

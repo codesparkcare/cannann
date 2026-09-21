@@ -1,5 +1,6 @@
 <!-- Inner Page Banner -->
-<section class="inner-page-banner">
+<section class="inner-page-banner"
+    style="background: linear-gradient(rgba(7, 25, 17, 0.60), rgba(7, 25, 17, 0.80)), url('<?php echo base_url('uploads/gallery/canaan_hotel_facade_evening.jpg'); ?>'); background-size: cover; background-position: center 30%;">
     <div class="container">
         <h1 class="font-serif">Photo Gallery</h1>
         <div class="breadcrumb-luxury">

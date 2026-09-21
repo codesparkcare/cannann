@@ -16,7 +16,7 @@
         <div class="text-center mb-5" data-aos="fade-up">
             <span class="section-badge">INDULGENCE & RECREATION</span>
             <h2 class="section-title">Designed for Complete Leisure & Well-being</h2>
-            <p class="section-subtitle">Every luxury facility at Grand Cannann has been crafted to elevate your holiday into a restorative and memorable escape.</p>
+            <p class="section-subtitle">Every luxury facility at Grand Canaann has been crafted to elevate your holiday into a restorative and memorable escape.</p>
         </div>
 
         <div class="row g-4">

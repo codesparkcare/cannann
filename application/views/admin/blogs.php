@@ -166,7 +166,7 @@
                     <div class="row g-3">
                         <div class="col-md-8">
                             <label class="form-label">Article Title *</label>
-                            <input type="text" name="title" class="form-control" placeholder="e.g. 5 Hidden Beaches Near Grand Cannann" required>
+                            <input type="text" name="title" class="form-control" placeholder="e.g. 5 Hidden Beaches Near Grand Canaann" required>
                         </div>
                         <div class="col-md-4">
                             <label class="form-label">Category</label>

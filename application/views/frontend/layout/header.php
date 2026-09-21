@@ -14,14 +14,17 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Dynamic SEO Meta Tags -->
-    <title><?php echo htmlspecialchars($page_title ?? 'Grand Cannann | Luxury Hotel & Resort'); ?></title>
-    <meta name="description" content="<?php echo htmlspecialchars($meta_desc ?? ($settings['meta_description'] ?? '')); ?>">
-    <meta name="keywords" content="<?php echo htmlspecialchars($meta_keywords ?? ($settings['meta_keywords'] ?? '')); ?>">
+    <title><?php echo htmlspecialchars($page_title ?? 'Grand Canaann | Luxury Hotel & Resort'); ?></title>
+    <meta name="description"
+        content="<?php echo htmlspecialchars($meta_desc ?? ($settings['meta_description'] ?? '')); ?>">
+    <meta name="keywords"
+        content="<?php echo htmlspecialchars($meta_keywords ?? ($settings['meta_keywords'] ?? '')); ?>">
     <link rel="canonical" href="<?php echo current_url(); ?>">
 
     <!-- CODESPARK SOFTWARE DEVELOPMENT Meta Tags (Hidden from UI) -->
@@ -30,10 +33,11 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
     <meta name="designer" content="CODESPARK SOFTWARE DEVELOPMENT">
     <meta name="publisher" content="CODESPARK SOFTWARE DEVELOPMENT">
     <meta name="web_author" content="CODESPARK SOFTWARE DEVELOPMENT - https://codespark.online/">
-    <meta name="developer-description" content="Providing software development, custom website design, and mobile apps in Tirunelveli. We also offer free internship training for college students. https://codespark.online/">
+    <meta name="developer-description"
+        content="Providing software development, custom website design, and mobile apps in Tirunelveli. We also offer free internship training for college students. https://codespark.online/">
 
     <!-- Dynamic Favicon -->
-    <?php if(!empty($site_favicon_display)): ?>
+    <?php if (!empty($site_favicon_display)): ?>
         <link rel="icon" href="<?php echo htmlspecialchars($site_favicon_display); ?>" type="image/png">
         <link rel="shortcut icon" href="<?php echo htmlspecialchars($site_favicon_display); ?>" type="image/png">
         <link rel="apple-touch-icon" href="<?php echo htmlspecialchars($site_favicon_display); ?>">
@@ -44,20 +48,22 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
     <meta property="og:url" content="<?php echo current_url(); ?>">
     <meta property="og:title" content="<?php echo htmlspecialchars($meta_title ?? $page_title); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($meta_desc ?? ''); ?>">
-    <meta property="og:image" content="<?php echo !empty($og_image) ? $og_image : (!empty($site_logo) ? $site_logo : 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85'); ?>">
+    <meta property="og:image"
+        content="<?php echo !empty($og_image) ? $og_image : (!empty($site_logo) ? $site_logo : 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85'); ?>">
 
     <!-- Twitter Card SEO -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo htmlspecialchars($meta_title ?? $page_title); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars($meta_desc ?? ''); ?>">
-    <meta name="twitter:image" content="<?php echo !empty($og_image) ? $og_image : 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85'; ?>">
+    <meta name="twitter:image"
+        content="<?php echo !empty($og_image) ? $og_image : 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85'; ?>">
 
     <!-- Structured Data Schema for Hotel -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Hotel",
-      "name": "<?php echo addslashes($settings['hotel_name'] ?? 'Grand Cannann Resort'); ?>",
+      "name": "<?php echo addslashes($settings['hotel_name'] ?? 'Grand Canaann Resort'); ?>",
       "description": "<?php echo addslashes($settings['meta_description'] ?? 'Luxury Boutique Hotel & Resort'); ?>",
       "address": {
         "@type": "PostalAddress",
@@ -77,11 +83,13 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
     <!-- Google Fonts: Playfair Display (Serif Elegance) & Plus Jakarta Sans (Clean Modern) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- FontAwesome 6 Pro/Free Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
@@ -97,11 +105,13 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
     <!-- Custom Luxury Hotel CSS -->
     <style>
         :root {
-            --primary: #c5a880; /* Elegant Warm Gold */
+            --primary: #c5a880;
+            /* Elegant Warm Gold */
             --primary-dark: #a8895e;
             --primary-light: #f5eedf;
             --secondary: #1e293b;
-            --dark: #071911; /* Hotel Canaan Signature Deep Emerald Green */
+            --dark: #071911;
+            /* Hotel Canaann Signature Deep Emerald Green */
             --dark-surface: #0e291d;
             --light: #ffffff;
             --bg-cream: #faf8f5;
@@ -132,7 +142,12 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, .font-serif {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .font-serif {
             font-family: var(--font-heading);
             color: var(--dark);
             font-weight: 600;
@@ -152,9 +167,11 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             padding: 9px 0;
             border-bottom: 1px solid rgba(197, 168, 128, 0.15);
         }
+
         .topbar a {
             color: #e2e8f0;
         }
+
         .topbar a:hover {
             color: #f5d79e;
         }
@@ -172,6 +189,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             top: 0;
             z-index: 1020;
         }
+
         .luxury-navbar .nav-link {
             font-size: 0.85rem;
             font-weight: 500;
@@ -182,6 +200,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             transition: var(--transition);
             white-space: nowrap;
         }
+
         .luxury-navbar .nav-link::after {
             content: '';
             position: absolute;
@@ -195,11 +214,13 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             transition: transform 0.3s ease;
             transform-origin: right;
         }
+
         .luxury-navbar .nav-link:hover::after,
         .luxury-navbar .nav-link.active::after {
             transform: scaleX(1);
             transform-origin: left;
         }
+
         .luxury-navbar .nav-link:hover,
         .luxury-navbar .nav-link.active {
             color: #f5d79e !important;
@@ -217,6 +238,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             gap: 10px;
             text-decoration: none;
         }
+
         .brand-logo .logo-icon-wrap {
             width: 42px;
             height: 42px;
@@ -229,6 +251,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             font-size: 1.2rem;
             box-shadow: 0 4px 10px rgba(197, 168, 128, 0.35);
         }
+
         .brand-logo-img {
             max-height: 70px;
             max-width: 260px;
@@ -240,32 +263,39 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
             transition: transform 0.25s ease;
         }
+
         .brand-logo:hover .brand-logo-img {
             transform: scale(1.02);
         }
+
         .offcanvas {
             background: linear-gradient(180deg, #071911 0%, #030f0a 100%) !important;
             color: #ffffff !important;
             border-right: 1px solid rgba(197, 168, 128, 0.3);
             box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
         }
+
         .offcanvas .btn-close {
             filter: invert(1) brightness(2);
             opacity: 0.85;
             transition: transform 0.2s, opacity 0.2s;
         }
+
         .offcanvas .btn-close:hover {
             opacity: 1;
             transform: rotate(90deg);
         }
+
         .offcanvas-header {
             border-bottom: 1px solid rgba(197, 168, 128, 0.2) !important;
             padding: 18px 20px;
         }
+
         .offcanvas-header .brand-logo-img {
             max-height: 52px;
             max-width: 190px;
         }
+
         .offcanvas-body .nav-link {
             color: #ffffff !important;
             font-size: 1.02rem;
@@ -277,12 +307,14 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             align-items: center;
             justify-content: space-between;
         }
+
         .offcanvas-body .nav-link:hover,
         .offcanvas-body .nav-link.active {
             color: #f5d79e !important;
             background: rgba(197, 168, 128, 0.12);
             padding-left: 16px;
         }
+
         .btn-drawer-admin {
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(197, 168, 128, 0.45);
@@ -300,11 +332,13 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             justify-content: center;
             transition: all 0.25s;
         }
+
         .btn-drawer-admin:hover {
             background: rgba(197, 168, 128, 0.2);
             border-color: #c5a880;
             color: #ffffff !important;
         }
+
         .contact-drawer-icon {
             width: 30px;
             height: 30px;
@@ -316,12 +350,15 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             font-size: 0.85rem;
             flex-shrink: 0;
         }
+
         .text-hover-gold:hover {
             color: #f5d79e !important;
         }
+
         .text-hover-gold:hover .text-white {
             color: #f5d79e !important;
         }
+
         .drawer-social-btn {
             width: 32px;
             height: 32px;
@@ -336,12 +373,14 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             text-decoration: none;
             transition: all 0.2s;
         }
+
         .drawer-social-btn:hover {
             background: var(--primary);
             color: #ffffff;
             border-color: var(--primary);
             transform: translateY(-2px);
         }
+
         .luxury-footer .brand-logo-img {
             max-height: 65px;
             max-width: 230px;
@@ -364,12 +403,14 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             align-items: center;
             gap: 8px;
         }
+
         .btn-luxury:hover {
             background: linear-gradient(135deg, #a8895e, #8c6f45);
             transform: translateY(-2px);
             box-shadow: 0 16px 35px rgba(197, 168, 128, 0.4);
             color: #ffffff;
         }
+
         .btn-luxury-outline {
             background: transparent;
             color: #ffffff !important;
@@ -385,12 +426,14 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             align-items: center;
             gap: 8px;
         }
+
         .btn-luxury-outline:hover {
             background: #ffffff;
             color: var(--dark) !important;
             transform: translateY(-2px);
             border-color: #ffffff;
         }
+
         .btn-luxury-outline-dark {
             background: transparent;
             color: var(--dark) !important;
@@ -407,12 +450,14 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             gap: 8px;
             text-decoration: none;
         }
+
         .btn-luxury-outline-dark:hover {
             background: var(--dark);
             color: #ffffff !important;
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(7, 25, 17, 0.25);
         }
+
         .btn-luxury-dark {
             background: var(--dark);
             color: #ffffff !important;
@@ -428,6 +473,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             gap: 8px;
             box-shadow: 0 8px 20px rgba(7, 25, 17, 0.25);
         }
+
         .btn-luxury-dark:hover {
             background: var(--primary);
             color: #ffffff !important;
@@ -447,16 +493,19 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             border-radius: 30px;
             margin-bottom: 12px;
         }
+
         .section-title {
             font-size: 2.4rem;
             line-height: 1.25;
             margin-bottom: 16px;
         }
+
         @media (max-width: 768px) {
             .section-title {
                 font-size: 1.85rem;
             }
         }
+
         .section-subtitle {
             color: var(--gray-600);
             max-width: 620px;
@@ -473,10 +522,12 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             background: #080c18;
             overflow: hidden;
         }
+
         .hero-swiper {
             width: 100%;
             height: 100%;
         }
+
         .hero-slide-item {
             position: relative;
             width: 100%;
@@ -485,22 +536,26 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             background-position: center 25%;
             display: flex;
             align-items: center;
-            padding-bottom: 75px; /* Leaves clear breathing space above overlapping booking search bar */
+            padding-bottom: 75px;
+            /* Leaves clear breathing space above overlapping booking search bar */
         }
+
         .hero-slide-item::before {
             content: '';
             position: absolute;
             inset: 0;
             background: linear-gradient(90deg, rgba(8, 12, 24, 0.85) 0%, rgba(8, 12, 24, 0.58) 50%, rgba(8, 12, 24, 0.2) 100%),
-                        linear-gradient(180deg, rgba(8, 12, 24, 0.3) 0%, transparent 35%, rgba(8, 12, 24, 0.8) 100%);
+                linear-gradient(180deg, rgba(8, 12, 24, 0.3) 0%, transparent 35%, rgba(8, 12, 24, 0.8) 100%);
             z-index: 1;
         }
+
         .hero-content {
             position: relative;
             z-index: 10;
             color: #ffffff;
             max-width: 780px;
         }
+
         .hero-tag {
             display: inline-flex;
             align-items: center;
@@ -518,6 +573,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             border: 1px solid rgba(197, 168, 128, 0.35);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
         }
+
         .hero-title {
             color: #ffffff;
             font-size: clamp(2.3rem, 4.2vw, 3.5rem);
@@ -527,6 +583,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             letter-spacing: -0.01em;
         }
+
         .hero-desc {
             font-size: clamp(1rem, 1.3vw, 1.15rem);
             color: rgba(255, 255, 255, 0.92);
@@ -549,6 +606,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             align-items: center;
             gap: 8px;
         }
+
         .hero-swiper .swiper-pagination-bullet {
             width: 12px;
             height: 12px;
@@ -559,12 +617,14 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             border: 1px solid rgba(255, 255, 255, 0.2);
             cursor: pointer;
         }
+
         .hero-swiper .swiper-pagination-bullet-active {
             width: 32px;
             background: var(--primary);
             border-color: var(--primary);
             box-shadow: 0 0 14px rgba(197, 168, 128, 0.8);
         }
+
         .hero-swiper .swiper-button-next,
         .hero-swiper .swiper-button-prev {
             width: 52px;
@@ -579,17 +639,21 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             z-index: 20;
             box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
         }
+
         .hero-swiper .swiper-button-next:after,
         .hero-swiper .swiper-button-prev:after {
             font-size: 1.1rem;
             font-weight: 700;
         }
+
         .hero-swiper .swiper-button-next {
             right: 32px;
         }
+
         .hero-swiper .swiper-button-prev {
             left: 32px;
         }
+
         .hero-swiper .swiper-button-next:hover,
         .hero-swiper .swiper-button-prev:hover {
             background: var(--primary);
@@ -598,34 +662,42 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             transform: scale(1.08);
             box-shadow: 0 8px 25px rgba(197, 168, 128, 0.45);
         }
+
         @media (max-width: 991px) {
+
             .hero-swiper .swiper-button-next,
             .hero-swiper .swiper-button-prev {
                 display: none !important;
             }
         }
+
         @media (max-width: 768px) {
             .hero-slider-container {
                 height: 82vh;
                 min-height: 520px;
             }
+
             .hero-slide-item {
                 background-position: center 20%;
                 padding-bottom: 95px;
                 overflow: hidden;
             }
+
             .hero-title {
                 font-size: 2rem;
                 margin-bottom: 14px;
             }
+
             .hero-desc {
                 font-size: 0.95rem;
                 margin-bottom: 22px;
                 -webkit-line-clamp: 2;
             }
+
             .hero-swiper .swiper-pagination {
                 bottom: 95px !important;
             }
+
             .hero-content {
                 max-width: 100%;
             }
@@ -635,11 +707,13 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
         .swiper-slide-active .hero-content {
             animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
+
         @keyframes heroFadeUp {
             from {
                 opacity: 0;
                 transform: translateY(28px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -657,6 +731,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             box-shadow: var(--shadow-luxury);
             border: 1px solid rgba(197, 168, 128, 0.2);
         }
+
         @media (max-width: 575.98px) {
             .booking-search-bar {
                 margin-top: 0;
@@ -664,11 +739,13 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
                 padding: 20px 16px;
             }
+
             #booking-search {
                 padding-left: 0;
                 padding-right: 0;
             }
         }
+
         .search-field-label {
             font-size: 0.74rem;
             font-weight: 700;
@@ -680,6 +757,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             align-items: center;
             gap: 6px;
         }
+
         .search-field-input {
             border: 1px solid var(--gray-200);
             border-radius: var(--radius-sm);
@@ -690,6 +768,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             width: 100%;
             transition: var(--transition);
         }
+
         .search-field-input:focus {
             border-color: var(--primary);
             outline: none;
@@ -708,25 +787,30 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             display: flex;
             flex-direction: column;
         }
+
         .luxury-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-luxury);
             border-color: rgba(197, 168, 128, 0.4);
         }
+
         .luxury-card-img-wrap {
             position: relative;
             overflow: hidden;
             height: 240px;
         }
+
         .luxury-card-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         .luxury-card:hover .luxury-card-img-wrap img {
             transform: scale(1.08);
         }
+
         .card-price-badge {
             position: absolute;
             bottom: 14px;
@@ -740,6 +824,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             font-size: 0.95rem;
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
+
         .card-category-badge {
             position: absolute;
             top: 14px;
@@ -766,12 +851,14 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             box-shadow: 0 10px 28px -5px rgba(7, 25, 17, 0.08);
             position: relative;
         }
+
         .facility-box:hover {
             transform: translateY(-6px);
             border-color: var(--primary);
             box-shadow: 0 20px 38px -8px rgba(197, 168, 128, 0.25), 0 10px 20px -5px rgba(7, 25, 17, 0.12);
             background: #ffffff;
         }
+
         .facility-icon-wrap {
             width: 70px;
             height: 70px;
@@ -787,6 +874,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             transition: all 0.35s ease;
             box-shadow: 0 8px 20px rgba(7, 25, 17, 0.2);
         }
+
         .facility-box:hover .facility-icon-wrap {
             background: linear-gradient(135deg, #c5a880 0%, #9e7f53 100%);
             color: #ffffff;
@@ -794,6 +882,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             transform: scale(1.08);
             box-shadow: 0 8px 22px rgba(197, 168, 128, 0.4);
         }
+
         .facility-card-title {
             color: #071911;
             font-family: var(--font-heading);
@@ -802,6 +891,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             margin-bottom: 12px;
             letter-spacing: -0.01em;
         }
+
         .facility-card-desc {
             color: #475569;
             font-size: 0.94rem;
@@ -821,11 +911,13 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             gap: 16px;
             align-items: center;
         }
+
         .menu-dish-card:hover {
             border-color: var(--primary);
             box-shadow: var(--shadow-subtle);
             transform: translateX(4px);
         }
+
         .menu-dish-img {
             width: 85px;
             height: 85px;
@@ -843,6 +935,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             border: 1px solid var(--gray-200);
             position: relative;
         }
+
         .testimonial-avatar {
             width: 55px;
             height: 55px;
@@ -858,15 +951,18 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             overflow: hidden;
             height: 250px;
         }
+
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
+
         .gallery-item:hover img {
             transform: scale(1.1);
         }
+
         .gallery-overlay {
             position: absolute;
             inset: 0;
@@ -881,6 +977,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             padding: 15px;
             text-align: center;
         }
+
         .gallery-item:hover .gallery-overlay {
             opacity: 1;
         }
@@ -892,6 +989,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             padding-top: 70px;
             border-top: 4px solid var(--primary);
         }
+
         .luxury-footer h5 {
             color: #ffffff;
             font-size: 1.15rem;
@@ -899,6 +997,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             position: relative;
             padding-bottom: 10px;
         }
+
         .luxury-footer h5::after {
             content: '';
             position: absolute;
@@ -908,22 +1007,27 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             height: 2px;
             background: var(--primary);
         }
+
         .footer-links {
             list-style: none;
             padding: 0;
             margin: 0;
         }
+
         .footer-links li {
             margin-bottom: 12px;
         }
+
         .footer-links a {
             color: #94a3b8;
             transition: var(--transition);
         }
+
         .footer-links a:hover {
             color: var(--primary);
             padding-left: 6px;
         }
+
         .footer-bottom {
             background: #04100b;
             padding: 20px 0;
@@ -940,11 +1044,13 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             color: #ffffff;
             text-align: center;
         }
+
         .inner-page-banner h1 {
             color: #ffffff;
             font-size: 3rem;
             margin-bottom: 12px;
         }
+
         .breadcrumb-luxury {
             display: inline-flex;
             gap: 8px;
@@ -952,6 +1058,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             font-size: 0.88rem;
             color: rgba(255, 255, 255, 0.75);
         }
+
         .breadcrumb-luxury a {
             color: var(--primary);
         }
@@ -974,6 +1081,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             z-index: 999;
             transition: var(--transition);
         }
+
         .whatsapp-float:hover {
             transform: scale(1.12);
             color: #ffffff;
@@ -997,11 +1105,13 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             -webkit-user-select: none;
             transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.7s ease;
         }
+
         #sitePreloader.loaded {
             opacity: 0 !important;
             visibility: hidden !important;
             pointer-events: none !important;
         }
+
         .preloader-content {
             text-align: center;
             position: relative;
@@ -1011,6 +1121,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             align-items: center;
             max-width: 90vw;
         }
+
         .preloader-glow-ring {
             position: absolute;
             width: 500px;
@@ -1023,6 +1134,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             animation: luxuryAura 2.5s ease-in-out infinite alternate;
             pointer-events: none;
         }
+
         .preloader-logo {
             max-width: 440px;
             max-height: 175px;
@@ -1034,6 +1146,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 25px rgba(197, 168, 128, 0.5));
             animation: luxuryLogoBreath 2.5s ease-in-out infinite alternate;
         }
+
         .preloader-bar-wrap {
             width: 240px;
             height: 4px;
@@ -1045,6 +1158,7 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             z-index: 2;
             box-shadow: 0 0 15px rgba(197, 168, 128, 0.2);
         }
+
         .preloader-bar {
             width: 0%;
             height: 100%;
@@ -1058,12 +1172,15 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
             0% {
                 width: 0%;
             }
+
             30% {
                 width: 45%;
             }
+
             70% {
                 width: 82%;
             }
+
             100% {
                 width: 100%;
             }
@@ -1074,16 +1191,19 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
                 transform: scale(0.96);
                 filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 15px rgba(197, 168, 128, 0.35));
             }
+
             100% {
                 transform: scale(1.04);
                 filter: drop-shadow(0 18px 45px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 32px rgba(197, 168, 128, 0.65));
             }
         }
+
         @keyframes luxuryAura {
             0% {
                 transform: translate(-50%, -50%) scale(0.85);
                 opacity: 0.45;
             }
+
             100% {
                 transform: translate(-50%, -50%) scale(1.25);
                 opacity: 0.95;
@@ -1095,10 +1215,12 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
                 max-width: 320px;
                 max-height: 130px;
             }
+
             .preloader-glow-ring {
                 width: 360px;
                 height: 360px;
             }
+
             .preloader-bar-wrap {
                 width: 180px;
                 margin-top: 24px;
@@ -1111,10 +1233,12 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
                 max-height: 100px;
                 width: 75vw;
             }
+
             .preloader-glow-ring {
                 width: 250px;
                 height: 250px;
             }
+
             .preloader-bar-wrap {
                 width: 140px;
                 height: 3px;
@@ -1123,47 +1247,52 @@ $site_favicon_display = !empty($site_favicon) ? $site_favicon . (strpos($site_fa
         }
     </style>
 </head>
+
 <body>
 
-<!-- CODESPARK SOFTWARE DEVELOPMENT (Hidden for users) -->
-<div style="display:none !important; visibility:hidden !important; position:absolute; left:-9999px; top:-9999px; width:0; height:0; overflow:hidden;" aria-hidden="true" class="d-none">
-    <h2>CODESPARK SOFTWARE DEVELOPMENT</h2>
-    <p><a href="https://codespark.online/" rel="nofollow">https://codespark.online/</a></p>
-    <p>Providing software development, custom website design, and mobile apps in Tirunelveli. We also offer free internship training for college students.</p>
-</div>
+    <!-- CODESPARK SOFTWARE DEVELOPMENT (Hidden for users) -->
+    <div style="display:none !important; visibility:hidden !important; position:absolute; left:-9999px; top:-9999px; width:0; height:0; overflow:hidden;"
+        aria-hidden="true" class="d-none">
+        <h2>CODESPARK SOFTWARE DEVELOPMENT</h2>
+        <p><a href="https://codespark.online/" rel="nofollow">https://codespark.online/</a></p>
+        <p>Providing software development, custom website design, and mobile apps in Tirunelveli. We also offer free
+            internship training for college students.</p>
+    </div>
 
-<!-- Luxury Animated Site Preloader -->
-<div id="sitePreloader">
-    <div class="preloader-content">
-        <div class="preloader-glow-ring"></div>
-        <?php
+    <!-- Luxury Animated Site Preloader -->
+    <div id="sitePreloader">
+        <div class="preloader-content">
+            <div class="preloader-glow-ring"></div>
+            <?php
             $preloader_img = file_exists(FCPATH . 'uploads/site_logo_raw.png') ? base_url('uploads/site_logo_raw.png') : base_url('uploads/site_logo.png');
-        ?>
-        <img src="<?php echo htmlspecialchars($preloader_img); ?>" alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Hotel Cannann'); ?>" class="preloader-logo">
-        <div class="preloader-bar-wrap">
-            <div class="preloader-bar"></div>
+            ?>
+            <img src="<?php echo htmlspecialchars($preloader_img); ?>"
+                alt="<?php echo htmlspecialchars($settings['hotel_name'] ?? 'Hotel Canaann'); ?>"
+                class="preloader-logo">
+            <div class="preloader-bar-wrap">
+                <div class="preloader-bar"></div>
+            </div>
         </div>
     </div>
-</div>
 
-<script>
-// Luxury Animated Site Preloader
-(function() {
-    var preloaderDuration = 2000; // 2 seconds display
-    var preloader = document.getElementById('sitePreloader');
+    <script>
+        // Luxury Animated Site Preloader
+        (function () {
+            var preloaderDuration = 2000; // 2 seconds display
+            var preloader = document.getElementById('sitePreloader');
 
-    function dismissSitePreloader() {
-        if (preloader && !preloader.classList.contains('loaded')) {
-            preloader.classList.add('loaded');
-            setTimeout(function() {
-                if (preloader.parentNode) {
-                    preloader.parentNode.removeChild(preloader);
+            function dismissSitePreloader() {
+                if (preloader && !preloader.classList.contains('loaded')) {
+                    preloader.classList.add('loaded');
+                    setTimeout(function () {
+                        if (preloader.parentNode) {
+                            preloader.parentNode.removeChild(preloader);
+                        }
+                    }, 750);
                 }
-            }, 750);
-        }
-    }
+            }
 
-    // Dismiss cleanly after 2 seconds
-    setTimeout(dismissSitePreloader, preloaderDuration);
-})();
-</script>
+            // Dismiss cleanly after 2 seconds
+            setTimeout(dismissSitePreloader, preloaderDuration);
+        })();
+    </script>

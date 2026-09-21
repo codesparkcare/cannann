@@ -280,6 +280,8 @@
                             <select name="smtp_crypto" class="form-select">
                                 <option value="tls" <?php echo ($settings['smtp_crypto'] ?? '') == 'tls' ? 'selected' : ''; ?>>TLS (Port 587)</option>
                                 <option value="ssl" <?php echo ($settings['smtp_crypto'] ?? '') == 'ssl' ? 'selected' : ''; ?>>SSL (Port 465)</option>
+                                <option value="" <?php echo empty($settings['smtp_crypto']) ? 'selected' : ''; ?>>None /
+                                    Plain (Port 25 / 587)</option>
                             </select>
                         </div>
                         <div class="col-md-6">
@@ -298,12 +300,12 @@
                             <label class="form-label fw-semibold">From Email Address</label>
                             <input type="email" name="smtp_from_email" class="form-control"
                                 value="<?php echo htmlspecialchars($settings['smtp_from_email'] ?? ''); ?>"
-                                placeholder="reservation@grandcannann.com">
+                                placeholder="reservation@hotelcanaann.com">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label fw-semibold">From Display Name</label>
                             <input type="text" name="smtp_from_name" class="form-control"
-                                value="<?php echo htmlspecialchars($settings['smtp_from_name'] ?? 'Grand Cannann Hotel'); ?>">
+                                value="<?php echo htmlspecialchars($settings['smtp_from_name'] ?? 'Grand Canaann Hotel'); ?>">
                         </div>
                     </div>
 
@@ -359,7 +361,7 @@
                     <div class="mb-3">
                         <label class="form-label small fw-bold">Login Email</label>
                         <input type="email" name="admin_email" class="form-control form-control-sm"
-                            value="<?php echo htmlspecialchars($admin_user['email'] ?? $this->session->userdata('admin_email') ?? 'admin@hotelcanaann.com'); ?>"
+                            value="<?php echo htmlspecialchars($admin_user['email'] ?? $this->session->userdata('admin_email') ?? 'admin@hotelCanaannn.com'); ?>"
                             required>
                     </div>
                     <div class="mb-3">
