@@ -67,6 +67,12 @@ class Sitemap extends CI_Controller {
                 'priority'   => '0.6',
                 'lastmod'    => date('Y-m-d'),
             ],
+            [
+                'loc'        => $base_url . 'internship',
+                'changefreq' => 'monthly',
+                'priority'   => '0.7',
+                'lastmod'    => date('Y-m-d'),
+            ],
         ];
 
         // Dynamic room pages
