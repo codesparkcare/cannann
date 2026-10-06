@@ -53,6 +53,9 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// Sitemap
+$route['sitemap.xml'] = 'sitemap/index';
+
 // Frontend Routes
 $route['about'] = 'home/about';
 $route['rooms'] = 'home/rooms';
